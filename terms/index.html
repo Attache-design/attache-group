@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Attaché</title>
+<meta name="description" content="The agreement between your business and Attache Holdings LLC for use of the Attaché platform.">
+<link rel="canonical" href="https://attache.group/terms">
+<style>
+  :root{
+    --teal:#2F5D62; --teal-deep:#24484C; --teal-ink:#16292B;
+    --cream:#F7F5EF; --card:#FFFFFF; --muted:#5C7476; --faint:#8CA0A1;
+    --line:#E4E1D5; --tint:#E9EFEA; --tint2:#DCE7E3; --radius:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:88px}
+  body{
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--cream); color:var(--teal-ink);
+    -webkit-font-smoothing:antialiased; line-height:1.55;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(247,245,239,.88);
+      backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;gap:36px;height:68px}
+  .logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--teal)}
+  .logo strong{font-size:22px;font-weight:800;letter-spacing:-0.02em}
+  .nav-links{display:flex;gap:26px;margin-left:auto}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:14.5px;font-weight:600}
+  .nav-links a:hover{color:var(--teal)}
+  .nav-links a[aria-current]{color:var(--teal)}
+  a{color:var(--teal);text-decoration:underline;text-underline-offset:2px}
+  a:hover{color:var(--teal-deep)}
+  :focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius:4px}
+
+  .doc-head{padding-block:56px 30px;border-bottom:1px solid var(--line)}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--tint2);
+    color:var(--teal-deep);font-size:12.5px;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:20px}
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--teal)}
+  h1{font-size:44px;line-height:1.08;font-weight:800;letter-spacing:-0.03em;
+     text-wrap:balance;margin-bottom:16px}
+  .lede{font-size:18px;color:var(--muted);max-width:60ch}
+  .stamp{margin-top:22px;font-size:13.5px;color:var(--faint);
+    display:flex;flex-wrap:wrap;gap:6px 22px}
+  .stamp b{color:var(--muted);font-weight:600}
+
+  .cols{display:grid;grid-template-columns:232px minmax(0,1fr);gap:56px;
+    align-items:start;padding-block:44px 90px}
+  .toc{position:sticky;top:92px;font-size:13.5px}
+  .toc h2{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--faint);font-weight:700;margin-bottom:12px}
+  .toc ol{list-style:none;counter-reset:toc;display:flex;flex-direction:column;gap:2px}
+  .toc a{display:block;padding:5px 0 5px 26px;text-indent:-26px;
+    color:var(--muted);text-decoration:none;font-weight:500;line-height:1.35}
+  .toc a::before{counter-increment:toc;content:counter(toc) ".";
+    display:inline-block;width:26px;text-indent:0;color:var(--faint);
+    font-variant-numeric:tabular-nums}
+  .toc a:hover{color:var(--teal)}
+
+  .doc{max-width:68ch;font-size:16px;line-height:1.7;counter-reset:sec}
+  .doc section{padding-top:38px}
+  .doc section:first-of-type{padding-top:0}
+  .doc h2{font-size:23px;font-weight:800;letter-spacing:-0.015em;
+    color:var(--teal-ink);margin-bottom:14px;text-wrap:balance;line-height:1.25}
+  .doc h2::before{counter-increment:sec;content:counter(sec);
+    display:block;font-size:12px;font-weight:700;color:var(--teal);
+    letter-spacing:.1em;margin-bottom:6px;font-variant-numeric:tabular-nums}
+  .doc h3{font-size:16.5px;font-weight:700;margin:26px 0 8px;color:var(--teal-deep)}
+  .doc p{margin-bottom:14px;color:var(--teal-ink)}
+  .doc ul{margin:0 0 16px;padding-left:22px}
+  .doc li{margin-bottom:9px}
+  .doc li::marker{color:var(--faint)}
+  .doc strong{font-weight:700}
+
+  .summary{background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:26px 28px;margin-bottom:6px;
+    box-shadow:0 20px 44px -30px rgba(37,72,76,.3)}
+  .summary h2{font-size:17px;margin-bottom:12px}
+  .summary h2::before{content:none}
+  .summary ul{margin-bottom:0}
+  .summary li{margin-bottom:10px}
+
+  .note{background:var(--tint);border-left:3px solid var(--teal);
+    border-radius:0 10px 10px 0;padding:16px 20px;margin:18px 0 20px;
+    font-size:15px;color:var(--teal-deep)}
+  .note p:last-child{margin-bottom:0}
+
+  .tablewrap{overflow-x:auto;margin:6px 0 20px;
+    border:1px solid var(--line);border-radius:12px;background:var(--card)}
+  table{border-collapse:collapse;width:100%;min-width:480px;font-size:14.5px}
+  th,td{text-align:left;padding:11px 16px;border-bottom:1px solid var(--line);
+    vertical-align:top;line-height:1.5}
+  th{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--muted);font-weight:700;background:var(--tint)}
+  tr:last-child td{border-bottom:none}
+  td code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:13px;color:var(--teal-deep);background:var(--tint);
+    padding:1.5px 5px;border-radius:4px;white-space:nowrap}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 40px;background:var(--cream)}
+  .foot-inner{display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+    font-size:13.5px;color:var(--faint)}
+  .foot-links{display:flex;gap:20px;margin-left:auto;flex-wrap:wrap}
+  .foot-links a{color:var(--muted);text-decoration:none;font-weight:600}
+  .foot-links a:hover{color:var(--teal)}
+
+  @media (max-width:900px){
+    .cols{grid-template-columns:1fr;gap:0;padding-block:30px 70px}
+    .toc{position:static;margin-bottom:34px;padding-bottom:26px;
+      border-bottom:1px solid var(--line)}
+    h1{font-size:34px}
+    .nav-links{display:none}
+    .wrap{padding:0 20px}
+  }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="/">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANkAAAC3CAYAAACfQPtcAAA00ElEQVR4nO2dWbA0R5Xff913+XbtuxAItABCMxoWAWJAEotYxLAKBsYO5kH2gyMcfvSjw+8OezzhR0fYMX4YDwwIgQaxDcuwzCAJSQgBgUEIpEEghEZC+vTp2+693X44/SdPZWd1ZVZX369v3/5HdPRWlZWVdU6ek2fL3jUfu5Ulllhiduif6g4sscSiY8lkSywxYyyZbIklZowlk42jn/jcB1Y6vk7PtR0/h9XE59RxbbFS01Yv8VsMnbc38d9q4rddjyWTjWMYfe+Pfhswm/Eajl4rBCLdij7X9a0NVrF7GQJ7qDJvzkSi805gTLnmztuqO2k3YznzjGMYfV4ZvW9hxJgz20/CGrBBINbB6Duja6wQiLU3Ok6MPoyu34bptkZ9GIw+q33913R/Q+Ck68vm6PcDwPMt+rPwWDLZOHoEdeokRjynYQS4TiCqthhgRC5pdWL0+wHgGeDI6D8xtRhODD+I+or7Pxf7MXVvnTBxnBz1q+n+JPk0ORwBngOOkTcBdSGNdxRymWza2XsnoUeY4U8H/jvwJgLBTzsxbWEEfnTU5hpG7E8D3wb+/eg4EaMYS8+gF/1P9HsT9gBvAf7rqN3B6Bo9jOH3NJzvJerzwF8AfxX1cRIWiZayJowcglmkQcmBBm6AzfivAy5L/D8NpP7pOivA+cC5wH8CnnTHSGVcparOtZVim8D9wNnAIdcH36cmSE1cAW4B/mb0fZWg+tZhkSSZns1ELA0f9RgCNwEXYYMZWwOneUkdlGoqFe1c4N0EQ0K8Dqt7oD2qfWy6rycxRuthTCGVsaT/a6PPVwEXjPp8MuP6uw5LJqvHXuDPgX0dt+stibLyrRII/cOYyhYzlAi7i+ufBD41uv46gdlyMBj1V/07D3gzgVmXiLAclHFoTF4AXIkRIXSn5nhpk7JW3oCpclobSZL1qBo92mKISc47sTWVmKt0WSBV6QDw0dF7rHbqGH1fRHprHLdFvOkuMATejhk+vHVvO9an+7B1jowvntkk+Sa9cvEUcB9BOubem1+HiPkvB84gTAR1fdmVfrQlk42jhxk8bsEMAymn8Kyv/1H3XUQL3TyvISadj2MGC/2WG9ESL/aH2Lr1RurVWTHjIhk9srFksnFsAS8GrqA6u2+XlbUHXA28DCN8qXNdhXV5w8tXMdeBiD+XCWImWwM+QnBs6+Ul2m6zUv8eSyZL4z2Y+uNVxe103O/DiFbXloToYk0mJhtiKuODo982yGeEOL5zC3glcBaTGXVXMtqSycZxELh59B5Lj+1Sd4bA+wnM1aWqqtCtIeZ8vm30e+4korWpV2PXMBX7bVTXh3ILlK4XFwpLJhvHZcAlBKnhDR7bORNfhkkHqJr6p4Vv5wTwReAJ8tdM3mfn14r7gA8QovNjNXHXMtqSycZxM8G5CoEwpo1ZLMEKRqzvwRhChNqFRPNO4z7wW+Dno+8lTODTZWQFfTlmLFpnnKm2yzo7d9iNTKYH7VNLGH0+ALyLYDZXkK7+zyHCeN00zex9s+tLbmxgE+TLUozmFvAJqvdaCqmPFwNvoOp781H+uxK78eYVXbGFSac1goP2xZgT2odQQRmjxGPqGSNXEknSvAyzNK66fnYBxUsOsej5r2DR9GKO+Dp11/W/9wjSV3lqmhh8sPOuw25kMlnR/OJ8FVNxPoTFD0JVvSkxQ09yDOcSmSTsnlGfNggWwWnhk1Clij4CPEz9mi9nvaaMgtdjllmoBjhDN9bRHYfdyGQiMKlMmr3XMevYfnccic9NKAnWrYOkwBZmTFAsYxfqop84NA4nMZVx0j2nrh3/1sMmqVeNvntNoCTKf6GwG5nMz6zKEAZbtF9COm+rzThJHR1Gv5X0swdciqXb+D5NA5nwRfSbo9cdmMror90GZ2DuB2UY+NjLpeFjF0GM5hMW34dFlMfpJTCuNuYgNqzot5I+6vn8q8JrT4LuG4I0l2P6J1O0qf6tYiqj4j41SXWl7u447FYm83U7BhhBXI+pZfGM2ya0yhNUHInehNS65e1YCYQuICupsqKFE8DfMu6qKPGdMTr/PIzRdH7pGCwUdiOT+eIvirG7Coskn4TcRfsjwA+BH2BOXq8u5cDX9QCbEC4BXpN5fhPUduwHfB74MsHIMgkpZtH9rWITgtwPfrLZlTVldiOTwbg6+CFMmk1C01gNMGnwn4F/B/wbrPbFsRb989fSGuqjjKt5baC2Y/N6H/glpjLK8AJVhtLkNOnaA4y5XosZkdqWSVgY7EYm82FFA0y1uRbz8eRKqzhqXY7cZ4BvYnlaDwCfo6p+tSEySZwbMMudXx/KuNBjfOJoQuyW0CRxB9XkS99mzppSE8AlwKsJTm9/zV2F3chksTr2eixOsESli49Te9/EDAibo98exKRD3Xkp+MgOT5SXAtcx7nua1K8U4rWRZ7INrCzBEfdb23SfczCV0YeFLa2LuwiyeK1TNSrkEmn8eQ3zNX2SYLbvY6riHaP/2jhiZZwBkyLK2YJqQdLcvsdtp671GDYxSE3Vf7mGC6/SXofFMnZZPmHHYTcymY90OB+TZOsTz6gijmCQZPktcC+hWKncA7ePfssd67gGiM7bxCaEixmvMCy0Vcd85vIJ4O+orslKjDfeAX0p8EeMr/92FXYjk4lgtrCZVqpiCbTO0noI4C4sy9hXc9oEfkpVZWxCKpRriEnLs4C3Mh4SFq8R21xDr+OYynjSHdOGTlYwx/S7CC6TZeziLsEqRvwHsBqHB0e/50ZjeGIRsR4FPksoVS1H8tbot89jEiI3XSZmFtVo3MJqjxxk3Gmeq87FBo/4nDXgUeCh0XdvjcxV9/wk9AZMY/BO8F2F3chkIsaLMN+TJIVm25zz4/XQMazEtqxyPvt4gFkZj1Ee8aHr6bwVzGl+FmGzCq0BSzKb1X7MoEPM+KFkztipnksvvr+XYiFrueO7cFhEJovvqc6ndBPwQqqlr3MkjScUXese4DCBKL3Zugd8H/hN1I7+97O7PscWPW+dOwNLJ1GZbF0vd2unVFCvxwBTGW/HJLTazjVcxNL1bIKVUf0Tw+4Ka+MiMpkQGyc8DmFMto+qdMmRBrEU28TCkZ6jOlv7mf8wlrN1gkCouq6vgZH7PG5x56UqQ+Wg7ljV3P85YS0paV/KxFozvgaz4A5rXguNRWQybwlLPcgBFkJ1DVUnac7eXBBmdBk9DgPfIOw5RvQulfGzjEsbL7lyiW0Li6a4ItFeF9C9HSY406exDPaxvv4B43GMsbN7ISXbojIZVFUsX49iBTOFn02QXN5QkQOplUPMqvgMIW3GO3e9hHoAUxm9AcB/Lsm3OgC8l3FVsavip6rTfxvlZby9SqnxPAS8gzAxqa1doTIuIpN5pHw7BzBVcS+BQEWsueOh404Cf40ZNWJfkAwWOvZ3wJcIdTXUjpe0OQSngqcfGN2LrtVG2qTUNRk/Bli29KMt2ow/r2J7vJ1J9V4XnsFgMZkslVbhGenlmPoiKVanutTBW/IOA3cTIjri8CHPxEPgMwQ/mo5v4ztaBV4xupc6x3Rb+N1mBlifS5jYr0u1geE6ZmW8evR7/HwWem22iEwGVabxn/dgvrGz3H9Ss0riFkUQ/4QZPLwvKV5zeQZ/ADMoxJa6UgbpYRHu7436XuIna/pviFkZP43dYwn8WlOTiYxN2kJ3GB23sFhUJoNx9W8FI8wbRu+xqdm/N2ETI5C/AZ4lEJKISsYDQakjT2Mq44b7v02EuowRHyCEhHVlBFF/tJ/1I9imgW3LeEua7cN8fPuoahE+2mQhpdkiMxlUDQKbWBzdldRbtXKJaBX4F0xVFMPlxBFuYQHDYhJoZ37XuS/B0nR8/lfuuU3/abLYwPo86by47yk/3wBT068m+Pji8xcy7GoRmczPjv63dUxdOY16gskl9CHwdSybWOfE1kHPOP73B7FId5U+UF9LCEzH7sWK1nRpXfQBvivYPd7GeFGgGKl7jY0cUhljKS8sZNjVojJZPEsOsfymGzDCrLvvXCY7CXycKpPlMsnvGPc/ySVQWoa7j0VTHKJMmk1CvE7aBP4foV5+CvGERuK7So/fiE10uo43AC2ZbAfBq2CaRV+JVQiOCaLNovt3wPcww4AIJDf4t4eFLMn57a9f8jzEkJdi2QQlAbxN/ZM/S2vLE9jE4CsM16mI8Xj64/qYins1YTJceOPHIjJZ7KsCm0G1PW187KTvKWxiIVIyeIihfZLjJAyAHwO/oBqtnhtxIujZaQO+2NjSFt4iqPE7gRl5fI2PHKmW+n4W9izW3DV6LPBWt4vIZBBqbohgzsdme189aZq2P05I0YdAlDnjOcAiRD7PdLO4Z4Y3Y8TbBSQRfeSKYhl/XdBOnYN9H/DHBJXRP6eFpMeFvCnGfVDXYmpVagYudUY/gZV7EyP783Jm4zVMItxJyKKGdlJI93kRFlHRhbo4pFpZWWNznBB/GR+fagPqx/MlmDM9bmsh6XERb8o7mIdYguNNWIpIiiC8nyYHX8Qkkc8XK2EQMeeDmHRIpbo0wUfyK6JCkfldQEaUPmG3zyPk1ytpUifPIxSTlaodO+gXBovIZBDWOGAb+l1HeazcZuLzcSytRYTmGS03wFfHPIcZQISS/cG8kUHt3Yjda507IFedlU9R7Xrp/BPgV6O2/PqslDnWsYzpA1THLXZOLwQWlclEGGvYZg1+z7Em+Kh4qLoEHsPS8r0DGsYNBZPgS4R/larKmLte9IStfl6ASQdJodXo/xJm8Izl8/GOYGquz/z218hFD3gplnKkc/ssndE7Bp6Y9mLbIR2sP3xiO/7zFmaseMa1H6t6uYYPMAL94ehF5rkeXpIoaPkWqgYRoY2xJ5YoW5gEv53guvBtl0atXIhNCpK8qaDhhcAiMhmEh3YxtldWSQ32VPrJEJM4txFS8vW7t47lwK+nnsWMCakolSakmOiNmERTsSDfr7Ymfn+vqr71ONVolRJ/o3er3EBVZcxZ6+04LCqT6eG/CbMqlkAE04++P4rlV3l/VsyIOfAFQ1eALxDq5ZesbfzEoeufixl5fJTFkLSkmIT4fvz9Pov5CVN9zWEC3/YfYiX5ctTtHclgsJhMpjXJIUxVVGJjLgH7B+3XI3dSDaOKj9X3XsPLG0yG2BrvR5RvjB6vB/X9Q+5/v24rmQh0fsxoPUKRHZUi138lzmSN07mYz8xbhPX/wmARmUzE9VIslArG1yhN5/vPPYy5Pjd6FxPXRfI3Qcyldp7HEiNzw7LUht7jPlyLGRS8+qXrlRJvXfjUj7CIlX70eyn2YFbRs6je00JhEZlsgOn7r8N2FimtoeElgGbzf8Z8WptUrWFtZt44Xm+A+d6grMCq769XW0/DJLiPQknFSTa1HavEwoBQfctfu4SW9Cz6mMp4KZMnwh2rKsL8MFkb34icpPE5PSx0522EiPs6gpnUHx3fw6TYM4Vt1MFLMeGnWG3GVD8948UE3YvewZj4w9i9+/XYNITqJZqiP76AWRs3ouNy2vI4H1s7r1G9v5g2S62Xc4N5YbISeJOyCFa/i6Beju2eqd9LCUzO2AFmTfzy6N1LIf2fWpfVwf/nZ/PnsTT/fuLYUpV0BSu/dhnBH6daiiWoC5eSI/rHWNZ0nOVcin2EPaabpNmSybYRPqIjpbK9DTNle3iGzIFUrYexSIcuU0n8mk6S9k6MkXWM0CZP7BBWy8QXxelK5RpiERtPYmpu6VovNvn3sRqYL6b6LGM3yo6NAtmJTOataV690qx9BubkPEB756Z2ShliatFTBILNQZ0UiN+9ZHwUUxkn7TeWq46tYUV29lONQ+xCEmiyOo6p0XJMlzCAH8ch8CLMYBP7M2Om25HYiUwWE4uMEdpz7A8wyyKMS4RcSNpIVVQdwi7Gy7fjVc5NzMoYO7ZjlbgJGpurMJVR41LqIqhDn1At+SHKtoXybUCQaHuxiVG71UB6Et2R2IlM5n0yIki/vnkLVmogJtRc+MX3L4CfRdcsbSf+7NUkn/e2galfJxm3GMZtTIKe6SFMmsmy2KXKqInhWSz+sqR/MH5PA8zd8sKattpYMOcGO7HTmtU00+ketrAUihsw/0tbgvIP+PPY2qPrFAxvwtc9bGLrvwdIL/JLiFjGjg9ihoUB1RyxaTAkqNPPY+kvRygf75jpL8Qi89cIKm5qabDjsFOZzOeL6bc1TFW8kkC4bdQMPczDWI3Ek4xLlZK+pq4vCbzmjlnFwqs+Q7oWY0kqjYj0CkxtzI0NzIHvwwALcH6qZVuaTPrYZHAjNkHGYWCl0nyusBOZTPBWMz2ot2KqokfpLKhjH8Ic0Lj2vQTtYmbVPeh9iDH2car+PfUhd02m4/ZiKqOYuos+e8tuD/Mf/n2LdlLS+lUEx7Tgx3xHJnXOC5PFJtsc+LVYD3NqSt0Q2hLVFvA1wh7QXc+gas+HUomAFMsoa6lXj3MQGxXeR3Wjh2mhCUfMdgzbyP0k9aFhk6y83qGuBNvYxF86BnOFeWGyEnjJJSnQw2bBl044rwTHCA7o7X64RwkVe2MLWy78+FxG2Oihl/FqQpxDJ5XxCerpSc+sjsEYnbsXKwq0PzpG19mJ9LojOy3ikd7ex5yj2pqnC/wMi2jwhpXtMiP3MYOLNnmHclXJTwyrWJiVD1uaBpJgnuifxioqT0IdI/txXcFKqV/mzvExmDsSO7HjserRw6o1vZFu0te3MFP6s6797VZXfooV2oEQG1gagCviXMGqDJ9e2EYO5Ew/iqW/nGzRRizlLsbUfhm3PJMt12TbBEkx+ZjkY7myo/alKm4w7sDdjhoUAywL+3aqVtJcBvcWOUmbc4BXF7QxCb6Iq57FBjYpPFHQx9hyqr4dwHLM9scnsT2aROfYqUzmZ7UDmB5/qKP2f4wZH2LL5XZBxPZFzP8UByXnnB8ncq4Df5p5fhO8+8RbLJ/GjEUpaZNai9UxfB9zxVzOuJVxJ9Lrjuy0Hq4etAp7+upJ0+BOrNa9ruHLDWxXKekBxug/pJrDlgu/ltvC1mNvwSyww4ZXDiThNdlp9xdtpFGaJR1/fhFhSyj9viOlGOxMJhPhi6lehz2UUqQe2mFsNpaq6J2iXUVM5PRLKuMd7rfSNqAqac7BJiNhxf2Xyt+a1LYmntjh/yChLqNHj3rzfi/x+eCor/vdbzuW0XYikwkDLAv4RsZ3zpyE2IjhH5xypGL1LOXIndUDl7FiiElVGT5KnMl+XSZG2IPtzKmNHvR/yinc1D9dQ+MkyfUvVK2MfhxL1oN9zMp4CdXg6KWfbJvgDR8vxhL+SlTFOIpC520Q6irGYU1dhSTlwBO9Mqb1ey7iqH2pdNdj6jVU8/Hi8KXcPvox2cKsjJoY4oms1Gh0CfDagj7NLXYqk61ifX81tnlBKfzDF5EdwSLKVVfRm4+1ttmOB+4NCptYWXDf5xzETKD0lLOxAOpY9SpVxbwE9D6sTWwzjseoSt4SP5+OO0R108aluriN0AM7SAgohbI1hW9Lv2nPMJ9+4mf47XrAA8waKAL+IlY3P5fIYqnkJ4oVLDJ/neo91kVk5LSvz/oulTH+v42m8WqsxHp8jR2FnchkSgu5lLDDZCnifLQtglWxbqG9nQ9ZZvstLGP6fteHHKjfXhVcHbWrKl7eojhN1nRsmTyCTQxb7rcSddFLv0uA17BDndDCTmQyMIK5DkvyK43ti2ftHsZc3yJELKSCgreTwTYI5Q6OA58in9Di+/PPeAurcfgWwgQjSZYbuhSPt9RSXXMTcz08QlWa+nOaIOl7EFMZlTG9VBe3CQMsROjNBLWnNCJC5mudJ6LwhHOq4uW8uVv39AVMZcyBJJO/P9/2KlZleB/jTJDbP2+h9dEaen8S+EbUH/9/E6RprGKS7GK6q1Gy7ZhXJqubWTXQl2P6eptB9wtyzcJ3EtJaUhhG77NEPOuvYHU0vlvTj0lSIiZqMcSrMN+iJpwS62LTGAyx0LSvEPZxK9UCfJTLpVjY3KSJdK7XavPKZLFq4GfmdWx2u8j9X2reFnP1sVn3HwmJknV9GNb83jVi07fWZrcx+T5TkqsO+7GyefH5ORJtklVSTHsSK6PwS6pRGzmI14inYcHf+xmXZjGNzCXmsWMpc623gJ2F+Xv2Ur4egyAlRVD3EiouzZM6Eod1xZkBQjwx5EBWxv0EA0VJybtJ0Ng+DnybqmUxp3+6NxlK+pi/7GKq68fUs59LiTaPTCb4GVAqxxDzi70m8b8+NyFOOvwSZviYN8Trwn8GvkPw2fnj9J7zPIdY1MfVmNrdNfSsjmNjq51ES3xl8XO8HKtVEjNRnSV4rjCPTOYrOeldDLYHsype7I7vRcc2QcdIVbyb6h7Q84DYTycG+sToe7zdLJSpYz3M8PEOd72SXWWa2tfrfswx7cc8tw2PQ5jKuC/639PG3DLaPDKZ4CWYoi/OwhzQ6+4YKLsP/8DvwSSE2pqHh+TvKZ5wvoZJ3XgDQP/eBL+2fR+mdnvVrAtIaj0B3DX6LXe96CWy7n8FY7Lz3DGe0eaZjueycz6FwpuKh1gNjz+acG4Ok+gYxSo+G11zHhDft9Zmj2P+PK8ql5rHpW6uYirYlXRbLMgbLp7HKlmplHfJmkxtCVdgeWYrVNftscYzd5hHJvNrEe8DW8fS0s+rP7VIXXwKm2VPUI3xO9VIbRIxIOwD/cnEOaX5WxrXA9jGFNAdgXrz+yZmWPp14TW8NBcznY4ZvOQb3THYrs7GFqFJ0KD6GXqABbfKAe3bbYMhwaqoGbaruoRdIO6Hn9G/TjDUtOmvZ7I+8H5szdPVvfs10gqWX3YP7bQEL6WGWI7ZuVQd7sK8qPtjmMcZIWUxGgIvw9SFHEwa8CE2w36JahRFifVrlkhZDv3vj2N+Pf3nDTYl6pgmvSsJ2992QaTxZPUc5phW+ksTYgnu6eEKbGfO+HeYnwlyDPPKZFo3+EX69ZSVfKsb9CEWKX4X45uL7wT0sPQX9bdtSQSN8z7gTwhrnS7hfZFPk+cvi8PAhFVMvX0jZqyRSu2NQ0tJlgkNnFcXz6FqVWxCSt3yev53sbQWXWdepFgOhpjK+PTo+0r0XxPi4jTrwC1YEG4XSDnKH8VUxjZGGo81rJLVBQR11D+7eaTnuexUXGmpjzlOr6o9oxm+vQ0s4Pa4a38nYQj8FnNMQ330Rx1iNUsO/pfTnbro1TmV8valFJoQ98NPkldQrYjszf1z+SznsVM9qpuJ78HSHc7uqH35bk5SdRXEuzzOK6RKf3b0vSRkCcIz9zUlV7GScV0547XxoAh/E9Menkwcm1oL1kV2gPlKr8NURl81a2n4KIB3PvewfatU8q0UqRnxu5hJecNdR8aDnaAyqr//gBFtqTNa8KrbCvAebCvgLhAbLhTLeB/NDOWRiktULuHFjKuJc/n85pHJFHWutdJVmCoD081UQ4yx/h4r/SYGk17fpr7hqYCPZbyL8gDcuB2tbS7AUkqmxQohRMuP8TOYRXeTycwQM1bqnq7CrM1+PbZ0RhdCA7sXy+I9k+nUAamEsipuud/94rk0PCv1mhZ17eql/m5gdRnblF2Lq0yB3fufUd16yvcH8tr3jKGJUiruXaSDsScZnlJGrDOxMgr7qPo4u34WnWAemcyrixcSUuW9g7oJcciNPitW0aujsbVt3uGNCl/BiLa03ymCXsMsuH4TxTZpNFvRuyaEPub8v7ehzSbm0ERzvetrG0m+bZhXJpOEeRWWGQtl6eexCqVEws9jhV5iK5eYskSnP1ULbe8//DWWRVAardJPfF7B1mRvcP/pWUgylIw/VGMiN7Gxl8oo+Aif3PHvY3GsVxD2r57b8gTzyGRgg30Ay949jXYL2vjefoPNotoD2hMCtFcxhtFrWsTtxS8vhTexIjslRqFYI/CfDwEfpapN6JhcJtPYxuslFQW6m7DHdI/qsygZ/3Oo7qy66034JUSogX4R5t33beQ+BC/FdM5dmIVLBKQHHPvldgrU569goUubtGdyH2v4BkxN9z6oktClVFyhH+9HsdIE/ni9l6wpe4T1un6bS8yCybpYeK5gu3pcStlazPfBE9xJrDrwM1G/4r5uh7rRZNhogohRE8TjhJytkjH3k54fr9OBd1LNBPCTUS5Sx/awNeTXCLGMbWhQE8DVhH3p5ilVqYJ5FK8DbHa6kVAdGCZboDxELJ4oHsN8NEpr8QQUz9ZNmLUFq4kJlVvmncqfIH8/AK+axdIGTP36CMHZ64+dxrornMRURm0Y6FXGXCZRf04jOKbnJat9DPPIZBCqA0PaITkJeljeQXkX1TT4GGK6trPqdquavp8rmO/vKbqRxGuYwekFVKP7c+/TSz5912/q30OYyhgzVuk4rmLpT+cyp1IM0kQVq1Op/3Nn8knqUN+9ewvXHqym4gvdsSVrAh2vY49j0RGHa9qIU/znHV5Sa9x+g6W/tJkkhonPh4C3E9ZSPjigtM0YPWxC+BbBMV1q+Bi6Pk1bEChFnynarutbIy/UPZSV6F3m0S5Ecqo+BQTGOB2zKirivg3hqJ9bmFpyH1WzfWpAp1GH4jYnocl66NXZlLHIZ4trC6ke8Gnapb2kJtUe8K+xCa/umTetK/U5zvLWOH8TCw4o3a7Xtw3mdrhu1NcUY5Sq95PW6cPE/9DQbpMk8xfxM9k0JmsRRzyDiWAuxerseZT6r/zxUhXrogK280XLY1PwBDzEpHXuxuiTIEJ66egFVWZu6lP8PX7JB/pTbGdOXbMUamsPwcrYhTaiNmINx1tN4wljoqaVijyXeiBGkNVmlepCuO2s79tWW+rcHsxsf6E7vnStpMEHU0e+hu05toc8M3HTfU1zfun1U8f23UvaRR+TCndju2lOA014+7BqVg+637tY9/Sw56IiOzcSfF25Zvx4jK/BrIxPJP7LaSu+pl+je1qv61sxk8XOxDWCD2bSBXNvTtYxPUyF3AyxNIZ3uuvovVRlFBMfwwrvvJ0QuLqdxp7UmLRlUn+eT/HQ93Ws8lZX0Pa3f0HeZhfx7D4JUom/jeXGqY5m7rOJr3UGFmb1HcLOPE3n1v0ea26xtJp0ThIpJpP08uE7Kd26LaS2ebXOq4rXMB6RUOqI9qrErYQEzS763walFtJJ8NLE72O2Sij+OQ38+F2IRbvfS6CLnIljEvFJK9rAHNP3YZbM0mfj6WgVm0j/N1a4pxR1am68LPKaXUp1TjJbXaLiwP2nGXON9JauccNNA7WFEcPG6Dr7MAmzD9OtTyOorD2q6RI58OfuwxhXxHGqXBZdMlldm23XyCloQt2LGUAeoLr75yQ0Ed1g1NYGpml8A7h59F+cAVDXN8/suvfLsUJLT9WclwuvQXkD04Cg0cVjPVF6163J/P/vxuo/rFEN+GwLDfKma3NrdI33EAI+1RfPHKU6ux+oUyHBhFldW2PT5T1648R+rGTc95ksyeLzff9ixFLgYowWVG+yaSIUTfhJd4DRz0eorufbwN+nrrOKBTI8D3xu9LtfQk3u8DUfu3XsN8JAn4nVw3gx3Tn7vINTnVf1odMZH2x/I6UqhYwsi45ZBMeKQbawNdlxwqSYwqTnUjfri9aUsiJma0JKmoFF+R/LOD+nbagaP45jBrQbsYz0Tar37FXJCuoMH35QzmRy1d5ZwBNMr+ZzDnYDg8HsYlDBaOTMGbSfQm6dFV86weMg01fdSk3kXkW8HvgMgcl8iFsS8xpWtcQSpwqpidyrt39OyMiOGTIp5ZdMtsQSeZAR7losVlKqc11u3uQfl1hiiVqcDrwVM97VuS4qWDLZEkuUYQ1zayjSxlvck5bXJZMtsUQZBoQsEVUOgwlhZ0smW2KJMgwwl9MthErJMMFPmROFPwtGjNMHUp+bzvXHzm3C3ilCV5EfpxLxPbR5xrMYBwVL3IIVe/JhaNmGj5gzcwI+SxHXOizJg/K5RzHDLQJxzQpdjs0geu+y/bq2p2k/FQo1TVtgYVxXUu+z+z1STOa96H2mq4JUBx/BoWBk//sk+M0oFGTsf1uiCj8BdSXx40mxS/rYIh02lVvDxPenJDMgFxI8+4APYUHoqYnh90gxma+NsRX91tVMoIHUa52ymcYHD3c5Sy0K4mJBikpou2Fg3LYCeWVd0/PogonXSGdplEwSqeO6qmalfgywfLszomuMoS7VpRd9juMHp8EWwZHng1GVrpED3xfliZXMdIsMn7GgyUcMlxPl3gQ/4WodonhT/T4NYi0HygLTPa16+i0p0NoEMeyFWGrWExj9Jpm4iagHWOrAgdH3LtJFRATnUk08LMkXU+qBUnKGWP3BpcpYjWjXWK0Qgq+7gOjieUxdkmYi7WJarGNBw2LiEk3KW/mGWHDz84RS7V3Es3rB8CasXsnRuv7VBQj7yOOPE6wofsZqi3VMxP4HqglwqViwFHSDfvB/Bfw1Npi7nclUJsKvV/cA/5FuovWlHn4J+LH7bdV9nhYXYzvMnDH67tXRpokizgO7G2OCVYzJpqUPMZKY7HGCFEu2XZdPpg5uAv8LS0eRutEFk/0pYeC0XvCOvUmIawFuAl8E/hKrTrtbIu8nwUv4ITZJvg/4ww7a7mPE+kvgf2ATsV8zdSHJXoTtQXbj6Lskck7bcVbzU8D/xEoCdmVTWCWMQ4/qhpJjqJsVvPg/6jqubOZJiPXe+PsBqsmZqUDLSYil3XNYDb+nCTVDZommiWCW68LcNYUn+C1CmfIumAzMGXsz8F8IhixJzWnHv49tb3Uftgm7kiahbDmg/rwRuAgrNOQ1J7VXijVsYknReRKTTPjeuugtKjnwHehHn1+E1clru76Lb+YXwP2jtmbNYDsFsa/zKLYxepzQ2Na8P8TqcryCcetlL3qVQhP8N7DCQD4+sCQrXrR1JmaciDWcOBE4t6+isZhBay23s4jmiK1b3rCxF9tk/VB07ZKZxftANrEZT3px/IBTr0WHLxkngugBP8DKY8P4OJcYLLwK+kHsmU4KKMh5JvFrE1vvPUx59eIYB4F3YTTX5DyfCX3MKqPW13Hwa6692A3vHx0bz56lN/ksNuMdYWlZFOIqY2K4Z7ACqJ642qhLanMvcBP2LEsrijW1P8DWfHdT7tvz0lmvN2AqY6p/M6eZWTCZrC4rVP1fPaxy1KvcsdP63h7BypVtJ3MNG16nGhoLb1hS1M6nMJUxHq/Sfkt9uwirECWjRB1DtBmfTaqm8dxz++5d938eFjnvXQFxVAi0f34Tz5tVFH6dA/Am4GyCBGvDHJ4xv4uZ7zWL6uHPMxNsBzQefr0xxFTGn7vj2k5OGuuDmKUYgnW4acybno+0oD7wPWzNXRpN4rfL1TLl5lF/fR9T/eocs2AyvzG3ZtMNrDrwnzBu6myrZhzGVMWT7ppLdbEaRSPTNwSJ9lXS41VCYHLxqA796dQX/CyFzh8QdqspdQ34e9F5rwUuIL2+S0m1zjCrNZmXLGAP5OWYaqHvQlsme4hQ2VbnawB3u+HDaxLeIHQCuANz2vu1S8nYxMx4NmbMiiVB3djnPh+5Hv4Bc9N4jagJPnxM55wHvJJ6f9vM6GNWTOaJHSxi+U2Ecl3T3IxcCfcTdmuZxvq0aPAuGF85WcEFD2Dj5o8vlWL++L3AhwlbF00yLpQwsjSeH2Brb/3eBLmeYul0AHjHqL+Qtm7vGCaLA3/7WOntD9Vcb5KvLgVZyr5KqH2nCIc4un/R1mS5RKbjvOqudcpx4Mvu+H50XA58MPA+zJh1DlUpmjJqxVkTqZfXSgZY8O3dhKiKJsSxsL6vN2LGGh+e5aXojlmTxYvUAZbgdllhG5C+6SHmP/k+IdKgqzSG3YCjwO2YlVFj5gkuB7Fj90ysglNculruAz2nHCKOQ7SOYhE9R90xTe30Ep97mGora+hJgoSXBXwmNDSr0gLefLofeO/oPecmmvw4A+AezOoEYXasDdBcooI+poLJagfhueTQg1dHdf6ZmFFr3f0uwxe0X/MpafgeghVZ7U2Cl0r+nrTfgg+GiP2KnWOWhXT8A3g3+UyQsgz53w8DXydEMyyZrAx9zADyd1SNH/59ElLrlxUsdOkSd41YmojxmpDaOeg3GKNtjh9e28fYcqqJ5E3A+QQJJokpydY5ZtGoD8JcxeogXEr+TFHXJ537M8w/pu9+Y79ZThqLggHGZLdjVkaohsHlIlbpz8EIuM5H6s9pgp84h5iq+BXSm0nEa+1U6JS/7oWYyhhvDZY7CRRjVn4yGSH2Yrs17qVMysRrOmETWwRr21I9jDZEsluhNfPPsbWtr0+RSw/emKDnehBTGfcSDFJ+fZ7bfuzQ7o3akzU5dbxHSvvxv69TDe0D04pyU62KMUsTfh9baN48+fAk6mamJwlWRX8tSbOl8SMPfUwq3EE7q2tKQqwCr8GyLPRMxCSlmoZnXr3/Gvgn8gs7aRJO/f5mzG+mSSCerDvFrJjsJOYQfBnBZFoyS6SO3cLyjO6luvheG33vKrV+0eGtdp8lJOSWTFIpabGFRfW8jmqhHb1PUsdiM7oY0zPTUcwx7a2i/vzYYBavyYQtLPP6ZYwXBIr70glmZV1cwfwnclKWSpl+4vOAsJG3/03ZqbmL4t0Ov2Z+GPgRwcyeSw8pE/kKIZZRE54Cw3N9XFCNVFG7+v0ezDHtLYOT+pT6rj6pnBtUa3Z0jlkZPrawOLGbqGbN5jBCHTM+jVkV/YIYdl/YVBfQc98APk2YGKclsh4mIV4wusZxQqp+advesKJJ9EmM0YS2a/FVLJbxHELmtTegdYpZGT72EFRFb87NYYJY9KuPD2OL31TIzBL5GGDMNcSY4E4sL68rnAe8jVA/cWKRmQRiWvGBx88CX8NiGYn+h/y12hDbMOLq0W+StDvG8AFm8FAYlQY6d2GZutENLLfoGeoZbGlZzIOeicrq/Qr4Id0t/Ncwv6iWCSLq3LqYfi0mw4Q3ntxLiGVsU7hHDLtOCJKY6Zp+VoaPA1gKhL9OSWyYN+OCqYpfxdZf8XG4Y5eMlgdvYDhKUBm7wDomIS4hMJesjbl984WcoCrNHsM0mri/bYIR3oYFS2g8ZrKunwWTrWFZqOdSDdfJfYixlWeIpbX8iPR6bclcZfBFb1YwlfELhBIOXeAsLOJd1yuREv4ZexrQmu44ZgA7TFVSlkBtnY8FS2hNtmPUxdOwzau14FVqSu5NxMecwJIzf5f4Lx7c5RqtGbGlDcw1cj9549dE0ANMVXw3FiPomSCH3rxEijPo9f07hAzv2BeXAx27hgVLHBj9NhOVcVomi3NyepgEez3VzSr65BdG1YDq/N9h67HjU/Z13nCqJgRZeWVa1/vnGVfHU2jqt5YGl49e/jq5k2xMl7Ex5OdYNavYH5ZDX56JV7FgiQPM0A00DZNp8azPPYyR3oxJs9zcsRjxovcXWK2HnIe0U9XGU9FvGT70TG7DVDAhJtgSP+cKttZ5J9UE3tJ8NSF2NA+wWMY4YzqHiT0NDrBYxpe4cyet71tNjG2YzC+aVcBfOv7pwEeohtUIpYTUxwJYv41ZFWfmLNxl8BqGqjhvYGuyH0T/bybOa4II9BAWI3iQbtUw0d39mJobxznmIF73fZhqLKP/b2r/axsm083o5bcuugi4dnRcHHBZYlnU8c9iM5YPOF1iOkiyyFfG6PszwN9SdRz3ovNy4A0Vl2MZGGLWLmwAigh5iOB6KGk3XiPK5bCf5iDhVhpH25vWQPra5wewCI910t7z0oHYwFTFHxBm1SWTdQMfliSVcQPbqUUqGITlwIB8H5raW8GWDbcQYgS7COAeYjSmWMbnJx49Dr/M8Wk6CmyOr5V6L0IbJvO5PrqwfGMfIYSppNLNSwZ5iKmK2ihAvy0xGXGYWfzyzl3POCtYXOh3GA+Daju5rWPrsjNo58dKwd/DtwjpL20yCXSPewmxjJ6hvBraWpNqK8kkxSRdVjCfwyui42LTa4nKcZiQ1lISvLrEZIhIvXlcxDYAPknwofla+rlELLeNntlFmC9KhrFp4W0Bj2H+01L4pGKwyeD9WFB7zEjxJFWMaddkwj6sk0o7idsu7dwQG7wH3fcluoFfd2y576pz+E1sAw+oPrdcRhN9qN2zsL3R9tDdrjuiv+PYRJzayqjpfME7pq8g+Hc7swFMsybz5dgOYg5oX6pZkI+kBMewaGs5oL2KsIjYzvtKGSF86tATmEEBqlbBksgKfz97MbfOmaSXCzEj50Br9JNYoMKThefj+iKVeS82GayRNtq1jixqK8kEzVgXYekNsYce0ipCyhzs230Giw73+x8vGoPNSjoPG14Q1ss9xtfOG8D/Zdwxm5sKEgcTgNHGKxnXbhSYW0LAsU/st5g5v2S97/2DPsv+A5ixxmd1e9tDK7RhMjkx5R87A/i3he2l8oD8+u1h4CdUJebM6uItUcFxTGWUdJCKt0aZuuef8ZlYLKOqDIt2tL4qyQCQUUYazhHMzaMM71J4S+o5mMBYd9fyx227CV+L2xUsZSDX4djkoNaWOU8Sslg71ZGXmIghpqbLB6Xnukme4SIVT7oOXI8xmyzTmqj9c82dRL0hwse2tlFnPXOfgTmm1xhXF7fV8CHHM6P3q7F4RS9ac1DnRHwS22hdDlPNICda9neJcgyAvyIYFPRbDrwzWtjC/FDXUk178sSb6weNkzR7wKMEI1kT6uhODKqIJamxU0/sbcOqJMEOALe6dnI6lHpo/vNPsOBPv/icyoS6RBF6mIP3m5gbRc9mvfaMdBvxUuA0ggVaROyzpnOfrzQbH5VyFHOkn5hwXpPxQr9fhFkZFRGjfm3rmsxfcB2rge4DhdtA5x3Hyn4dY7yi65LBtg9D7BncR9o4MgkyJPjlg57ja7Gs+Q3CUsAvB3LjI32mvaTgt7DAhTqIfjxN+XvyguLPqKqMU1m3p1mTrQB/jOnZbduAauefwGYkVaCS7u63Zl1i9uhhcaP/h3Yp/nVtno/tZaZn6aVEiSTz72KUR7BtoSQdJ51b9x2Mud6D+fegKmlboa0k62EO6Fsxi1Gp+TR17U1sM+4fYQPla+ItpVh3qCMYr7LJkvttbI1c4uvUWkbwz/s0zEi2lzCRQlr6TYJXGXWtI8BdhIl4kuSdlEoDVmntAnctWUNbWbenmaEOYYUsxelN/hm/0I0l1InR569jPjII5uJB9L7EbDEk+MSexQrXaKuh3GcM1eetz6tYHfqLGFcVlT2fC6mwq+77HVhhIOFkdKz3D9b1d4jZGj5I2DBQYVwpNKrRbfJ8BqNOXAk8ha2jxDS5/o4TWGqB/CRrmKr4mRb9WaIMTUQhgwTYM/1LQrjRHqbPHt7AygU+NvosU778r01LgljNFNNsYo7p72H0tY9QIUv1H3PV0WPY5hn/bXT+nlGbrTSq3jUfuzXnoh57sE7vx2rXPTfqyDr5VYnUhtTC46Pzn2T6MgNNA9FEZNOePy1mff0StU/1Oi4ihDFNm4C5hVktn8PC8Y4QGCbH4Z0yRuiz0mvOpLrrqjY/8YHRdZDE28Ik+TF3zVT/OpFksa9AvpNjmLkdQh2PHN3dL1il626436bFtG3MmolO9fVzJpl1gqp1EovAERNMK8mGhF1+tHvmKkYDOW17a2dsNBEDHyZIPC2JpPI20adSgHxdErVTzGDQLkojXjhrpvA33dSWFpNyOHtmO9VEvtuhNbJULVWEPkE3UfRS7VROQt/1X8nz9xZqv6mf/tNv8fqwCaLJAWHC8aX0itBG9PsbS1WryhHHqnMnNXOLUCp5aaY/9fCqWB/TXqQqTWvp9Vnuir7wxocmeEOb14pEd/GakuhaTfS5RcjuHxCkn79GEdqa8AfuXTfr9whuOl+qhySZ37d3iVMLWdf02RNzF64Ur8m0bTP2kfnfNHnrpaVMLpPIGKfCOpLodeFYjWgjycRIa6Tr9DUxitf3e66dSSEvS2wfVjBjRDzrbyR+awOtxb2KWAqpcj6Qwbfjta144m+iMamYR0bfFUKoDP1iTGMp8gxWwhzxeSfd5yVOPUT8qTyqrnyVnli9sSOXBvzaUOd4J3RTfOIkpJhyKmPPMqp9iSVmjP8Pcih3lIuOlAoAAAAASUVORK5CYII=" alt="Attaché" style="width:32px;height:27px;object-fit:contain">
+      <strong>Attaché</strong>
+    </a>
+    <div class="nav-links">
+      <a href="/#platform">Platform</a>
+      <a href="/#editions">Editions</a>
+      <a href="/#trust">Trust</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms" aria-current="page">Terms</a>
+    </div>
+    <a class="btn" href="mailto:support@attache.group" style="display:inline-block;background:var(--teal);color:#fff;padding:11px 22px;border-radius:12px;text-decoration:none;font-weight:700;font-size:14.5px">Contact</a>
+  </div>
+</nav>
+
+<div class="wrap doc-head">
+  <div class="eyebrow"><span class="dot"></span> Legal · attache.group</div>
+  <h1>Terms of Service</h1>
+  <p class="lede">The agreement between your business and ours. Written to be understood on one reading, because terms nobody reads protect nobody.</p>
+  <p class="stamp">
+    <span><b>Effective</b> 09-22-2026</span>
+    <span><b>Last updated</b> 09-22-2026</span>
+    <span><b>Applies to</b> the Attaché platform</span>
+  </p>
+</div>
+
+<div class="wrap cols">
+  <nav class="toc" aria-label="On this page">
+    <h2>On this page</h2>
+    <ol>
+      <li><a href="#agreement">The agreement</a></li>
+      <li><a href="#who">Who may use Attaché</a></li>
+      <li><a href="#accounts">Accounts, seats and administrators</a></li>
+      <li><a href="#billing">Subscription, billing and renewal</a></li>
+      <li><a href="#data">Your data and who owns it</a></li>
+      <li><a href="#connections">Connected mailboxes and accounts</a></li>
+      <li><a href="#ai">AI features, and what they are not</a></li>
+      <li><a href="#use">Acceptable use</a></li>
+      <li><a href="#availability">Availability and support</a></li>
+      <li><a href="#changes-service">Changes to the service</a></li>
+      <li><a href="#confidentiality">Confidentiality</a></li>
+      <li><a href="#ip">Our intellectual property</a></li>
+      <li><a href="#termination">Suspension and termination</a></li>
+      <li><a href="#disclaimer">Disclaimers</a></li>
+      <li><a href="#liability">Limitation of liability</a></li>
+      <li><a href="#indemnity">Indemnification</a></li>
+      <li><a href="#law">Governing law and disputes</a></li>
+      <li><a href="#general">General</a></li>
+      <li><a href="#contact">Contact us</a></li>
+    </ol>
+  </nav>
+
+  <main class="doc">
+    <div class="summary">
+      <h2>The short version</h2>
+      <ul>
+        <li><strong>These are the self-serve terms.</strong> They cover Attaché. If you are a Sentinel customer, your signed agreement governs and nothing on this page changes it.</li>
+        <li><strong>Your data is yours.</strong> We hold it to run the service, you can take it out, and we delete it when you close your account.</li>
+        <li><strong>$49 per seat per month</strong>, in advance, plus metered AI usage past what your plan includes. Cancel whenever you like; the cancellation takes effect at the end of the period you have already paid for.</li>
+        <li><strong>AI output is a draft, not an answer.</strong> Check it before you act on it. We are not responsible for a decision you make because a model got something wrong.</li>
+        <li><strong>We run in the United States</strong> for every customer. If your obligations forbid that, this is not the right product for you.</li>
+        <li><strong>There is no uptime guarantee on self-serve.</strong> We say so rather than publish a number we have not committed to.</li>
+      </ul>
+    </div>
+
+    <section id="agreement">
+      <h2>The agreement</h2>
+      <p>These Terms of Service are an agreement between <strong>Attache Holdings LLC</strong>, a limited liability company at 7 Portwalk Place, Portsmouth, New Hampshire 03801, United States (&ldquo;Attaché&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;), and the business that signs up for the Attaché platform (&ldquo;you&rdquo;, &ldquo;your&rdquo;, &ldquo;Customer&rdquo;).</p>
+      <p>By creating an account, accepting these terms, or using the service, you agree to them. If you are agreeing on behalf of a company, you are confirming that you have the authority to bind it, and &ldquo;you&rdquo; means that company.</p>
+      <p><strong>Which product these terms cover.</strong> Attache Holdings LLC operates more than one product, and this domain is the company&rsquo;s, not one product&rsquo;s. These terms govern <strong>Attaché</strong> &mdash; the self-serve platform you sign up for online and pay for by the seat. They do <strong>not</strong> govern <strong>Sentinel</strong>, our contracted life-sciences build, which is sold to each customer under a negotiated Master Subscription Agreement and priced under that agreement. If you are a Sentinel customer, that agreement and its exhibits are your terms; nothing on this page adds to them, limits them, or replaces them.</p>
+      <p>Our <a href="/privacy">Privacy Statement</a> forms part of this agreement and describes how we handle information. If you have signed a separate written agreement with us, that agreement governs where the two conflict.</p>
+    </section>
+
+    <section id="who">
+      <h2>Who may use Attaché</h2>
+      <p>Attaché is a business product for business use. To use it you must be at least 18 years old, able to form a binding contract, and not barred from receiving US-origin services under applicable sanctions or export laws.</p>
+      <p>Attaché is not designed for, and must not be used to process, data that carries heightened regulatory duties we have not agreed to in writing — including protected health information under HIPAA, cardholder data under PCI DSS, and information subject to a data-residency requirement that the United States does not satisfy. If you put such data into Attaché anyway, you do so on your own responsibility and you are not entitled to expect controls we have not undertaken to provide.</p>
+    </section>
+
+    <section id="accounts">
+      <h2>Accounts, seats and administrators</h2>
+      <p>You subscribe to a number of seats. <strong>A seat is a named person, not a concurrent login</strong> — two people must not share one set of credentials. You are responsible for everything that happens under your account, including what the people you invite do with it.</p>
+      <p>Keep credentials confidential and tell us promptly at <a href="mailto:support@attache.group">support@attache.group</a> if you believe an account has been compromised. Multi-factor authentication is available to every user and we recommend you turn it on.</p>
+      <p>Administrators on your account can see, change, export and delete workspace data, manage permissions, add and remove users, and close the account. Choose them accordingly. When a user is removed, the records that user created stay in your workspace — they belong to you, not to them.</p>
+    </section>
+
+    <section id="billing">
+      <h2>Subscription, billing and renewal</h2>
+      <p><strong>Price.</strong> Attaché self-serve is <strong>$49 per seat, per month</strong>, billed in advance. The price that applies to you is the one shown to you at signup or in your current order; where that differs from the figure here, the one you were shown governs.</p>
+      <p><strong>AI usage.</strong> Work done by the AI agents is metered in <strong>Attaché Tokens</strong>, shown on your usage dashboard as you spend them. Your plan includes an allowance each period. Usage beyond the allowance is billed in arrears at the token rate published for your plan, and unused allowance does not carry over. You can see what you have used before you are billed for it &mdash; the dashboard is the same figure we invoice from.</p>
+      <p><strong>Billing.</strong> Fees are charged in advance for each billing period and are payable in US dollars. You authorize us to charge your payment method on each renewal until you cancel. You are responsible for keeping payment details current, and for any sales, use, VAT or similar taxes, excluding taxes on our income.</p>
+      <p><strong>Renewal and cancellation.</strong> Your subscription renews automatically at the end of each period. <strong>You can cancel at any time</strong>, from the application or by writing to us; cancellation takes effect at the end of the period you have already paid for, and you keep access until then. <strong>Fees already paid are not refunded for a partial period</strong>, except where the law requires a refund or where we have failed to provide the service and have not fixed it.</p>
+      <p><strong>Adding seats</strong> mid-period is charged pro rata. Removing seats takes effect at the next renewal.</p>
+      <p><strong>Price changes.</strong> We may change our prices. We will tell account administrators by email at least 30 days before a change affects you, and it will not take effect before your next renewal. Continuing past that renewal is acceptance; cancelling before it is your alternative.</p>
+      <p><strong>Non-payment.</strong> If a charge fails we will tell you and try again. If an account remains unpaid for 30 days we may suspend it, and section 13 covers what happens to the data.</p>
+    </section>
+
+    <section id="data">
+      <h2>Your data and who owns it</h2>
+      <p><strong>Everything you put into Attaché remains yours.</strong> We claim no ownership of it. You grant us only the limited licence we need to host, process, transmit, back up and display it in order to run the service for you, and to do the things described in the Privacy Statement. That licence ends when the data is deleted.</p>
+      <p><strong>We do not sell your data and we do not use your workspace content to train AI models.</strong></p>
+      <p>You are responsible for the data you put in: that you have the right to hold it, that collecting and using it through Attaché is lawful where you operate, and — where the people in your records have rights over their data — that you handle those rights as the controller of it. Where privacy law makes us your processor, we act on your instructions, and we will sign a data processing agreement with you on request.</p>
+      <p><strong>Export and deletion.</strong> You can export your data while your subscription is active. Deleting a record removes it. Closing your account removes the workspace, as described in the Privacy Statement.</p>
+      <p><strong>Backups are not a substitute for your own records.</strong> We take backups to recover the platform, not to restore one customer's mistaken deletion, and we do not promise to be able to bring back something you deleted on purpose.</p>
+    </section>
+
+    <section id="connections">
+      <h2>Connected mailboxes and accounts</h2>
+      <p>Connecting a mailbox or another third-party account is optional. When a user connects one, they confirm they are entitled to grant that access — that it is their mailbox, or one their employer has authorized them to connect.</p>
+      <p>The permissions we request are listed in the <a href="/privacy#mailbox">Privacy Statement</a>, and the consent screen you see is your provider's, not ours. <strong>Any user can revoke our access at any time</strong>, from Attaché or directly from their Microsoft or Google account.</p>
+      <p>Third-party services are run by those third parties under their own terms. We are not responsible for their availability, their changes, or a decision by your provider to withdraw access — if that happens, the affected feature stops working and the rest of Attaché carries on.</p>
+    </section>
+
+    <section id="ai">
+      <h2>AI features, and what they are not</h2>
+      <p>Attaché uses AI to summarize, extract, draft and suggest. These features are useful and they are also fallible.</p>
+      <p><strong>AI output is a draft for a person to check.</strong> It can be incomplete, out of date, or confidently wrong. Anything a model reads out of an external document is confirmed by a human before it is written into your records, and you should apply the same standard to everything else it produces.</p>
+      <p><strong>It is not professional advice.</strong> Nothing Attaché generates is legal, tax, financial, medical or employment advice, and it must not be used as the sole basis for a decision with legal or financial consequences for you or anyone else.</p>
+      <p><strong>You are responsible for what you send.</strong> Do not feed the AI features content you are not entitled to process. AI actions are metered, and the metering is visible to you.</p>
+      <p>Where the same prompt could produce similar output for another customer, we make no claim of exclusivity over generated text. As between you and us, output generated from your data in your workspace is yours to use.</p>
+    </section>
+
+    <section id="use">
+      <h2>Acceptable use</h2>
+      <p>Do not use Attaché to:</p>
+      <ul>
+        <li>break the law, infringe someone's rights, or help someone else do either;</li>
+        <li>send spam or unsolicited bulk mail, or anything that violates anti-spam law such as CAN-SPAM or GDPR marketing rules;</li>
+        <li>store or transmit malware, or attempt to gain access to another customer's data, our systems, or any account that is not yours;</li>
+        <li>probe, scan or load-test the platform without our written permission;</li>
+        <li>reverse engineer, decompile, or copy the service, or resell or sublicense access to it;</li>
+        <li>use automated means to scrape the service or exceed a plan's limits by technical circumvention;</li>
+        <li>harass, threaten or defame anyone, or process data about people in ways they would find unlawful.</li>
+      </ul>
+      <p>If you see a violation, tell us at <a href="mailto:support@attache.group">support@attache.group</a>.</p>
+    </section>
+
+    <section id="availability">
+      <h2>Availability and support</h2>
+      <p>We work to keep Attaché available and quick, and we will give reasonable notice of planned maintenance where we can. <strong>We do not offer a contractual uptime commitment or service credits on the self-serve plans.</strong> We would rather say that than publish a number we have not committed to; an availability commitment is something a contracted deployment buys.</p>
+      <p>Support is by email at <a href="mailto:support@attache.group">support@attache.group</a>, during US business hours, and a person answers.</p>
+    </section>
+
+    <section id="changes-service">
+      <h2>Changes to the service, and to these terms</h2>
+      <p>The product will change — we add features, improve them, and occasionally remove one that is not working. If we remove or materially reduce a feature you rely on, we will give account administrators at least 30 days' notice by email.</p>
+      <p>We may update these terms. The date at the top always reflects the current version. For a material change we will notify administrators by email at least 30 days before it takes effect. Continuing to use Attaché after that is acceptance; if you do not accept, cancel before the change takes effect and we will refund any prepaid fees for the period after cancellation.</p>
+    </section>
+
+    <section id="confidentiality">
+      <h2>Confidentiality</h2>
+      <p>Each of us may learn things about the other that are not public. Both of us agree to use the other's confidential information only to perform this agreement, to protect it with at least the care we use for our own, and not to disclose it except to people who need it and are bound to keep it confidential. This does not cover information that is public through no fault of the recipient, was already known, is independently developed, or must be disclosed by law — and where the law compels disclosure, the compelled party will give notice if it is allowed to.</p>
+      <p><strong>Your workspace data is your confidential information</strong>, and the obligations above apply to us in respect of it.</p>
+    </section>
+
+    <section id="ip">
+      <h2>Our intellectual property</h2>
+      <p>Attaché — the software, the interface, the documentation, the name and the marks — belongs to us and our licensors. These terms grant you a limited, non-exclusive, non-transferable right to use the service during your subscription, and nothing more. You may not use our name or marks without our written permission.</p>
+      <p><strong>Feedback.</strong> If you send us an idea for improving the product, we may use it without obligation or payment. That covers feedback only; it gives us no rights over your data.</p>
+    </section>
+
+    <section id="termination">
+      <h2>Suspension and termination</h2>
+      <p><strong>You</strong> may cancel at any time, as described in section 4.</p>
+      <p><strong>We</strong> may suspend or terminate an account if fees go unpaid after notice, if the account is used in breach of section 8, or if use of it threatens the security or integrity of the platform or another customer. Where circumstances allow, we will warn you first and give you a chance to fix the problem. Where they do not — an active security threat, for instance — we may act immediately and will tell you promptly afterward.</p>
+      <p><strong>After termination</strong>, your right to use the service ends. <strong>We will keep your data available for export for 30 days</strong>, unless we are legally prohibited or the termination was for serious abuse of the platform. After that window we delete the workspace as described in the Privacy Statement. Ask us during the window and we will help you get your data out.</p>
+      <p>Sections on your data and its ownership, confidentiality, intellectual property, disclaimers, limitation of liability, indemnification, and governing law survive termination.</p>
+    </section>
+
+    <section id="disclaimer">
+      <h2>Disclaimers</h2>
+      <p>We provide Attaché with reasonable skill and care. Beyond that, and to the fullest extent the law allows, <strong>the service is provided &ldquo;as is&rdquo; and &ldquo;as available&rdquo;, without warranties of any kind</strong>, express or implied, including implied warranties of merchantability, fitness for a particular purpose, title and non-infringement.</p>
+      <p>We do not warrant that the service will be uninterrupted or error-free, that defects will be corrected, or that AI-generated output will be accurate or complete.</p>
+      <p>Some jurisdictions do not allow the exclusion of certain warranties. Where that is so, the exclusions above apply only as far as that law permits, and nothing in these terms limits liability that cannot lawfully be limited — including liability for death or personal injury caused by negligence, or for fraud.</p>
+    </section>
+
+    <section id="liability">
+      <h2>Limitation of liability</h2>
+      <p><strong>Indirect damages.</strong> To the fullest extent the law allows, neither party is liable to the other for indirect, incidental, special, consequential or exemplary damages, or for lost profits, lost revenue, lost business opportunity or the cost of substitute services &mdash; however caused, on any theory of liability, and whether or not the party was warned those damages were possible.</p>
+
+      <p><strong>One deliberate exception to that.</strong> Where a claim arises from a breach of confidentiality, or from a failure of the security and data-protection commitments described in our <a href="/privacy">Privacy Statement</a>, the following count as <em>direct</em> damages and are recoverable up to the limits below: the cost of forensic investigation and incident response; the cost of notifying affected individuals and regulators; the cost of credit monitoring or identity protection reasonably provided to affected individuals; the cost of restoring, reconstructing or re-creating lost or corrupted data; fines and penalties imposed by a regulator, so far as they are insurable and recoverable under applicable law; and amounts paid to settle a third-party claim. Excluding these as &ldquo;indirect&rdquo; would leave the rest of this agreement worth very little in the one situation where it matters most.</p>
+
+      <p><strong>The general cap.</strong> Except as stated below, each party&rsquo;s aggregate liability arising out of or relating to this agreement is limited to the greater of (a) the total fees you paid or owe for the 12 months immediately before the event giving rise to the claim, and (b) 12 months of fees at your recurring rate on the date of that event. <strong>This limit applies to both parties</strong>, and it includes everything payable under section 16, including the cost of defending a claim.</p>
+
+      <p><strong>A higher limit where the stakes are higher.</strong> For a breach of confidentiality (section 11), a failure of the security and data-protection commitments in our Privacy Statement, or a breach of our undertaking not to train AI models on your workspace content (section 5), the cap is <strong>three times</strong> the amount calculated above.</p>
+
+      <p>We set a higher limit for those rather than no limit at all, and the reason is worth stating plainly: Attaché is a small company, and an unlimited liability is not an exposure we could actually meet. A cap a vendor cannot satisfy is not protection &mdash; it only resembles protection, and you would discover the difference at the worst possible moment.</p>
+
+      <p><strong>What no cap applies to.</strong> Neither limit applies to fraud or fraudulent misrepresentation; to gross negligence or willful misconduct; to your obligation to pay fees you have accrued; or to any liability that cannot lawfully be limited. A claim is not removed from these limits by the way it is pleaded, and the fraud and gross-negligence exclusions apply only where the conduct is established by a final, non-appealable judgment or admitted in writing by the party it is alleged against.</p>
+
+      <p><strong>Data you were asked not to put in.</strong> If you submit data of a kind section 2 excludes &mdash; protected health information, cardholder data, or data under a residency obligation the United States does not satisfy &mdash; our liability relating to it is subject to the general cap only, and the higher limit does not apply to it. We did not agree to receive that data, the service is not built for it, and there is no separate agreement in place against which our handling of it could be measured. The exclusions in the paragraph above still stand.</p>
+
+      <p>This allocation of risk reflects what you pay for a self-serve product, and it is a basis of the bargain between us. It applies even if a remedy stated in these terms fails of its essential purpose. <strong>A different allocation is available under a negotiated agreement</strong> &mdash; see section 1.</p>
+    </section>
+
+    <section id="indemnity">
+      <h2>Indemnification</h2>
+      <p><strong>You will defend and indemnify us</strong> against third-party claims arising from your data, your use of the service in breach of these terms or the law, or your infringement of someone's rights.</p>
+      <p><strong>We will defend and indemnify you</strong> against third-party claims that the Attaché software itself, used as we intended, infringes a US patent, copyright or trademark — provided you tell us promptly, let us control the defense, and cooperate. If such a claim arises we may modify the service, obtain a licence, or terminate the affected subscription and refund prepaid fees for the unused period.</p>
+    </section>
+
+    <section id="law">
+      <h2>Governing law and disputes</h2>
+      <p>These terms are governed by the laws of the <strong>State of New Hampshire</strong>, United States, without regard to its conflict-of-laws rules. The UN Convention on Contracts for the International Sale of Goods does not apply.</p>
+      <p>The state and federal courts located in New Hampshire have exclusive jurisdiction over any dispute arising out of these terms, and both parties consent to that jurisdiction. If you are a consumer in a jurisdiction that gives you the right to bring proceedings locally, this does not take that right away.</p>
+      <p><strong>Talk to us first.</strong> Before filing anything, write to <a href="mailto:support@attache.group">support@attache.group</a> describing the problem. Most disputes are a misunderstanding, and we would rather fix it than litigate it.</p>
+    </section>
+
+    <section id="general">
+      <h2>General</h2>
+      <ul>
+        <li><strong>Entire agreement.</strong> These terms and the Privacy Statement are the whole agreement between us about the service, and replace anything said before.</li>
+        <li><strong>Severability.</strong> If a provision is unenforceable, the rest stays in force and that provision is read as narrowly as needed to make it enforceable.</li>
+        <li><strong>No waiver.</strong> Not enforcing something once does not waive it.</li>
+        <li><strong>Assignment.</strong> Neither party may assign this agreement without the other's consent, except that either may assign it in a merger, acquisition or sale of substantially all assets, on notice.</li>
+        <li><strong>Force majeure.</strong> Neither party is liable for a delay or failure caused by something genuinely outside its reasonable control.</li>
+        <li><strong>Notices.</strong> We will send notices to the email addresses of your account administrators; you send them to <a href="mailto:support@attache.group">support@attache.group</a>, or by post to the address below.</li>
+        <li><strong>No third-party beneficiaries.</strong> This agreement is between you and us.</li>
+        <li><strong>Independent contractors.</strong> Nothing here creates a partnership, joint venture, agency or employment relationship.</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact us</h2>
+      <p><strong>Email:</strong> <a href="mailto:support@attache.group">support@attache.group</a><br>
+      <strong>Post:</strong> Attache Holdings LLC, 7 Portwalk Place, Portsmouth, NH 03801, United States</p>
+      <p>See also our <a href="/privacy">Privacy Statement</a>.</p>
+    </section>
+  </main>
+</div>
+
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="logo" href="/" style="gap:9px">
+      <img src="data:image/png;base64,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" alt="Attaché" style="width:24px;height:20px;object-fit:contain">
+      <strong style="font-size:16px">Attaché</strong>
+    </a>
+    <div class="foot-links">
+      <a href="/#platform">Platform</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="mailto:support@attache.group">Contact</a>
+    </div>
+    <span>© 2026 Attache Holdings LLC · attache.group</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Statement — Attaché</title>
+<meta name="description" content="How Attaché collects, uses, stores and shares information — including exactly what a connected mailbox gives us access to.">
+<link rel="canonical" href="https://attache.group/privacy">
+<style>
+  :root{
+    --teal:#2F5D62; --teal-deep:#24484C; --teal-ink:#16292B;
+    --cream:#F7F5EF; --card:#FFFFFF; --muted:#5C7476; --faint:#8CA0A1;
+    --line:#E4E1D5; --tint:#E9EFEA; --tint2:#DCE7E3; --radius:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:88px}
+  body{
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--cream); color:var(--teal-ink);
+    -webkit-font-smoothing:antialiased; line-height:1.55;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+  nav{position:sticky;top:0;z-index:50;background:rgba(247,245,239,.88);
+      backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;gap:36px;height:68px}
+  .logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--teal)}
+  .logo strong{font-size:22px;font-weight:800;letter-spacing:-0.02em}
+  .nav-links{display:flex;gap:26px;margin-left:auto}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:14.5px;font-weight:600}
+  .nav-links a:hover{color:var(--teal)}
+  .nav-links a[aria-current]{color:var(--teal)}
+  a{color:var(--teal);text-decoration:underline;text-underline-offset:2px}
+  a:hover{color:var(--teal-deep)}
+  :focus-visible{outline:2.5px solid var(--teal);outline-offset:3px;border-radius:4px}
+
+  .doc-head{padding-block:56px 30px;border-bottom:1px solid var(--line)}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--tint2);
+    color:var(--teal-deep);font-size:12.5px;font-weight:700;letter-spacing:.04em;
+    text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:20px}
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--teal)}
+  h1{font-size:44px;line-height:1.08;font-weight:800;letter-spacing:-0.03em;
+     text-wrap:balance;margin-bottom:16px}
+  .lede{font-size:18px;color:var(--muted);max-width:60ch}
+  .stamp{margin-top:22px;font-size:13.5px;color:var(--faint);
+    display:flex;flex-wrap:wrap;gap:6px 22px}
+  .stamp b{color:var(--muted);font-weight:600}
+
+  .cols{display:grid;grid-template-columns:232px minmax(0,1fr);gap:56px;
+    align-items:start;padding-block:44px 90px}
+  .toc{position:sticky;top:92px;font-size:13.5px}
+  .toc h2{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--faint);font-weight:700;margin-bottom:12px}
+  .toc ol{list-style:none;counter-reset:toc;display:flex;flex-direction:column;gap:2px}
+  .toc a{display:block;padding:5px 0 5px 26px;text-indent:-26px;
+    color:var(--muted);text-decoration:none;font-weight:500;line-height:1.35}
+  .toc a::before{counter-increment:toc;content:counter(toc) ".";
+    display:inline-block;width:26px;text-indent:0;color:var(--faint);
+    font-variant-numeric:tabular-nums}
+  .toc a:hover{color:var(--teal)}
+
+  .doc{max-width:68ch;font-size:16px;line-height:1.7;counter-reset:sec}
+  .doc section{padding-top:38px}
+  .doc section:first-of-type{padding-top:0}
+  .doc h2{font-size:23px;font-weight:800;letter-spacing:-0.015em;
+    color:var(--teal-ink);margin-bottom:14px;text-wrap:balance;line-height:1.25}
+  .doc h2::before{counter-increment:sec;content:counter(sec);
+    display:block;font-size:12px;font-weight:700;color:var(--teal);
+    letter-spacing:.1em;margin-bottom:6px;font-variant-numeric:tabular-nums}
+  .doc h3{font-size:16.5px;font-weight:700;margin:26px 0 8px;color:var(--teal-deep)}
+  .doc p{margin-bottom:14px;color:var(--teal-ink)}
+  .doc ul{margin:0 0 16px;padding-left:22px}
+  .doc li{margin-bottom:9px}
+  .doc li::marker{color:var(--faint)}
+  .doc strong{font-weight:700}
+
+  .summary{background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:26px 28px;margin-bottom:6px;
+    box-shadow:0 20px 44px -30px rgba(37,72,76,.3)}
+  .summary h2{font-size:17px;margin-bottom:12px}
+  .summary h2::before{content:none}
+  .summary ul{margin-bottom:0}
+  .summary li{margin-bottom:10px}
+
+  .note{background:var(--tint);border-left:3px solid var(--teal);
+    border-radius:0 10px 10px 0;padding:16px 20px;margin:18px 0 20px;
+    font-size:15px;color:var(--teal-deep)}
+  .note p:last-child{margin-bottom:0}
+
+  .tablewrap{overflow-x:auto;margin:6px 0 20px;
+    border:1px solid var(--line);border-radius:12px;background:var(--card)}
+  table{border-collapse:collapse;width:100%;min-width:480px;font-size:14.5px}
+  th,td{text-align:left;padding:11px 16px;border-bottom:1px solid var(--line);
+    vertical-align:top;line-height:1.5}
+  th{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--muted);font-weight:700;background:var(--tint)}
+  tr:last-child td{border-bottom:none}
+  td code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:13px;color:var(--teal-deep);background:var(--tint);
+    padding:1.5px 5px;border-radius:4px;white-space:nowrap}
+
+  footer{border-top:1px solid var(--line);padding:26px 0 40px;background:var(--cream)}
+  .foot-inner{display:flex;align-items:center;gap:22px;flex-wrap:wrap;
+    font-size:13.5px;color:var(--faint)}
+  .foot-links{display:flex;gap:20px;margin-left:auto;flex-wrap:wrap}
+  .foot-links a{color:var(--muted);text-decoration:none;font-weight:600}
+  .foot-links a:hover{color:var(--teal)}
+
+  @media (max-width:900px){
+    .cols{grid-template-columns:1fr;gap:0;padding-block:30px 70px}
+    .toc{position:static;margin-bottom:34px;padding-bottom:26px;
+      border-bottom:1px solid var(--line)}
+    h1{font-size:34px}
+    .nav-links{display:none}
+    .wrap{padding:0 20px}
+  }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="/">
+      <img src="data:image/png;base64,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" alt="Attaché" style="width:32px;height:27px;object-fit:contain">
+      <strong>Attaché</strong>
+    </a>
+    <div class="nav-links">
+      <a href="/#platform">Platform</a>
+      <a href="/#editions">Editions</a>
+      <a href="/#trust">Trust</a>
+      <a href="/privacy" aria-current="page">Privacy</a>
+      <a href="/terms">Terms</a>
+    </div>
+    <a class="btn" href="mailto:support@attache.group" style="display:inline-block;background:var(--teal);color:#fff;padding:11px 22px;border-radius:12px;text-decoration:none;font-weight:700;font-size:14.5px">Contact</a>
+  </div>
+</nav>
+
+<div class="wrap doc-head">
+  <div class="eyebrow"><span class="dot"></span> Legal · attache.group</div>
+  <h1>Privacy Statement</h1>
+  <p class="lede">How Attaché collects, uses, stores and shares information — written to be read, not to be skimmed past.</p>
+  <p class="stamp">
+    <span><b>Effective</b> 09-22-2026</span>
+    <span><b>Last updated</b> 09-22-2026</span>
+    <span><b>Applies to</b> the Attaché platform and attache.group</span>
+  </p>
+</div>
+
+<div class="wrap cols">
+  <nav class="toc" aria-label="On this page">
+    <h2>On this page</h2>
+    <ol>
+      <li><a href="#who">Who we are</a></li>
+      <li><a href="#role">Our role: processor or controller</a></li>
+      <li><a href="#collect">Information we collect</a></li>
+      <li><a href="#mailbox">Connected mailboxes</a></li>
+      <li><a href="#use">How we use information</a></li>
+      <li><a href="#ai">AI processing</a></li>
+      <li><a href="#share">Who we share information with</a></li>
+      <li><a href="#where">Where your data is processed</a></li>
+      <li><a href="#retention">How long we keep it</a></li>
+      <li><a href="#security">How we protect it</a></li>
+      <li><a href="#rights">Your choices and rights</a></li>
+      <li><a href="#cookies">Cookies</a></li>
+      <li><a href="#children">Children</a></li>
+      <li><a href="#changes">Changes to this statement</a></li>
+      <li><a href="#contact">Contact us</a></li>
+    </ol>
+  </nav>
+
+  <main class="doc">
+    <div class="summary">
+      <h2>The short version</h2>
+      <ul>
+        <li><strong>Your CRM data is yours.</strong> We hold it to run the service for you, and we do not sell it, rent it, or use it to advertise to anyone.</li>
+        <li><strong>Each customer's data lives in its own database schema.</strong> Not a shared table with a filter on it — a separate namespace, addressed by a connection that has never been able to reach another customer's tables.</li>
+        <li><strong>If you connect a mailbox, we store message subjects and bodies</strong> so they can appear on your contact and deal timelines. That is the most sensitive thing we hold, so it is stated here rather than left to be inferred.</li>
+        <li><strong>We use Google Gemini for AI features</strong>, and we send it only the text a given task needs. Google's paid API terms exclude that text from training its models.</li>
+        <li><strong>We process data in the United States</strong>, for every customer, on purpose. Section 8 explains why, and who should not sign up because of it.</li>
+        <li><strong>This website sets no cookies and runs no analytics.</strong> The application sets two, and both are required to keep you signed in.</li>
+      </ul>
+    </div>
+
+    <section id="who">
+      <h2>Who we are</h2>
+      <p>Attaché is a product of <strong>Attache Holdings LLC</strong>, a limited liability company with its registered address at 7 Portwalk Place, Portsmouth, New Hampshire 03801, United States. In this statement, &ldquo;Attaché&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo; and &ldquo;our&rdquo; mean that company.</p>
+      <p>Attaché is a self-serve, multi-tenant CRM with AI agents, sold per seat. Customers sign up and run themselves. There is no per-customer deployment and no professional-services engagement in the middle — one platform, one set of infrastructure, many customers isolated inside it.</p>
+      <p><strong>Which product this statement covers.</strong> Attache Holdings LLC operates more than one product, and this domain is the company&rsquo;s rather than any one product&rsquo;s. This statement covers <strong>Attaché</strong> &mdash; the self-serve platform &mdash; and this website. It does <strong>not</strong> cover <strong>Sentinel</strong>, our contracted life-sciences build, which runs as a single-tenant deployment on its own infrastructure with its own controls; how we handle data there is governed by the agreement signed with that customer and by the data processing agreement under it, not by this page.</p>
+    </section>
+
+    <section id="role">
+      <h2>Our role: processor or controller</h2>
+      <p>Which hat we wear depends on which data you mean, and the distinction matters for your rights.</p>
+      <h3>Data you put into Attaché — we are the processor</h3>
+      <p>The accounts, contacts, deals, notes, tasks, files and mail in your workspace belong to you. You decide what goes in, why it is there, and how long it stays. We process it on your instructions in order to provide the service. Under the GDPR and similar laws, <strong>you are the controller and we are the processor</strong>, and the people whose details you store are the data subjects.</p>
+      <p>If one of your contacts asks us directly what we hold about them, we will not answer for you. We will refer them to you and help you respond.</p>
+      <h3>Your own account and billing data — we are the controller</h3>
+      <p>The name, work email and password of the people on your account, your subscription and payment records, and our server and usage logs are data we determine the purposes for. For that narrow set, <strong>we are the controller</strong>.</p>
+    </section>
+
+    <section id="collect">
+      <h2>Information we collect</h2>
+      <h3>Information you give us</h3>
+      <ul>
+        <li><strong>Account information</strong> — the name, work email address and password of each person you give a seat to, and the organization name.</li>
+        <li><strong>Workspace content</strong> — everything you or your team enter or import: accounts, contacts, deals, quotes, notes, tasks, expenses, attachments.</li>
+        <li><strong>Support correspondence</strong> — what you write to us when you ask for help.</li>
+      </ul>
+      <h3>Information that arrives because you connected something</h3>
+      <ul>
+        <li><strong>Mailbox and calendar content</strong>, if and only if a user on your account connects a mailbox. Section 4 covers this in full.</li>
+      </ul>
+      <h3>Information we generate</h3>
+      <ul>
+        <li><strong>Authentication records</strong> — every sign-in, multi-factor challenge, pass, failure, enrollment and sign-out is appended to an audit log.</li>
+        <li><strong>Audit trail</strong> — every change to your data is recorded with who made it and when.</li>
+        <li><strong>AI usage metering</strong> — for each AI action, the kind of job, the model tier and the token count, so that your usage dashboard can show you what the AI layer did and what it cost.</li>
+        <li><strong>Technical logs</strong> — ordinary server logs: request paths, timestamps, IP address, error traces.</li>
+      </ul>
+      <p>We do not buy personal data about you from data brokers to enrich your account, and we do not build advertising profiles.</p>
+    </section>
+
+    <section id="mailbox">
+      <h2>Connected mailboxes</h2>
+      <p>Connecting a mailbox is optional, it is off until a user turns it on, and it is the part of Attaché that touches the most sensitive information. So here is exactly what happens.</p>
+      <h3>What we ask for</h3>
+      <p>When you connect a Microsoft 365 or Google Workspace mailbox, you are shown your provider's own consent screen listing the permissions we request. They are:</p>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th>Permission</th><th>Microsoft 365</th><th>Google Workspace</th><th>What it is for</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Read your mail</td><td><code>Mail.Read</code></td><td><code>gmail.readonly</code></td><td>Putting the messages on a contact or deal onto its timeline</td></tr>
+            <tr><td>Send mail as you</td><td><code>Mail.Send</code></td><td><code>gmail.send</code></td><td>Sending a message you wrote and sent from inside Attaché, in your own thread and filed in your own Sent folder</td></tr>
+            <tr><td>Know who signed in</td><td><code>User.Read</code></td><td><code>userinfo.email</code>, <code>userinfo.profile</code>, <code>openid</code></td><td>Recording which address the mailbox actually belongs to</td></tr>
+            <tr><td>Keep the connection alive</td><td><code>offline_access</code></td><td>&mdash;</td><td>Refreshing access without asking you to sign in again every hour</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>That is the whole list.</strong> On the direct Microsoft and Google connections we do not request access to your calendar, your contacts, your files or your drive, and we cannot read them. The read permission is deliberately the narrow, read-only one: we cannot modify or delete anything in your mailbox.</p>
+      <p><strong>We never send mail on your behalf on our own initiative.</strong> The send permission is used only when a person on your account composes and sends a message in Attaché. We do not send marketing from your address, and we do not auto-reply.</p>
+      <h3>What we store</h3>
+      <p>When a mailbox is connected, <strong>message subjects and full message bodies are stored</strong> in your workspace, alongside a one-line AI-generated summary used on the timeline. Attachments you choose to save are stored too. Where calendar sync is in use, we store an event's subject, time, participants and conferencing link — not its full description.</p>
+      <div class="note">
+        <p>We store the message body because the timeline is only useful if the message is actually there. If that is more than you want us to hold, do not connect the mailbox — every other part of Attaché works without it.</p>
+      </div>
+      <h3>Turning it off</h3>
+      <p>You can disconnect a mailbox in Attaché at any time, and you can independently revoke our access from your Microsoft or Google account settings without involving us. Revoking stops all further access immediately. Mail already stored in your workspace stays there until you delete it or close your account; ask us and we will delete it for you.</p>
+    </section>
+
+    <section id="use">
+      <h2>How we use information</h2>
+      <ul>
+        <li><strong>To provide the service</strong> — storing, organizing and showing you your own data, and running the features you use.</li>
+        <li><strong>To authenticate and secure accounts</strong> — signing people in, running multi-factor checks, detecting abuse, keeping the audit trail.</li>
+        <li><strong>To run AI features</strong> you invoke, as described in section 6.</li>
+        <li><strong>To bill you</strong> and to meter AI usage against your plan.</li>
+        <li><strong>To support you</strong> when you contact us, which sometimes means a member of our team looking at your workspace to reproduce a problem. We do that to answer a request, not on a schedule.</li>
+        <li><strong>To keep the platform working</strong> — diagnosing errors, capacity planning, and improving the product in aggregate.</li>
+        <li><strong>To meet legal obligations</strong> and to enforce our terms.</li>
+      </ul>
+      <p><strong>We do not sell your personal information</strong>, and we do not share it for cross-context behavioral advertising. We do not use your workspace content to train AI models, ours or anyone else's.</p>
+      <p>Where the GDPR applies to our own controller-side processing, our legal bases are performance of a contract (running your subscription), legitimate interests (securing the platform, preventing abuse, improving the product), and legal obligation (tax and accounting records).</p>
+    </section>
+
+    <section id="ai">
+      <h2>AI processing</h2>
+      <p>All AI features in Attaché run on <strong>Google Gemini</strong>, called through a single point in our code so that every model call is recorded with its job kind, model tier and token count.</p>
+      <p><strong>We send only the text a specific task needs.</strong> The case worth naming: when a connected mailbox takes in a message longer than 500 characters, <strong>up to 8,000 characters of the message body are sent to Gemini</strong> to produce the one-line summary you see on the timeline. Shorter messages use the provider's own snippet and are not sent at all.</p>
+      <p><strong>Training.</strong> Google's paid API terms exclude the inputs and outputs of these calls from training Google's models. We do not train models on your data ourselves.</p>
+      <p><strong>Region.</strong> These calls go to a global Google endpoint with no region selection. Google's regional-endpoint product is not in use.</p>
+      <div class="note">
+        <p>AI output can be wrong. Summaries, extractions and suggestions are drafts for a person to check, and anything read out of an external document is confirmed by a human before it is written into your records.</p>
+      </div>
+    </section>
+
+    <section id="share">
+      <h2>Who we share information with</h2>
+      <p>We share data with the service providers below, and with nobody else except as described at the end of this section. This is the actual list as of the date at the top of this page — not a list of everything we might one day use.</p>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr><th>Provider</th><th>What it does for us</th><th>What it can see</th><th>When</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Google Cloud</strong></td><td>Hosting, database and object storage</td><td>All customer data, at rest and in transit</td><td>Always</td></tr>
+            <tr><td><strong>Google (Gemini)</strong></td><td>AI reasoning</td><td>Only the text sent for a given task — see section 6</td><td>Always</td></tr>
+            <tr><td><strong>Nylas</strong></td><td>Mailbox and calendar sync for providers we cannot connect to directly</td><td>Mailbox and calendar content</td><td>Opt-in, and only where there is no direct alternative</td></tr>
+            <tr><td><strong>Microsoft / Google</strong></td><td>Your own mailbox, connected directly</td><td>Mailbox content, passing between your tenant and us</td><td>Opt-in</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Attaché checks for a direct connection before offering the one we pay for.</strong> If you are on Google Workspace or Microsoft 365, we guide you to connect your own mailbox directly, and Nylas is offered only to customers with no such option. We built that to control cost, but it has a privacy consequence worth stating: on the direct road there is <strong>one fewer company</strong> touching your mail. It does not remove the others — on either road the message body is stored by us and excerpted to Gemini.</p>
+      <p><strong>That is the whole list.</strong> No other company is set up to receive your data. Anything we add appears in this table before it is switched on.</p>
+      <p>We may also disclose information when the law requires it — a valid subpoena, court order or similar legal process — and to protect our rights or someone's safety. If we are ever compelled to hand over a customer's data, we will tell that customer unless we are legally prohibited from doing so. If Attaché is acquired or merged, customer data may transfer as part of that transaction, and you will be told before it becomes subject to a different privacy statement.</p>
+    </section>
+
+    <section id="where">
+      <h2>Where your data is processed</h2>
+      <p><strong>Attaché runs one set of infrastructure for every customer worldwide, located in the United States.</strong> We do not create per-region infrastructure, and we do not intend to. A self-serve product priced per seat cannot carry a separate database and storage footprint per jurisdiction; regional infrastructure is what a contracted single-tenant deployment buys, and it is priced accordingly.</p>
+      <p>Said plainly rather than buried: <strong>if you are outside the United States, you are served from infrastructure inside the United States.</strong> Personal data of people in the EU and UK is processed in the US — by the platform, by Gemini, and by Nylas where it is used. Where we rely on a transfer instrument for that, it is the EU-US Data Privacy Framework where a provider is certified, and standard contractual clauses otherwise.</p>
+      <div class="note">
+        <p><strong>If you are under a hard data-residency obligation</strong> — a regulated financial institution, a public body, a controller with a residency clause in its own contracts — Attaché self-serve is probably not the right product for you, and you should not connect a mailbox to it. Talk to us about a contracted deployment instead. We would rather say this here than have you find it out later.</p>
+      </div>
+    </section>
+
+    <section id="retention">
+      <h2>How long we keep it</h2>
+      <p>Your workspace content stays until you delete it or close your account. We do not age it out on a schedule.</p>
+      <p><strong>When you close your account, we delete your workspace.</strong> Your records live in a database of your own and your files are stored under your workspace's own name, so deleting everything we hold on you is one operation rather than a hunt through shared tables. It removes your records, your files, and your registration with us. We do this within 30 days of closure, and sooner on request. Ask us and we will confirm in writing when it is done.</p>
+      <p>Backups are the one honest exception. Our automated database backups still hold a copy of your data until they expire on their normal cycle, which is no longer than 30 days after the deletion. They are encrypted, they are not used to serve the product, and nothing is restored from them to bring your data back.</p>
+      <p>Two things outlive that deletion, and you should know about both. Ordinary backups roll off on their own cycle, so data can persist in a backup for a short period after it is gone from the live system; it is not restored to anyone. And we keep billing and tax records for as long as the law requires us to, independently of your workspace.</p>
+      <p>Before you close an account, export what you want to keep. Section 11 covers how.</p>
+    </section>
+
+    <section id="security">
+      <h2>How we protect it</h2>
+      <ul>
+        <li><strong>Tenant isolation.</strong> Each customer gets its own PostgreSQL schema — a separate namespace with its own copy of every table, not a shared table with a customer column on it. The schema is fixed when a database connection is opened and never changed afterward, so a connection serving one customer has never been able to address another's tables. This is the strongest control we have and the reason it is listed first.</li>
+        <li><strong>Passwords</strong> are stored using scrypt with a per-user random salt and compared in constant time. They are never reversible and never written to a log.</li>
+        <li><strong>Sessions</strong> are a signed, HTTP-only cookie marked secure in production — not a token sitting in browser storage where a script could read it.</li>
+        <li><strong>Multi-factor authentication</strong> is available to every user via an authenticator app. It is per user and is not currently something an administrator can force on the whole organization.</li>
+        <li><strong>Encryption.</strong> TLS for all traffic between your browser and us and between us and our providers. Platform-managed encryption at rest on the database and on file storage.</li>
+        <li><strong>Authorization and audit.</strong> Permissions are named capabilities resolved per role and adjustable per organization. Every write goes through one layer that applies the permission check and records the audit entry, so neither can be skipped by new code.</li>
+        <li><strong>Access by our staff</strong> is limited to the people who need it to operate and support the platform.</li>
+      </ul>
+      <p>No system is perfectly secure, and we will not claim otherwise. If you believe you have found a vulnerability, write to <a href="mailto:support@attache.group">support@attache.group</a> and we will respond.</p>
+    </section>
+
+    <section id="rights">
+      <h2>Your choices and rights</h2>
+      <h3>Everyone</h3>
+      <ul>
+        <li><strong>See and correct</strong> your own account details in the application.</li>
+        <li><strong>Export</strong> your workspace data in a portable format — ask us if the in-app export does not cover what you need.</li>
+        <li><strong>Delete</strong> individual records at any time, or close your account and have the whole workspace removed.</li>
+        <li><strong>Disconnect</strong> any connected mailbox, from Attaché or from your provider directly.</li>
+      </ul>
+      <h3>If the GDPR, UK GDPR, CCPA/CPRA or a similar law covers you</h3>
+      <p>You have rights of access, correction, deletion, portability, restriction and objection, and the right not to be discriminated against for exercising them. Where we are the controller — your own account and billing data — exercise them by writing to us at the address in section 15. We will respond within the time the applicable law allows, normally 30 days.</p>
+      <p>Where we are the processor — the contacts and companies in someone's workspace — <strong>the customer who operates that workspace is the controller, and the request belongs to them.</strong> Contact them. If you do not know who they are, write to us and we will forward your request to the right customer and tell you that we have.</p>
+      <p>We do not sell personal information or share it for cross-context behavioral advertising, so there is nothing to opt out of on that front. We do not make decisions producing legal effects about you by automated means alone.</p>
+      <p>If you are in the EEA, the UK or Switzerland, you may also complain to your local data protection authority. We would rather you came to us first.</p>
+    </section>
+
+    <section id="cookies">
+      <h2>Cookies</h2>
+      <p><strong>This website — attache.group — sets no cookies at all.</strong> It is static HTML and CSS with no scripts, no analytics, no tag manager, no advertising pixels and no embedded third-party content. Nothing here follows you anywhere.</p>
+      <p>The <strong>application</strong> sets two cookies, both strictly necessary and neither used for tracking: a signed session cookie that keeps you signed in, and a short-lived cookie used while completing a multi-factor challenge. Both are HTTP-only. Blocking them means you cannot sign in.</p>
+    </section>
+
+    <section id="children">
+      <h2>Children</h2>
+      <p>Attaché is a business tool sold to businesses. It is not directed at children, and we do not knowingly collect personal information from anyone under 16. If you believe a child's information has reached us, write to us and we will delete it.</p>
+    </section>
+
+    <section id="changes">
+      <h2>Changes to this statement</h2>
+      <p>We update this statement when the product changes, and the date at the top always reflects the current version. If we make a change that materially affects how we handle your data — a new category of information, a new purpose, or a new provider with access to customer data — we will tell account administrators by email before it takes effect, not after.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact us</h2>
+      <p>Privacy questions, data requests, and security reports all go to the same place, and a person reads it.</p>
+      <p><strong>Email:</strong> <a href="mailto:support@attache.group">support@attache.group</a><br>
+      <strong>Post:</strong> Attache Holdings LLC, 7 Portwalk Place, Portsmouth, NH 03801, United States</p>
+      <p>See also our <a href="/terms">Terms of Service</a>.</p>
+    </section>
+  </main>
+</div>
+
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="logo" href="/" style="gap:9px">
+      <img src="data:image/png;base64,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" alt="Attaché" style="width:24px;height:20px;object-fit:contain">
+      <strong style="font-size:16px">Attaché</strong>
+    </a>
+    <div class="foot-links">
+      <a href="/#platform">Platform</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="mailto:support@attache.group">Contact</a>
+    </div>
+    <span>© 2026 Attache Holdings LLC · attache.group</span>
+  </div>
+</footer>
+
+</body>
+</html>
