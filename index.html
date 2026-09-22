@@ -7,12 +7,12 @@
 <meta name="description" content="Attaché is an agentic-native business platform. Tell it what you need in your own words; it learns how your business actually runs and does the work.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400;12..96,75..100,600;12..96,75..100,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 /* ==================================================================
    Attaché — deck
-   Palette: obsidian verdigris ground, spring-verdigris primary,
-   cyan secondary, chartreuse pop, ember for the one warm state.
+   Palette: deep indigo ground, vivid azure primary, violet
+   secondary, amber pop, coral for the one warm state.
    Material: the app's own liquid-glass recipe — translucent fill,
    saturate, crisp lit rim, sheen as background-image (never inside
    a colour token).
@@ -20,30 +20,30 @@
 
 :root{
   /* ground */
-  --bg-0:#040A09;
-  --bg-1:#071311;
+  --bg-0:#121634;
+  --bg-1:#1A1F47;
 
-  /* ink — green-biased neutrals, chosen not inherited */
-  --ink:#EAF4F1;
-  --ink-2:#B9D1CA;
-  --ink-3:#8AA8A1;
-  --ink-4:#5E7A74;
+  /* ink — indigo-biased neutrals, chosen not inherited */
+  --ink:#F0F2FF;
+  --ink-2:#C2C8EE;
+  --ink-3:#9198C6;
+  --ink-4:#7C83B4;
 
   /* accents */
-  --verd:#3FE0B0;
-  --verd-deep:#12A47C;
-  --cyan:#67E8FF;
-  --chart:#CBF25E;
-  --ember:#FF9E6A;
+  --acc:#5E8BFF;
+  --acc-deep:#3563E0;
+  --acc-2:#B47CFF;
+  --pop:#FFC93C;
+  --warm:#FF7E6B;
 
   /* glass */
-  --glass:rgb(20 44 40 / 0.52);
-  --glass-strong:rgb(26 54 49 / 0.68);
-  --glass-faint:rgb(14 32 29 / 0.34);
-  --rim:inset 0 1.5px 0 rgb(178 240 226 / 0.26);
-  --inner:inset 0 0 44px rgb(120 220 200 / 0.055);
-  --hair:rgb(150 220 205 / 0.16);
-  --hair-faint:rgb(150 220 205 / 0.09);
+  --glass:rgb(46 54 110 / 0.52);
+  --glass-strong:rgb(56 66 128 / 0.68);
+  --glass-faint:rgb(34 42 84 / 0.34);
+  --rim:inset 0 1.5px 0 rgb(210 220 255 / 0.26);
+  --inner:inset 0 0 44px rgb(130 160 255 / 0.055);
+  --hair:rgb(168 180 255 / 0.16);
+  --hair-faint:rgb(168 180 255 / 0.09);
 
   --sh-md:0 1px 2px rgb(0 0 0 / .5), 0 14px 34px -16px rgb(0 0 0 / .75);
   --sh-lg:0 2px 6px rgb(0 0 0 / .55), 0 34px 74px -28px rgb(0 0 0 / .85);
@@ -52,7 +52,7 @@
   --r-lg:22px;
   --wrap:1180px;
 
-  --display:"Bricolage Grotesque","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --display:"Instrument Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   --body:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
   --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
 
@@ -79,10 +79,10 @@ body{
 .backdrop{
   position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
   background:
-    radial-gradient(1300px 900px at 84% -12%, rgb(63 224 176 / 0.18), transparent 56%),
-    radial-gradient(1100px 900px at -12% 40%, rgb(103 232 255 / 0.10), transparent 55%),
-    radial-gradient(900px 760px at 60% 108%, rgb(203 242 94 / 0.07), transparent 60%),
-    linear-gradient(180deg,#071311 0%,#040A09 100%);
+    radial-gradient(1300px 900px at 84% -12%, rgb(94 139 255 / 0.18), transparent 56%),
+    radial-gradient(1100px 900px at -12% 40%, rgb(180 124 255 / 0.10), transparent 55%),
+    radial-gradient(900px 760px at 60% 108%, rgb(255 201 60 / 0.07), transparent 60%),
+    linear-gradient(180deg,#1A1F47 0%,#121634 100%);
 }
 .backdrop::after{
   content:""; position:absolute; inset:0; opacity:.45; mix-blend-mode:screen;
@@ -118,13 +118,13 @@ body{
 }
 .glass,.glass-strong{
   background-image:
-    linear-gradient(152deg, rgb(198 255 240 / .085) 0%, rgb(198 255 240 / .02) 30%, transparent 58%),
-    radial-gradient(130% 100% at 8% -24%, rgb(63 224 176 / .11), transparent 62%);
+    linear-gradient(152deg, rgb(220 228 255 / .085) 0%, rgb(220 228 255 / .02) 30%, transparent 58%),
+    radial-gradient(130% 100% at 8% -24%, rgb(94 139 255 / .11), transparent 62%);
 }
-.glass-faint{background-image:linear-gradient(152deg, rgb(198 255 240 / .04) 0%, transparent 52%)}
+.glass-faint{background-image:linear-gradient(152deg, rgb(220 228 255 / .04) 0%, transparent 52%)}
 
 /* ---------- type ---------- */
-h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;text-wrap:balance;letter-spacing:-.02em;line-height:1.04}
+h1,h2,h3{font-family:var(--display);font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.025em;line-height:1.06}
 h1{font-size:clamp(44px,6.4vw,82px)}
 h2{font-size:clamp(32px,4.2vw,54px)}
 h3{font-size:clamp(20px,2vw,25px);font-weight:600;letter-spacing:-.01em;line-height:1.2}
@@ -133,10 +133,10 @@ a{color:inherit}
 
 .eyebrow{
   font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--verd);display:flex;align-items:center;gap:10px;margin-bottom:22px;
+  color:var(--acc);display:flex;align-items:center;gap:10px;margin-bottom:22px;
 }
 .eyebrow .num{
-  color:var(--bg-0);background:var(--verd);border-radius:5px;
+  color:var(--bg-0);background:var(--acc);border-radius:5px;
   padding:1px 7px;font-weight:500;letter-spacing:.08em;
 }
 .eyebrow .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--hair),transparent);max-width:160px}
@@ -145,13 +145,13 @@ a{color:inherit}
 .small{font-size:14px;color:var(--ink-3);line-height:1.6}
 .mono-label{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-4)}
 
-em{font-style:normal;color:var(--verd)}
+em{font-style:normal;color:var(--acc)}
 strong{font-weight:600;color:var(--ink)}
 
 /* ---------- nav ---------- */
 nav{
   position:sticky;top:0;z-index:50;
-  background:rgb(4 10 9 / .72);
+  background:rgb(18 22 52 / .72);
   backdrop-filter:blur(18px) saturate(180%);
   -webkit-backdrop-filter:blur(18px) saturate(180%);
   border-bottom:1px solid var(--hair-faint);
@@ -161,19 +161,19 @@ nav{
 .logo strong{font-family:var(--display);font-size:19px;font-weight:600;letter-spacing:-.01em}
 .nav-links{display:flex;gap:26px}
 .nav-links a{text-decoration:none;color:var(--ink-3);font-size:14px;transition:color .18s}
-.nav-links a:hover{color:var(--verd)}
+.nav-links a:hover{color:var(--acc)}
 
 .btn{
   display:inline-flex;align-items:center;gap:8px;text-decoration:none;
-  background:var(--verd);color:#032019;font-weight:600;font-size:14px;
+  background:var(--acc);color:#0B1030;font-weight:600;font-size:14px;
   padding:10px 18px;border-radius:999px;border:1px solid transparent;
   transition:transform .18s cubic-bezier(.32,.72,0,1), box-shadow .18s;
-  box-shadow:0 0 0 0 rgb(63 224 176 / .4);
+  box-shadow:0 0 0 0 rgb(94 139 255 / .4);
 }
-.btn:hover{transform:translateY(-1px);box-shadow:0 10px 28px -10px rgb(63 224 176 / .65)}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 28px -10px rgb(94 139 255 / .65)}
 .btn.big{font-size:16px;padding:14px 26px}
 .btn.ghost{background:transparent;color:var(--ink);border-color:var(--hair);box-shadow:none}
-.btn.ghost:hover{border-color:var(--verd);color:var(--verd)}
+.btn.ghost:hover{border-color:var(--acc);color:var(--acc)}
 
 /* ---------- slides ---------- */
 .slide{padding:92px 0;position:relative;z-index:1}
@@ -190,9 +190,9 @@ nav{
   display:inline-flex;align-items:center;gap:9px;align-self:flex-start;
   font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;
   color:var(--ink-2);padding:7px 14px;border-radius:999px;
-  border:1px solid var(--hair);background:rgb(20 44 40 / .5);
+  border:1px solid var(--hair);background:rgb(46 54 110 / .5);
 }
-.badge .dot{width:6px;height:6px;border-radius:50%;background:var(--verd);box-shadow:0 0 0 4px rgb(63 224 176 / .16)}
+.badge .dot{width:6px;height:6px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px rgb(94 139 255 / .16)}
 .hero h1{margin:20px 0 0}
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
 
@@ -203,38 +203,38 @@ nav{
 .screen-bar{
   display:flex;align-items:center;gap:8px;padding:11px 16px;
   border-bottom:1px solid var(--hair-faint);
-  background:rgb(10 24 21 / .5);
+  background:rgb(32 38 80 / .5);
 }
 .screen-bar .tl{display:flex;gap:6px}
-.screen-bar .tl i{width:9px;height:9px;border-radius:50%;background:rgb(150 220 205 / .22);display:block}
-.screen-bar .tl i:first-child{background:rgb(255 158 106 / .5)}
+.screen-bar .tl i{width:9px;height:9px;border-radius:50%;background:rgb(168 180 255 / .22);display:block}
+.screen-bar .tl i:first-child{background:rgb(255 126 107 / .5)}
 .screen-bar .path{font-family:var(--mono);font-size:10.5px;color:var(--ink-4);letter-spacing:.06em;margin-left:6px}
 .screen-bar .right{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--ink-4)}
 .screen-body{padding:22px}
 
 /* ask bar */
 .ask{display:flex;flex-direction:column;gap:14px}
-.ask h3{font-family:var(--display);font-size:24px;font-weight:800;letter-spacing:-.02em}
+.ask h3{font-family:var(--display);font-size:24px;font-weight:600;letter-spacing:-.02em}
 .ask .ask-sub{font-size:13.5px;color:var(--ink-3);line-height:1.5}
 .ask-field{
   display:flex;align-items:center;gap:12px;padding:15px 15px 15px 18px;
-  border-radius:14px;border:1.5px solid rgb(63 224 176 / .42);
-  background:rgb(8 20 18 / .6);
-  box-shadow:0 0 0 4px rgb(63 224 176 / .07), inset 0 0 26px rgb(63 224 176 / .05);
+  border-radius:14px;border:1.5px solid rgb(94 139 255 / .42);
+  background:rgb(26 32 70 / .6);
+  box-shadow:0 0 0 4px rgb(94 139 255 / .07), inset 0 0 26px rgb(94 139 255 / .05);
 }
 .ask-field .ph{flex:1;color:var(--ink-4);font-size:15px}
-.caret{width:1.5px;height:17px;background:var(--verd);display:inline-block;vertical-align:-3px;animation:blink 1.15s steps(1,end) infinite}
+.caret{width:1.5px;height:17px;background:var(--acc);display:inline-block;vertical-align:-3px;animation:blink 1.15s steps(1,end) infinite}
 @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
 .send{
   font-family:var(--mono);font-size:11px;letter-spacing:.08em;
-  color:#032019;background:var(--verd);border-radius:9px;padding:7px 13px;font-weight:500;
+  color:#0B1030;background:var(--acc);border-radius:9px;padding:7px 13px;font-weight:500;
 }
 .chips{display:grid;grid-template-columns:1fr 1fr;gap:9px}
 .chip{
   font-size:13px;color:var(--ink-2);padding:11px 14px;border-radius:11px;
-  border:1px solid var(--hair-faint);background:rgb(16 36 32 / .42);
+  border:1px solid var(--hair-faint);background:rgb(40 48 96 / .42);
 }
-.chip.hot{border-color:rgb(203 242 94 / .34);color:var(--chart)}
+.chip.hot{border-color:rgb(255 201 60 / .34);color:var(--pop)}
 
 /* ---------- glass table block ---------- */
 .tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:13.5px}
@@ -250,7 +250,7 @@ nav{
 .tbl tr:last-child td{border-bottom:0}
 .tbl .num{text-align:right;font-variant-numeric:tabular-nums;color:var(--ink);font-weight:500}
 .tbl .name{color:var(--ink);font-weight:500}
-.tbl tr:hover td{background:rgb(63 224 176 / .045)}
+.tbl tr:hover td{background:rgb(94 139 255 / .045)}
 .tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
 
 .pill{
@@ -259,19 +259,19 @@ nav{
   color:var(--ink-2);white-space:nowrap;
 }
 .pill::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ink-4)}
-.pill.win{color:var(--verd);border-color:rgb(63 224 176 / .3)}
-.pill.win::before{background:var(--verd)}
-.pill.warm{color:var(--chart);border-color:rgb(203 242 94 / .3)}
-.pill.warm::before{background:var(--chart)}
-.pill.cool{color:var(--cyan);border-color:rgb(103 232 255 / .28)}
-.pill.cool::before{background:var(--cyan)}
+.pill.win{color:var(--acc);border-color:rgb(94 139 255 / .3)}
+.pill.win::before{background:var(--acc)}
+.pill.warm{color:var(--pop);border-color:rgb(255 201 60 / .3)}
+.pill.warm::before{background:var(--pop)}
+.pill.cool{color:var(--acc-2);border-color:rgb(180 124 255 / .28)}
+.pill.cool::before{background:var(--acc-2)}
 
-.heat{display:inline-block;width:62px;height:5px;border-radius:999px;background:rgb(150 220 205 / .14);position:relative;vertical-align:middle;overflow:hidden}
-.heat i{position:absolute;inset:0 auto 0 0;display:block;border-radius:999px;background:linear-gradient(90deg,var(--cyan),var(--verd),var(--chart))}
+.heat{display:inline-block;width:62px;height:5px;border-radius:999px;background:rgb(168 180 255 / .14);position:relative;vertical-align:middle;overflow:hidden}
+.heat i{position:absolute;inset:0 auto 0 0;display:block;border-radius:999px;background:linear-gradient(90deg,var(--acc-2),var(--acc),var(--pop))}
 
 /* ---------- pipeline block ---------- */
 .pipe{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px}
-.pipe .big{font-family:var(--display);font-size:clamp(38px,5vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--ink)}
+.pipe .big{font-family:var(--display);font-size:clamp(38px,5vw,56px);font-weight:700;letter-spacing:-.025em;line-height:1;color:var(--ink)}
 .pipe .big small{font-family:var(--body);font-size:14px;font-weight:400;color:var(--ink-3);letter-spacing:0;margin-left:10px}
 .pipe-split{display:flex;gap:26px;align-items:flex-end}
 .pipe-split div{text-align:right}
@@ -280,7 +280,7 @@ nav{
 .qtr span{
   font-family:var(--mono);font-size:11px;color:var(--ink-2);
   padding:5px 11px;border-radius:8px;border:1px solid var(--hair-faint);
-  background:rgb(16 36 32 / .4);
+  background:rgb(40 48 96 / .4);
 }
 
 /* bar chart — one scale, every label a value the chart reaches */
@@ -289,9 +289,9 @@ nav{
 .bars .col{align-self:end;width:100%}
 .bars .cap{font-family:var(--mono);font-size:10.5px;color:var(--ink);font-variant-numeric:tabular-nums}
 .bars .cap.off{color:var(--ink-4)}
-.bars .col{border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,rgb(63 224 176 /.9),rgb(18 164 124 /.75));min-height:2px}
-.bars .col.ghost{background:rgb(150 220 205 / .12)}
-.bars .col.win{background:linear-gradient(180deg,var(--chart),rgb(140 190 50 /.8))}
+.bars .col{border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,rgb(94 139 255 /.9),rgb(53 99 224 /.75));min-height:2px}
+.bars .col.ghost{background:rgb(168 180 255 / .12)}
+.bars .col.win{background:linear-gradient(180deg,var(--pop),rgb(201 144 0 /.8))}
 .bars .lab{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--ink-4);text-transform:uppercase;line-height:1.3}
 .bars .lab b{display:block;color:var(--ink-3);font-weight:500;font-size:10.5px}
 
@@ -300,12 +300,12 @@ nav{
 .staff .s{padding:22px;border-radius:var(--r);display:flex;flex-direction:column;gap:11px}
 .staff .av{
   width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
-  font-family:var(--display);font-weight:800;font-size:17px;color:#032019;
+  font-family:var(--display);font-weight:700;font-size:17px;color:#0B1030;
 }
-.staff .s:nth-child(1) .av{background:var(--verd)}
-.staff .s:nth-child(2) .av{background:var(--cyan)}
-.staff .s:nth-child(3) .av{background:var(--chart)}
-.staff .s:nth-child(4) .av{background:var(--ember)}
+.staff .s.soon{border-style:dashed}
+.staff .s.soon .av{background:rgb(168 180 255 / .18);color:var(--ink-2)}
+.staff .s.soon .rl{color:var(--warm)}
+.staff .s:nth-child(1) .av{background:var(--acc)}
 .staff .nm{font-family:var(--display);font-size:19px;font-weight:600;letter-spacing:-.01em}
 .staff .rl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin-top:-8px}
 .staff p{font-size:13.5px;color:var(--ink-3);line-height:1.55}
@@ -314,20 +314,20 @@ nav{
 .consent{display:flex;flex-direction:column;gap:10px}
 .consent .row{
   display:flex;align-items:center;gap:14px;padding:13px 16px;border-radius:13px;
-  border:1px solid var(--hair-faint);background:rgb(16 36 32 / .4);
+  border:1px solid var(--hair-faint);background:rgb(40 48 96 / .4);
 }
 .consent .row .t{flex:1;font-size:13.5px;color:var(--ink-2)}
 .consent .row .t b{display:block;color:var(--ink);font-weight:500;font-size:14px}
-.sw{width:38px;height:21px;border-radius:999px;background:rgb(150 220 205 / .16);position:relative;flex:none;border:1px solid var(--hair-faint)}
+.sw{width:38px;height:21px;border-radius:999px;background:rgb(168 180 255 / .16);position:relative;flex:none;border:1px solid var(--hair-faint)}
 .sw i{position:absolute;top:2px;left:2px;width:15px;height:15px;border-radius:50%;background:var(--ink-4);transition:.2s}
-.sw.on{background:rgb(63 224 176 / .3);border-color:rgb(63 224 176 / .45)}
-.sw.on i{left:19px;background:var(--verd)}
+.sw.on{background:rgb(94 139 255 / .3);border-color:rgb(94 139 255 / .45)}
+.sw.on i{left:19px;background:var(--acc)}
 
 /* ---------- feature grid ---------- */
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 .cell{padding:26px;border-radius:var(--r);display:flex;flex-direction:column;gap:11px}
-.cell .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--verd)}
+.cell .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--acc)}
 .cell h3{font-size:20px}
 .cell p{font-size:14px;color:var(--ink-3);line-height:1.6}
 
@@ -335,7 +335,7 @@ nav{
 .loop{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:var(--r-lg);overflow:hidden}
 .loop .st{padding:24px 22px;border-right:1px solid var(--hair-faint);display:flex;flex-direction:column;gap:9px}
 .loop .st:last-child{border-right:0}
-.loop .n{font-family:var(--mono);font-size:10.5px;color:var(--verd);letter-spacing:.14em}
+.loop .n{font-family:var(--mono);font-size:10.5px;color:var(--acc);letter-spacing:.14em}
 .loop .st b{font-family:var(--display);font-size:17px;font-weight:600;letter-spacing:-.01em}
 .loop .st p{font-size:13px;color:var(--ink-3);line-height:1.55}
 
@@ -344,7 +344,7 @@ nav{
 .appnav .g{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4);margin:14px 0 6px;padding-left:11px}
 .appnav .g:first-child{margin-top:0}
 .appnav a{display:block;padding:7px 11px;border-radius:8px;color:var(--ink-3);text-decoration:none}
-.appnav a.on{background:rgb(63 224 176 / .12);color:var(--verd);box-shadow:inset 2px 0 0 var(--verd)}
+.appnav a.on{background:rgb(94 139 255 / .12);color:var(--acc);box-shadow:inset 2px 0 0 var(--acc)}
 
 /* ---------- CTA ---------- */
 .cta{padding:62px 44px;border-radius:26px;text-align:center;display:flex;flex-direction:column;gap:18px;align-items:center}
@@ -354,11 +354,11 @@ footer{border-top:1px solid var(--hair-faint);padding:34px 0;position:relative;z
 .foot-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .foot-links{display:flex;gap:22px;flex-wrap:wrap}
 .foot-links a{color:var(--ink-3);text-decoration:none;font-size:13.5px}
-.foot-links a:hover{color:var(--verd)}
+.foot-links a:hover{color:var(--acc)}
 footer .c{font-size:13px;color:var(--ink-4)}
 
 /* ---------- focus + motion ---------- */
-a:focus-visible,.btn:focus-visible{outline:2px solid var(--verd);outline-offset:3px;border-radius:6px}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:6px}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
 }
@@ -470,7 +470,7 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--verd);outline-offset:
       <div class="screen-body" style="display:flex;flex-direction:column;gap:20px">
         <div>
           <div class="mono-label">Your day · 2026</div>
-          <h3 style="margin-top:7px;font-family:var(--display);font-size:26px;font-weight:800;letter-spacing:-.02em">Tuesday, September 22</h3>
+          <h3 style="margin-top:7px;font-family:var(--display);font-size:26px;font-weight:600;letter-spacing:-.02em">Tuesday, September 22</h3>
           <p class="small" style="margin-top:5px">Nothing overdue. You're clear.</p>
         </div>
 
@@ -479,7 +479,7 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--verd);outline-offset:
           <div class="pipe">
             <div class="big">$456.5K<small>predicted to close · 8 open deals</small></div>
             <div class="pipe-split">
-              <div><div class="mono-label">Commit ≥75%</div><div class="v" style="color:var(--verd)">$456.5K</div></div>
+              <div><div class="mono-label">Commit ≥75%</div><div class="v" style="color:var(--acc)">$456.5K</div></div>
               <div><div class="mono-label">Upside 60%</div><div class="v" style="color:var(--ink-4)">$0</div></div>
             </div>
           </div>
@@ -578,29 +578,29 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--verd);outline-offset:
   <div class="wrap">
     <div class="copy" style="max-width:760px;margin-bottom:38px">
       <div class="eyebrow"><span class="num">04</span> Your staff <span class="rule"></span></div>
-      <h2>Four agents. They have <em>jobs</em>, not&nbsp;prompts.</h2>
-      <p class="lede">Each one owns a lane of the business and works between the records — not as a chat window you have to remember to open, but as staff who notice things and come to you.</p>
+      <h2>Herbie works today. The&nbsp;rest of the desk is&nbsp;<em>coming</em>.</h2>
+      <p class="lede">An agent here owns a lane of the business and works between the records — not a chat window you have to remember to open, but staff who notice things and come to you. Sales ships at launch; the other three lanes are in build.</p>
     </div>
 
     <div class="staff">
       <div class="s glass">
         <span class="av">H</span>
-        <span class="nm">Herbie</span><span class="rl">Sales</span>
+        <span class="nm">Herbie</span><span class="rl">Sales · live</span>
         <p>Writes to your customers as you, keeps the records straight, and tells you who to chase.</p>
       </div>
-      <div class="s glass">
-        <span class="av">J</span>
-        <span class="nm">Jarvis</span><span class="rl">Operations</span>
+      <div class="s glass soon">
+        <span class="av">O</span>
+        <span class="nm">Operations</span><span class="rl">In build</span>
         <p>Watches the work after the sale — what shipped, what's late, what's waiting on somebody.</p>
       </div>
-      <div class="s glass">
+      <div class="s glass soon">
         <span class="av">$</span>
-        <span class="nm">CFO</span><span class="rl">Money</span>
+        <span class="nm">Money</span><span class="rl">In build</span>
         <p>Quotes, expenses, invoices and the forecast. Knows what's committed and what's wishful.</p>
       </div>
-      <div class="s glass">
-        <span class="av">A</span>
-        <span class="nm">Argus</span><span class="rl">Compliance</span>
+      <div class="s glass soon">
+        <span class="av">C</span>
+        <span class="nm">Compliance</span><span class="rl">In build</span>
         <p>Keeps the paperwork and the permissions honest, and says so when something drifts.</p>
       </div>
     </div>
@@ -609,7 +609,7 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--verd);outline-offset:
       <div class="copy">
         <h3 style="font-size:26px">They ask before they act. Every&nbsp;time.</h3>
         <p class="small" style="font-size:15px;line-height:1.65">An agent that can write to your customers is only useful if you trust it, so Attaché asks for one capability at a time and you can say no to any of them. Nothing is switched on by default. Nothing reads your mail unless you say so. And you can see the full list of what each one is allowed to do, on one page, at any time.</p>
-        <p class="small">You can rename them, too. Most people keep Herbie.</p>
+        <p class="small">You can rename him, too. Most people keep Herbie.</p>
       </div>
 
       <div class="screen glass">
@@ -650,7 +650,7 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--verd);outline-offset:
         <div class="glass-faint" style="padding:20px;border-radius:var(--r)">
           <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px">
             <span class="mono-label">Forecast by stage · Q3 2026</span>
-            <span class="mono-label">Weighted <strong style="color:var(--verd)">$130.3K</strong> &nbsp;·&nbsp; Open $151.0K</span>
+            <span class="mono-label">Weighted <strong style="color:var(--acc)">$130.3K</strong> &nbsp;·&nbsp; Open $151.0K</span>
           </div>
           <div class="bars">
             <div class="b"><span class="cap off">—</span><span class="col ghost" style="height:3px"></span><span class="lab">New enquiry<b>0</b></span></div>
@@ -685,7 +685,7 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--verd);outline-offset:
           <span class="right">18 records</span>
         </div>
         <div class="screen-body" style="display:flex;flex-direction:column;gap:14px">
-          <div style="display:flex;gap:10px;align-items:center"><span class="mono-label">Warmth</span><span style="flex:1;height:5px;border-radius:999px;background:linear-gradient(90deg,rgb(103 232 255 /.35),var(--verd),var(--chart))"></span><span class="mono-label">hot</span></div>
+          <div style="display:flex;gap:10px;align-items:center"><span class="mono-label">Warmth</span><span style="flex:1;height:5px;border-radius:999px;background:linear-gradient(90deg,rgb(180 124 255 /.35),var(--acc),var(--pop))"></span><span class="mono-label">hot</span></div>
           <div class="tbl-scroll">
             <table class="tbl">
               <thead><tr><th>Name</th><th>Lifecycle</th><th class="num">Heat</th></tr></thead>
@@ -727,7 +727,7 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--verd);outline-offset:
             <a href="#top">Texts</a>
             <a href="#top">Web leads</a>
             <div class="g">Your staff</div>
-            <a href="#staff">Herbie · Jarvis · CFO · Argus</a>
+            <a href="#staff">Herbie</a>
           </div>
         </div>
       </div>
