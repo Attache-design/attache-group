@@ -140,8 +140,8 @@
   <h1>Privacy Statement</h1>
   <p class="lede">How Attaché collects, uses, stores and shares information — written to be read, not to be skimmed past.</p>
   <p class="stamp">
-    <span><b>Effective</b> 09-22-2026</span>
-    <span><b>Last updated</b> 09-22-2026</span>
+    <span><b>Effective</b> 10-07-2026</span>
+    <span><b>Last updated</b> 10-07-2026</span>
     <span><b>Applies to</b> the Attaché platform and attache.group</span>
   </p>
 </div>
@@ -156,6 +156,7 @@
       <li><a href="#mailbox">Connected mailboxes</a></li>
       <li><a href="#use">How we use information</a></li>
       <li><a href="#ai">AI processing</a></li>
+      <li><a href="#assistants">Outside AI assistants</a></li>
       <li><a href="#share">Who we share information with</a></li>
       <li><a href="#where">Where your data is processed</a></li>
       <li><a href="#retention">How long we keep it</a></li>
@@ -174,9 +175,10 @@
       <ul>
         <li><strong>Your CRM data is yours.</strong> We hold it to run the service for you, and we do not sell it, rent it, or use it to advertise to anyone.</li>
         <li><strong>Each customer's data lives in its own database schema.</strong> Not a shared table with a filter on it — a separate namespace, addressed by a connection that has never been able to reach another customer's tables.</li>
-        <li><strong>If you connect a mailbox, we store message subjects and bodies</strong> so they can appear on your contact and deal timelines. That is the most sensitive thing we hold, so it is stated here rather than left to be inferred.</li>
+        <li><strong>If you connect a mailbox, we store nothing out of it.</strong> We read a digest — sender, subject, date and your provider's own one-line snippet — at the moment somebody asks their agent a question, and reading is off until you switch it on. Message bodies are never fetched, which is why they cannot be kept.</li>
         <li><strong>We use Google Gemini for AI features</strong>, and we send it only the text a given task needs. Google's paid API terms exclude that text from training its models.</li>
-        <li><strong>We process data in the United States</strong>, for every customer, on purpose. Section 8 explains why, and who should not sign up because of it.</li>
+        <li><strong>You can connect an outside AI assistant, and if you do, your records leave our platform.</strong> It is off until somebody on your account turns it on, it can read but not change anything without a person approving the change first, and it cannot read a connected mailbox at all. What it takes away is then governed by that company's terms, not ours. Section 7.</li>
+        <li><strong>We process data in the United States</strong>, for every customer, on purpose. Section 9 explains why, and who should not sign up because of it.</li>
         <li><strong>This website sets no cookies and runs no analytics.</strong> The application sets two, and both are required to keep you signed in.</li>
       </ul>
     </div>
@@ -192,7 +194,7 @@
       <h2>Our role: processor or controller</h2>
       <p>Which hat we wear depends on which data you mean, and the distinction matters for your rights.</p>
       <h3>Data you put into Attaché — we are the processor</h3>
-      <p>The accounts, contacts, deals, notes, tasks, files and mail in your workspace belong to you. You decide what goes in, why it is there, and how long it stays. We process it on your instructions in order to provide the service. Under the GDPR and similar laws, <strong>you are the controller and we are the processor</strong>, and the people whose details you store are the data subjects.</p>
+      <p>The accounts, contacts, deals, notes, tasks and files in your workspace belong to you. You decide what goes in, why it is there, and how long it stays. We process it on your instructions in order to provide the service. Under the GDPR and similar laws, <strong>you are the controller and we are the processor</strong>, and the people whose details you store are the data subjects.</p>
       <p>If one of your contacts asks us directly what we hold about them, we will not answer for you. We will refer them to you and help you respond.</p>
       <h3>Your own account and billing data — we are the controller</h3>
       <p>The name, work email and password of the people on your account, your subscription and payment records, and our server and usage logs are data we determine the purposes for. For that narrow set, <strong>we are the controller</strong>.</p>
@@ -208,7 +210,7 @@
       </ul>
       <h3>Information that arrives because you connected something</h3>
       <ul>
-        <li><strong>Mailbox and calendar content</strong>, if and only if a user on your account connects a mailbox. Section 4 covers this in full.</li>
+        <li><strong>Calendar entries, and a passing digest of recent mail</strong>, if and only if a user on your account connects a mailbox. The mail digest is read to answer a question and is not stored. Section 4 covers this in full.</li>
       </ul>
       <h3>Information we generate</h3>
       <ul>
@@ -231,7 +233,7 @@
             <tr><th>Permission</th><th>Microsoft 365</th><th>Google Workspace</th><th>What it is for</th></tr>
           </thead>
           <tbody>
-            <tr><td>Read your mail</td><td><code>Mail.Read</code></td><td><code>gmail.readonly</code></td><td>Putting the messages on a contact or deal onto its timeline</td></tr>
+            <tr><td>Read your mail</td><td><code>Mail.Read</code></td><td><code>gmail.readonly</code></td><td>Reading the digest &mdash; sender, subject, date, snippet &mdash; when somebody asks their agent about recent mail</td></tr>
             <tr><td>Send mail as you</td><td><code>Mail.Send</code></td><td><code>gmail.send</code></td><td>Sending a message you wrote and sent from inside Attaché, in your own thread and filed in your own Sent folder</td></tr>
             <tr><td>Know who signed in</td><td><code>User.Read</code></td><td><code>userinfo.email</code>, <code>userinfo.profile</code>, <code>openid</code></td><td>Recording which address the mailbox actually belongs to</td></tr>
             <tr><td>Keep the connection alive</td><td><code>offline_access</code></td><td>&mdash;</td><td>Refreshing access without asking you to sign in again every hour</td></tr>
@@ -240,13 +242,13 @@
       </div>
       <p><strong>That is the whole list.</strong> On the direct Microsoft and Google connections we do not request access to your calendar, your contacts, your files or your drive, and we cannot read them. The read permission is deliberately the narrow, read-only one: we cannot modify or delete anything in your mailbox.</p>
       <p><strong>We never send mail on your behalf on our own initiative.</strong> The send permission is used only when a person on your account composes and sends a message in Attaché. We do not send marketing from your address, and we do not auto-reply.</p>
-      <h3>What we store</h3>
-      <p>When a mailbox is connected, <strong>message subjects and full message bodies are stored</strong> in your workspace, alongside a one-line AI-generated summary used on the timeline. Attachments you choose to save are stored too. Where calendar sync is in use, we store an event's subject, time, participants and conferencing link — not its full description.</p>
+      <h3>What we store: nothing out of the mailbox itself</h3>
+      <p><strong>We do not store your messages.</strong> There is no mail ingest and no copy of your inbox on our side. When somebody on your account asks their agent about recent mail, we read a <strong>digest</strong> from your provider at that moment — sender, subject, date and your provider's own one-line snippet, the same fields your own inbox list shows you — and use it to answer the question. <strong>Message bodies and attachments are never fetched from your provider</strong>, which is what makes it impossible for them to be stored, logged or sent to a model. Attachments you deliberately save onto a record are stored, because you put them there. Where calendar sync is in use, we store an event's subject, time, participants and conferencing link — not its full description.</p>
       <div class="note">
-        <p>We store the message body because the timeline is only useful if the message is actually there. If that is more than you want us to hold, do not connect the mailbox — every other part of Attaché works without it.</p>
+        <p>An earlier version of this statement said we stored subjects and full message bodies. We did, and we stopped: the connector that took mail in was removed from the product on 09-26-2026 and the stored copies went with it. This paragraph is the correction, left visible rather than quietly swapped.</p>
       </div>
       <h3>Turning it off</h3>
-      <p>You can disconnect a mailbox in Attaché at any time, and you can independently revoke our access from your Microsoft or Google account settings without involving us. Revoking stops all further access immediately. Mail already stored in your workspace stays there until you delete it or close your account; ask us and we will delete it for you.</p>
+      <p>You can disconnect a mailbox in Attaché at any time, and you can independently revoke our access from your Microsoft or Google account settings without involving us. Revoking stops all further access immediately — and because nothing out of the mailbox was stored, there is no mail of yours left on our side to delete afterwards.</p>
     </section>
 
     <section id="use">
@@ -267,11 +269,47 @@
     <section id="ai">
       <h2>AI processing</h2>
       <p>All AI features in Attaché run on <strong>Google Gemini</strong>, called through a single point in our code so that every model call is recorded with its job kind, model tier and token count.</p>
-      <p><strong>We send only the text a specific task needs.</strong> The case worth naming: when a connected mailbox takes in a message longer than 500 characters, <strong>up to 8,000 characters of the message body are sent to Gemini</strong> to produce the one-line summary you see on the timeline. Shorter messages use the provider's own snippet and are not sent at all.</p>
+      <p><strong>We send only the text a specific task needs</strong> — the note you asked it to summarise, the document you asked it to read, the question you typed. <strong>Your mail is not one of those tasks.</strong> An earlier version of this statement named the case where up to 8,000 characters of a message body went to Gemini for a timeline summary; that path was removed with the mail connector on 09-26-2026, and since no body is fetched at all (section 4) there is none to send.</p>
       <p><strong>Training.</strong> Google's paid API terms exclude the inputs and outputs of these calls from training Google's models. We do not train models on your data ourselves.</p>
       <p><strong>Region.</strong> These calls go to a global Google endpoint with no region selection. Google's regional-endpoint product is not in use.</p>
       <div class="note">
         <p>AI output can be wrong. Summaries, extractions and suggestions are drafts for a person to check, and anything read out of an external document is confirmed by a human before it is written into your records.</p>
+      </div>
+    </section>
+
+    <section id="assistants">
+      <h2>Outside AI assistants</h2>
+      <p>You can connect an outside AI assistant to your workspace &mdash; Claude, or any other product that speaks the Model Context Protocol &mdash; so that you can ask it about your records in its own window instead of ours. This is deliberately a separate section from section 6, because it is a different thing in the way that matters here. Section 6 is us sending a short piece of text to a model we chose, under terms we negotiated, and bringing the answer back. This is <strong>you handing a company we have no contract with a door into your workspace</strong>.</p>
+
+      <p><strong>Nothing is connected until somebody on your account connects it.</strong> A new workspace has none. Turning one on means a person holding a seat signs in through the assistant and approves the connection on our own screen, the way they would approve any other application asking for access. We cannot connect one for you, and there is no assistant that arrives already switched on.</p>
+      <p><strong>A connected assistant can never see or do more than the person who connected it.</strong> Its permissions are that person's permissions, resolved freshly on every single call rather than copied at the time of connection &mdash; so a connection made by somebody who cannot see your invoices cannot see your invoices, and a connection made by somebody whose access is later reduced is reduced with them. The consent screen shows that person the actual list of tools the connection would get, computed the same way.</p>
+
+      <h3>What a connected assistant can read</h3>
+      <p>It reads through a <strong>fixed list of sixteen tools</strong> &mdash; who am I, search records, read one record, list deals, list invoices, list files, what is on my plate, and the rest. That list lives in our code. The assistant cannot run a query of its own against your database, cannot reach a table no tool exposes, and cannot widen the list by asking.</p>
+      <p><strong>It cannot read a connected mailbox at all.</strong> No tool in that list returns mail, so an assistant cannot reach even the passing digest described in section 4, with the mailbox switched on or off. That is a consequence of the list, not a setting, and if it ever changes this section changes with it.</p>
+
+      <h3>What it can change &mdash; and the desk everything waits at</h3>
+      <p><strong>On its own, nothing.</strong> An assistant can name thirty-three actions in your workspace, and they all arrive through one door. <strong>Ten of them are things it can actually ask to have done.</strong> The other twenty-three it cannot run at all &mdash; it is told so and handed the address of the page where a person does it, which is a sentence we would rather it read than a button we would rather not build.</p>
+      <p>Each of the ten <strong>parks as a request on an approvals desk inside Attaché</strong>, where a person reads what was asked and either runs it or does not. A parked request <strong>expires by itself after 24 hours</strong>, and an assistant may hold at most <strong>twenty</strong> waiting at once, so a connection that starts asking for things cannot bury you in them or leave one lying around for a week.</p>
+      <p>The same desk stands in front of the two tools that touch files: adding a file to a record, and making a <strong>link that opens a file without a login</strong>. Neither happens because an assistant asked for it. A person approves the link, and the link itself stops working after 30 days.</p>
+      <p><strong>One write does not wait, and we would rather name it than bury it.</strong> An assistant can tell your workspace a fact to remember &mdash; the way you would tell a colleague something. That goes straight into the same agent memory your own agents use, where it is <strong>listed on a page in the app with a button to forget it</strong> &mdash; and forgetting takes it off every one of your agents at once, because one fact is taught to all of them. We record which assistant said it; the page today lists it alongside the things your own agent worked out for itself. It changes no record, no deal and no invoice; it only changes what your agents know.</p>
+
+      <h3>What is refused outright</h3>
+      <p>Anything carrying a credential never reaches the desk at all. The actions that hold a secret &mdash; connecting a phone number, connecting an outside account &mdash; are <strong>refused entry to the assistant interface entirely</strong>, so there is no approval screen on which somebody half-reading it could hand an outside assistant a key to one of your other services. Actions that work by asking a person a question are refused for the same reason: an assistant cannot put words in your staff's mouths.</p>
+
+      <h3>What is written down</h3>
+      <p><strong>Every call an assistant makes is recorded, including the ones we refuse</strong>, on a page in the app you can read. The record says which tool was called and how it ended, plus &mdash; in the three cases where naming it tells a reader something &mdash; which change was asked for, what a file was called, or which kind of record was opened. It deliberately <strong>does not record what came back</strong> &mdash; not the records read, not the words searched for &mdash; because a log of everything an assistant was ever shown would be a second copy of your workspace sitting in a place with weaker rules around it.</p>
+      <p>A connection can also be <strong>narrowed</strong> when it is made &mdash; to sales, money, people, work, marketing or setup, rather than all of them &mdash; so an assistant brought in for one job need not be given the run of the place.</p>
+
+      <h3>How long access lasts, and how to end it</h3>
+      <p>An assistant's access key is good for <strong>one hour</strong>; the standing grant behind it for <strong>30 days</strong>, after which the person signs in again. <strong>Disconnecting an assistant kills both at once</strong> &mdash; there is no key that outlives the grant that issued it &mdash; and anything that assistant left waiting on the approvals desk is still just a request nobody ran. An administrator ends a connection from the agent activity page in Attaché; anyone can also stop one at the assistant's end, which is the faster route if it is your own.</p>
+
+      <h3>The part we cannot control, said plainly</h3>
+      <p>Everything above is about what happens on our side of the line. Here is the other side. <strong>What a connected assistant reads leaves our platform.</strong> It goes to whoever operates that assistant, and from that moment it is covered by <strong>their</strong> privacy terms and their retention, not by this statement and not by anything we can enforce. We do not see what they do with it. If that company trains on what it is sent, or keeps it, that is a question to settle with them before you connect it &mdash; and it is worth settling, because the whole point of connecting one is that it can read your customer records.</p>
+      <p><strong>We do not reach back the other way.</strong> An outside assistant usually has connections of its own &mdash; its own mail, its own calendar, its own files. Attaché cannot see or use any of them today; nothing in our code asks an assistant for anything. We may want to in future, because an assistant that can read the thread a deal actually lives in would be genuinely useful. If we build it, it will be something you switch on, and <strong>it will appear in the table in section 8 before it is switched on</strong>, like everything else that gets access to your data.</p>
+
+      <div class="note">
+        <p>Short version: an outside assistant is a <strong>reader with a narrow list and no hands</strong>. The limits in here are ours to keep. What happens to your records after they leave is the assistant operator's, which is why the decision to connect one belongs to you rather than to us.</p>
       </div>
     </section>
 
@@ -286,12 +324,11 @@
           <tbody>
             <tr><td><strong>Google Cloud</strong></td><td>Hosting, database and object storage</td><td>All customer data, at rest and in transit</td><td>Always</td></tr>
             <tr><td><strong>Google (Gemini)</strong></td><td>AI reasoning</td><td>Only the text sent for a given task — see section 6</td><td>Always</td></tr>
-            <tr><td><strong>Nylas</strong></td><td>Mailbox and calendar sync for providers we cannot connect to directly</td><td>Mailbox and calendar content</td><td>Opt-in, and only where there is no direct alternative</td></tr>
             <tr><td><strong>Microsoft / Google</strong></td><td>Your own mailbox, connected directly</td><td>Mailbox content, passing between your tenant and us</td><td>Opt-in</td></tr>
           </tbody>
         </table>
       </div>
-      <p><strong>Attaché checks for a direct connection before offering the one we pay for.</strong> If you are on Google Workspace or Microsoft 365, we guide you to connect your own mailbox directly, and Nylas is offered only to customers with no such option. We built that to control cost, but it has a privacy consequence worth stating: on the direct road there is <strong>one fewer company</strong> touching your mail. It does not remove the others — on either road the message body is stored by us and excerpted to Gemini.</p>
+      <p><strong>There is one fewer company on this list than there was.</strong> Attaché used to offer a third-party sync service for mailboxes we could not reach directly; it was removed from the product on 09-26-2026, and with it the last company other than you, us and your own provider that ever touched your mail. If you are on Google Workspace or Microsoft 365 you connect your own mailbox directly. If you are on neither, Attaché works without a mailbox.</p>
       <p><strong>That is the whole list.</strong> No other company is set up to receive your data. Anything we add appears in this table before it is switched on.</p>
       <p>We may also disclose information when the law requires it — a valid subpoena, court order or similar legal process — and to protect our rights or someone's safety. If we are ever compelled to hand over a customer's data, we will tell that customer unless we are legally prohibited from doing so. If Attaché is acquired or merged, customer data may transfer as part of that transaction, and you will be told before it becomes subject to a different privacy statement.</p>
     </section>
@@ -299,7 +336,7 @@
     <section id="where">
       <h2>Where your data is processed</h2>
       <p><strong>Attaché runs one set of infrastructure for every customer worldwide, located in the United States.</strong> We do not create per-region infrastructure, and we do not intend to. A self-serve product priced per seat cannot carry a separate database and storage footprint per jurisdiction; regional infrastructure is what a contracted single-tenant deployment buys, and it is priced accordingly.</p>
-      <p>Said plainly rather than buried: <strong>if you are outside the United States, you are served from infrastructure inside the United States.</strong> Personal data of people in the EU and UK is processed in the US — by the platform, by Gemini, and by Nylas where it is used. Where we rely on a transfer instrument for that, it is the EU-US Data Privacy Framework where a provider is certified, and standard contractual clauses otherwise.</p>
+      <p>Said plainly rather than buried: <strong>if you are outside the United States, you are served from infrastructure inside the United States.</strong> Personal data of people in the EU and UK is processed in the US — by the platform and by Gemini. Where we rely on a transfer instrument for that, it is the EU-US Data Privacy Framework where a provider is certified, and standard contractual clauses otherwise.</p>
       <div class="note">
         <p><strong>If you are under a hard data-residency obligation</strong> — a regulated financial institution, a public body, a controller with a residency clause in its own contracts — Attaché self-serve is probably not the right product for you, and you should not connect a mailbox to it. Talk to us about a contracted deployment instead. We would rather say this here than have you find it out later.</p>
       </div>
@@ -311,7 +348,7 @@
       <p><strong>When you close your account, we delete your workspace.</strong> Your records live in a database of your own and your files are stored under your workspace's own name, so deleting everything we hold on you is one operation rather than a hunt through shared tables. It removes your records, your files, and your registration with us. We do this within 30 days of closure, and sooner on request. Ask us and we will confirm in writing when it is done.</p>
       <p>Backups are the one honest exception. Our automated database backups still hold a copy of your data until they expire on their normal cycle, which is no longer than 30 days after the deletion. They are encrypted, they are not used to serve the product, and nothing is restored from them to bring your data back.</p>
       <p>Two things outlive that deletion, and you should know about both. Ordinary backups roll off on their own cycle, so data can persist in a backup for a short period after it is gone from the live system; it is not restored to anyone. And we keep billing and tax records for as long as the law requires us to, independently of your workspace.</p>
-      <p>Before you close an account, export what you want to keep. Section 11 covers how.</p>
+      <p>Before you close an account, export what you want to keep. Section 12 covers how.</p>
     </section>
 
     <section id="security">
@@ -338,7 +375,7 @@
         <li><strong>Disconnect</strong> any connected mailbox, from Attaché or from your provider directly.</li>
       </ul>
       <h3>If the GDPR, UK GDPR, CCPA/CPRA or a similar law covers you</h3>
-      <p>You have rights of access, correction, deletion, portability, restriction and objection, and the right not to be discriminated against for exercising them. Where we are the controller — your own account and billing data — exercise them by writing to us at the address in section 15. We will respond within the time the applicable law allows, normally 30 days.</p>
+      <p>You have rights of access, correction, deletion, portability, restriction and objection, and the right not to be discriminated against for exercising them. Where we are the controller — your own account and billing data — exercise them by writing to us at the address in section 16. We will respond within the time the applicable law allows, normally 30 days.</p>
       <p>Where we are the processor — the contacts and companies in someone's workspace — <strong>the customer who operates that workspace is the controller, and the request belongs to them.</strong> Contact them. If you do not know who they are, write to us and we will forward your request to the right customer and tell you that we have.</p>
       <p>We do not sell personal information or share it for cross-context behavioral advertising, so there is nothing to opt out of on that front. We do not make decisions producing legal effects about you by automated means alone.</p>
       <p>If you are in the EEA, the UK or Switzerland, you may also complain to your local data protection authority. We would rather you came to us first.</p>
