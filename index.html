@@ -1,734 +1,527 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Attaché</title>
-<meta name="description" content="Attaché is an agentic-native business platform. Tell it what you need in your own words; it learns how your business actually runs and does the work.">
+<meta name="description" content="Attaché is a business platform with five AI agents built in. Tell it what you need in your own words and it does the work with you.">
+<link rel="canonical" href="https://attache.group/">
+<meta property="og:title" content="Attaché — software that learns your business">
+<meta property="og:description" content="A complete business platform with five agents built in. Tell it what you need and it goes and does it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://attache.group/">
+<meta name="theme-color" content="#E7E5DF">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&family=Instrument+Sans:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* ==================================================================
-   Attaché — deck
-   Palette: deep indigo ground, vivid azure primary, violet
-   secondary, amber pop, coral for the one warm state.
-   Material: the app's own liquid-glass recipe — translucent fill,
-   saturate, crisp lit rim, sheen as background-image (never inside
-   a colour token).
-   ================================================================== */
-
+/* ==========================================================================
+   Attaché — attache.group
+   One visual world with the product: this page is painted in the platform's own
+   light palette, the one a customer sees the moment they sign in. The ground is
+   the login screen's ground, the teal, warm and sage are the app's own tokens,
+   and data sits on a solid surface the way it does in the app. The material the
+   page keeps is its own — a defined edge and a hard offset shadow, so every
+   object still has a weight and an edge you can see.
+   ========================================================================== */
 :root{
-  /* ground */
-  --bg-0:#121634;
-  --bg-1:#1A1F47;
-
-  /* ink — indigo-biased neutrals, chosen not inherited */
-  --ink:#F0F2FF;
-  --ink-2:#C2C8EE;
-  --ink-3:#9198C6;
-  --ink-4:#7C83B4;
-
-  /* accents */
-  --acc:#5E8BFF;
-  --acc-deep:#3563E0;
-  --acc-2:#B47CFF;
-  --pop:#FFC93C;
-  --warm:#FF7E6B;
-
-  /* glass */
-  --glass:rgb(46 54 110 / 0.52);
-  --glass-strong:rgb(56 66 128 / 0.68);
-  --glass-faint:rgb(34 42 84 / 0.34);
-  --rim:inset 0 1.5px 0 rgb(210 220 255 / 0.26);
-  --inner:inset 0 0 44px rgb(130 160 255 / 0.055);
-  --hair:rgb(168 180 255 / 0.16);
-  --hair-faint:rgb(168 180 255 / 0.09);
-
-  --sh-md:0 1px 2px rgb(0 0 0 / .5), 0 14px 34px -16px rgb(0 0 0 / .75);
-  --sh-lg:0 2px 6px rgb(0 0 0 / .55), 0 34px 74px -28px rgb(0 0 0 / .85);
-
-  --r:16px;
-  --r-lg:22px;
-  --wrap:1180px;
-
-  --display:"Instrument Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-  --body:"Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-
-  color-scheme:dark;
+  /* stage — warm stone, the same ground the login screen stands on */
+  --bg-0:#E7E5DF; --bg-deep:#DBD8D0;
+  --bg-1:#F1EEE8; --bg-2:#EEF3F2; --bg-3:#F4EAE1;
+  /* ink — the platform ramp. ink-4 is the caption floor and never goes lighter */
+  --ink:#1B1E1D; --ink-2:#3F4341; --ink-3:#4A4E4B; --ink-4:#4A4E4B;
+  /* accents — teal, warm, sage, alert: the app's own tokens, no invented hues */
+  --azure:#1F4E52; --azure-deep:#143639;
+  --violet:#2A6569; --amber:#B5561A; --coral:#A8301F; --mint:#2E7D6F;
+  /* chips: the app's stage colours, each tint with the ink it was solved against */
+  --t-azure:#DCE7F5; --t-violet:#ECEAE4; --t-amber:#F6E3CC; --t-coral:#F3DBD7; --t-mint:#D5E9E4;
+  --chip-ink:#1F4E52;
+  /* material — data sits on a solid surface, glass only on what floats */
+  --surface:#FBFAF7; --card:#FFFFFF;
+  --glass:rgb(255 255 255 / .55); --glass-strong:rgb(255 255 255 / .72); --glass-faint:rgb(255 255 255 / .42);
+  --edge:#DDD9D0; --edge-strong:#CFCAC0; --hair:#EDEAE3; --ink-line:rgb(40 36 28 / .26);
+  --rim:inset 0 1px 0 rgb(255 255 255 / .80);
+  --sheen:linear-gradient(170deg, rgb(255 255 255 / .50), rgb(255 255 255 / 0) 46%);
+  /* the hard offset shadow — the page's weight, in the app's own shadow ink */
+  --void:rgb(40 36 28 / .17);
+  --line:2px; --line-2:1.5px;
+  --pop:6px 6px 0 var(--void); --pop-sm:4px 4px 0 var(--void); --pop-xs:3px 3px 0 var(--void);
+  --r:16px; --r-lg:22px; --r-pill:999px; --wrap:1140px;
+  --display:"Baloo 2","Trebuchet MS",system-ui,sans-serif;
+  --ui:"Instrument Sans","Helvetica Neue",system-ui,sans-serif;
+  --body:"Nunito","Helvetica Neue",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
 }
 
-/* This deck commits to one visual world — a dark, lit stage. Every colour
-   is painted explicitly so it holds on any host ground. */
-
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{
-  margin:0;
-  background:var(--bg-0);
-  color:var(--ink);
-  font-family:var(--body);
-  font-size:16px;
-  line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-
-/* ---------- ambient field the glass refracts from ---------- */
-.backdrop{
-  position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
-  background:
-    radial-gradient(1300px 900px at 84% -12%, rgb(94 139 255 / 0.18), transparent 56%),
-    radial-gradient(1100px 900px at -12% 40%, rgb(180 124 255 / 0.10), transparent 55%),
-    radial-gradient(900px 760px at 60% 108%, rgb(255 201 60 / 0.07), transparent 60%),
-    linear-gradient(180deg,#1A1F47 0%,#121634 100%);
-}
-.backdrop::after{
-  content:""; position:absolute; inset:0; opacity:.45; mix-blend-mode:screen;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
-}
-
-.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 28px;position:relative;z-index:1}
-
-/* ---------- glass material ---------- */
-.glass,.glass-strong,.glass-faint{
-  border-radius:var(--r-lg);
-  background-repeat:no-repeat;
-}
-.glass{
-  background-color:var(--glass);
-  backdrop-filter:blur(16px) saturate(185%) brightness(1.02);
-  -webkit-backdrop-filter:blur(16px) saturate(185%) brightness(1.02);
-  border:1px solid var(--hair);
-  box-shadow:var(--rim),var(--inner),var(--sh-md);
-}
-.glass-strong{
-  background-color:var(--glass-strong);
-  backdrop-filter:blur(24px) saturate(200%) brightness(1.02);
-  -webkit-backdrop-filter:blur(24px) saturate(200%) brightness(1.02);
-  border:1px solid var(--hair);
-  box-shadow:var(--rim),var(--inner),var(--sh-lg);
-}
-.glass-faint{
-  background-color:var(--glass-faint);
-  backdrop-filter:blur(12px) saturate(150%);
-  -webkit-backdrop-filter:blur(12px) saturate(150%);
-  border:1px solid var(--hair-faint);
-}
-.glass,.glass-strong{
-  background-image:
-    linear-gradient(152deg, rgb(220 228 255 / .085) 0%, rgb(220 228 255 / .02) 30%, transparent 58%),
-    radial-gradient(130% 100% at 8% -24%, rgb(94 139 255 / .11), transparent 62%);
-}
-.glass-faint{background-image:linear-gradient(152deg, rgb(220 228 255 / .04) 0%, transparent 52%)}
-
-/* ---------- type ---------- */
-h1,h2,h3{font-family:var(--display);font-weight:700;margin:0;text-wrap:balance;letter-spacing:-.025em;line-height:1.06}
-h1{font-size:clamp(44px,6.4vw,82px)}
-h2{font-size:clamp(32px,4.2vw,54px)}
-h3{font-size:clamp(20px,2vw,25px);font-weight:600;letter-spacing:-.01em;line-height:1.2}
-p{margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg-0);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased}
 a{color:inherit}
+img,svg{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
 
-.eyebrow{
-  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--acc);display:flex;align-items:center;gap:10px;margin-bottom:22px;
-}
-.eyebrow .num{
-  color:var(--bg-0);background:var(--acc);border-radius:5px;
-  padding:1px 7px;font-weight:500;letter-spacing:.08em;
-}
-.eyebrow .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--hair),transparent);max-width:160px}
+/* ---------- the stage ---------- */
+/* This is the platform's own login backdrop, copied paint for paint: teal glow
+   top-left, warm right, sage bottom, over a warm stone vertical. Fixed, so the
+   page scrolls over one still ground exactly like the app does. The four blobs
+   that used to carry the glow are off — the gradient is the glow now. */
+.ground{position:fixed;inset:0;z-index:-2;overflow:hidden;pointer-events:none;
+  background:
+    radial-gradient(1200px 900px at 6% -10%, rgb(31 78 82 / 0.45), transparent 62%),
+    radial-gradient(1100px 950px at 106% 40%, rgb(214 160 96 / 0.42), transparent 62%),
+    radial-gradient(1000px 760px at 50% 118%, rgb(150 170 140 / 0.30), transparent 62%),
+    linear-gradient(180deg, #E7E5DF 0%, #DBD8D0 100%)}
+.ground b{position:absolute;inset:0;display:block;
+  background-image:radial-gradient(rgb(40 36 28 / .5) .9px,transparent .9px);
+  background-size:15px 15px;opacity:.13}
 
-.lede{font-size:clamp(17px,1.5vw,20px);color:var(--ink-2);max-width:62ch;line-height:1.55}
-.small{font-size:14px;color:var(--ink-3);line-height:1.6}
-.mono-label{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-4)}
+/* ---------- shared furniture ---------- */
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 30px}
+h1,h2,h3,h4,h5{font-family:var(--display);font-weight:800;line-height:1.05;letter-spacing:-.018em;text-wrap:balance}
+h1{font-size:clamp(40px,5.6vw,64px)}
+h2{font-size:clamp(31px,3.9vw,45px)}
+h6{font-family:var(--ui);font-weight:600}
+.mono{font-family:var(--mono)}
+.lede{font-size:19px;font-weight:600;color:var(--ink-2);margin-top:18px;max-width:50ch}
+.sub{font-size:17px;font-weight:600;color:var(--ink-2);margin-top:14px;max-width:62ch}
+.note{font-family:var(--mono);font-size:12.5px;color:var(--ink-3)}
 
-em{font-style:normal;color:var(--acc)}
-strong{font-weight:600;color:var(--ink)}
+/* the aside voice — was a handwritten scrawl, now a measured caption */
+.cap{font-family:var(--mono);font-size:12.5px;line-height:1.55;letter-spacing:.035em;
+  text-transform:uppercase;color:var(--ink-3);border-left:2px solid var(--amber);padding-left:12px}
 
-/* ---------- nav ---------- */
-nav{
-  position:sticky;top:0;z-index:50;
-  background:rgb(18 22 52 / .72);
-  backdrop-filter:blur(18px) saturate(180%);
-  -webkit-backdrop-filter:blur(18px) saturate(180%);
-  border-bottom:1px solid var(--hair-faint);
-}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;height:64px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
-.logo strong{font-family:var(--display);font-size:19px;font-weight:600;letter-spacing:-.01em}
-.nav-links{display:flex;gap:26px}
-.nav-links a{text-decoration:none;color:var(--ink-3);font-size:14px;transition:color .18s}
-.nav-links a:hover{color:var(--acc)}
+.btn{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;text-decoration:none;
+  font-family:var(--ui);font-weight:600;font-size:15.5px;line-height:1;
+  border:var(--line) solid var(--edge-strong);border-radius:13px;padding:13px 20px;
+  background:var(--glass-strong);background-image:var(--sheen);color:var(--ink);
+  box-shadow:var(--pop-sm),var(--rim);
+  transition:transform .13s ease,box-shadow .13s ease;cursor:pointer}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--void),var(--rim)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--void),var(--rim)}
+.btn.primary{background:var(--azure);background-image:linear-gradient(170deg,rgb(255 255 255 / .22),rgb(255 255 255 / 0) 60%);
+  border-color:#143639;color:#FFFFFF}
+.btn.lg{font-size:17.5px;padding:15px 26px;box-shadow:var(--pop),var(--rim)}
+.btn.lg:hover{box-shadow:8px 8px 0 var(--void),var(--rim)}
 
-.btn{
-  display:inline-flex;align-items:center;gap:8px;text-decoration:none;
-  background:var(--acc);color:#0B1030;font-weight:600;font-size:14px;
-  padding:10px 18px;border-radius:999px;border:1px solid transparent;
-  transition:transform .18s cubic-bezier(.32,.72,0,1), box-shadow .18s;
-  box-shadow:0 0 0 0 rgb(94 139 255 / .4);
-}
-.btn:hover{transform:translateY(-1px);box-shadow:0 10px 28px -10px rgb(94 139 255 / .65)}
-.btn.big{font-size:16px;padding:14px 26px}
-.btn.ghost{background:transparent;color:var(--ink);border-color:var(--hair);box-shadow:none}
-.btn.ghost:hover{border-color:var(--acc);color:var(--acc)}
+.kicker{display:inline-flex;align-items:center;gap:9px;font-family:var(--ui);font-weight:600;
+  font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);
+  border:var(--line-2) solid var(--edge);border-radius:var(--r-pill);padding:6px 15px;
+  background:var(--glass-faint);box-shadow:var(--pop-xs)}
+.kicker .dot{width:9px;height:9px;border-radius:50%;background:var(--mint);
+  box-shadow:0 0 0 3px rgb(46 125 111 / .20)}
 
-/* ---------- slides ---------- */
-.slide{padding:92px 0;position:relative;z-index:1}
-.slide.tight{padding-top:0}
-.split{display:grid;grid-template-columns:minmax(0,0.86fr) minmax(0,1.14fr);gap:56px;align-items:center}
-.split.rev{grid-template-columns:minmax(0,1.14fr) minmax(0,0.86fr)}
-.split.rev>.copy{order:2}
-.copy{display:flex;flex-direction:column;gap:20px;min-width:0}
-.hairline{height:1px;background:linear-gradient(90deg,transparent,var(--hair),transparent);border:0;margin:0}
+/* the amber sweep under the headline word */
+.u{position:relative;z-index:0;white-space:nowrap}
+.u svg{position:absolute;left:-.02em;bottom:.02em;width:101%;height:.30em;z-index:-1}
+
+.panel{background:var(--surface);background-image:var(--sheen);
+  border:var(--line) solid var(--edge);border-radius:var(--r-lg);
+  box-shadow:var(--pop),var(--rim)}
+
+section{padding:78px 0}
+.band{position:relative;border-top:var(--line-2) solid var(--edge);border-bottom:var(--line-2) solid var(--edge)}
+.band.a{background:rgb(241 238 232 / .80);box-shadow:inset 0 1px 0 rgb(181 86 26 / .30)}
+.band.b{background:rgb(238 243 242 / .80);box-shadow:inset 0 1px 0 rgb(31 78 82 / .26)}
+.band.c{background:rgb(244 234 225 / .74);box-shadow:inset 0 1px 0 rgb(42 101 105 / .26)}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:40;background:rgb(251 250 247 / .88);
+  backdrop-filter:blur(18px) saturate(1.3);border-bottom:1px solid var(--hair)}
+.nav{display:flex;align-items:center;gap:22px;padding:14px 30px}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
+.logo .mark{width:30px;height:30px;flex:none}
+.logo strong{font-family:var(--ui);font-weight:600;font-size:21px;letter-spacing:-.012em}
+.nav-links{display:flex;gap:24px;margin-left:auto}
+.nav-links a{font-family:var(--ui);font-weight:500;font-size:14px;text-decoration:none;
+  color:var(--ink-3);transition:color .18s}
+.nav-links a:hover{color:var(--azure)}
+.nav .btn{font-size:14px;padding:10px 17px;box-shadow:var(--pop-xs),var(--rim)}
 
 /* ---------- hero ---------- */
-.hero{padding:76px 0 70px}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);gap:52px;align-items:center}
-.badge{
-  display:inline-flex;align-items:center;gap:9px;align-self:flex-start;
-  font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--ink-2);padding:7px 14px;border-radius:999px;
-  border:1px solid var(--hair);background:rgb(46 54 110 / .5);
-}
-.badge .dot{width:6px;height:6px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px rgb(94 139 255 / .16)}
-.hero h1{margin:20px 0 0}
-.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.hero{display:grid;grid-template-columns:1.04fr .96fr;gap:50px;align-items:center;padding:66px 30px 78px}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.aside{margin-top:30px}
 
-/* ---------- screen block (recreated product surface) ---------- */
-.screen{
-  border-radius:var(--r-lg);overflow:hidden;position:relative;
-}
-.screen-bar{
-  display:flex;align-items:center;gap:8px;padding:11px 16px;
-  border-bottom:1px solid var(--hair-faint);
-  background:rgb(32 38 80 / .5);
-}
-.screen-bar .tl{display:flex;gap:6px}
-.screen-bar .tl i{width:9px;height:9px;border-radius:50%;background:rgb(168 180 255 / .22);display:block}
-.screen-bar .tl i:first-child{background:rgb(255 126 107 / .5)}
-.screen-bar .path{font-family:var(--mono);font-size:10.5px;color:var(--ink-4);letter-spacing:.06em;margin-left:6px}
-.screen-bar .right{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--ink-4)}
-.screen-body{padding:22px}
+.bubble{padding:24px 24px 20px}
+.bubble h4{font-size:19px;color:var(--ink)}
+.askbar{display:flex;align-items:center;gap:10px;margin-top:13px;padding:12px 14px;
+  background:var(--card);border:var(--line-2) solid var(--edge);border-radius:13px;
+  box-shadow:inset 0 2px 8px rgb(40 36 28 / .09)}
+.askbar .caret{width:2.5px;height:17px;flex:none;background:var(--azure);border-radius:2px;
+  animation:blink 1.05s steps(2,start) infinite}
+@keyframes blink{50%{opacity:0}}
+.askbar .typed{flex:1;font-family:var(--mono);font-size:14px;color:var(--ink);overflow:hidden;white-space:nowrap;
+  text-overflow:ellipsis}
+.askbar .go{font-family:var(--ui);font-weight:600;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--azure);white-space:nowrap}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
+.chip{font-size:13px;font-weight:700;color:var(--ink-2);padding:7px 12px;border-radius:var(--r-pill);
+  background:var(--glass-faint);border:1px solid var(--edge)}
+.answer{margin-top:20px}
+.answer .said{position:relative;font-size:14.5px;font-weight:600;color:var(--ink-2);
+  padding:14px 16px 14px 18px;border:var(--line-2) solid var(--edge);border-radius:14px;
+  border-top-left-radius:5px;background:var(--card);box-shadow:var(--pop-xs)}
+.answer .said::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;border-radius:3px;
+  background:var(--azure)}
+.answer .said b{display:block;font-family:var(--ui);font-weight:600;font-size:12.5px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--azure);margin-bottom:5px}
 
-/* ask bar */
-.ask{display:flex;flex-direction:column;gap:14px}
-.ask h3{font-family:var(--display);font-size:24px;font-weight:600;letter-spacing:-.02em}
-.ask .ask-sub{font-size:13.5px;color:var(--ink-3);line-height:1.5}
-.ask-field{
-  display:flex;align-items:center;gap:12px;padding:15px 15px 15px 18px;
-  border-radius:14px;border:1.5px solid rgb(94 139 255 / .42);
-  background:rgb(26 32 70 / .6);
-  box-shadow:0 0 0 4px rgb(94 139 255 / .07), inset 0 0 26px rgb(94 139 255 / .05);
-}
-.ask-field .ph{flex:1;color:var(--ink-4);font-size:15px}
-.caret{width:1.5px;height:17px;background:var(--acc);display:inline-block;vertical-align:-3px;animation:blink 1.15s steps(1,end) infinite}
-@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
-.send{
-  font-family:var(--mono);font-size:11px;letter-spacing:.08em;
-  color:#0B1030;background:var(--acc);border-radius:9px;padding:7px 13px;font-weight:500;
-}
-.chips{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.chip{
-  font-size:13px;color:var(--ink-2);padding:11px 14px;border-radius:11px;
-  border:1px solid var(--hair-faint);background:rgb(40 48 96 / .42);
-}
-.chip.hot{border-color:rgb(255 201 60 / .34);color:var(--pop)}
+/* ---------- the product screens ---------- */
+.screen{overflow:hidden;padding:0;margin-top:30px;background:var(--surface)}
+.chrome{display:flex;align-items:center;gap:7px;padding:11px 15px;background:var(--bg-1);
+  border-bottom:var(--line-2) solid var(--edge)}
+.chrome s{width:10px;height:10px;border-radius:50%;background:#CFCAC0}
+.chrome .url{margin-left:12px;font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.inner{display:grid;grid-template-columns:206px 1fr}
+.rail{padding:16px 12px;border-right:var(--line-2) solid var(--edge);background:var(--bg-1)}
+.rail h6{font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-4);
+  margin:14px 0 7px 9px}
+.rail h6:first-child{margin-top:0}
+.rail span{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:700;color:var(--ink-3);
+  padding:6px 9px;border-radius:9px}
+.rail span em{font-style:normal;font-size:11px;opacity:.72;width:13px;text-align:center}
+.rail span.on{background:var(--card);color:var(--azure);box-shadow:0 1px 2px rgb(40 36 28 / .09)}
+.pane{padding:20px 22px 24px;min-width:0}
+.pane h5{font-size:22px}
+.rows{margin-top:14px;border:var(--line-2) solid var(--edge);border-radius:13px;overflow:hidden}
+.row{display:grid;grid-template-columns:1fr 128px 86px 60px;gap:10px;align-items:center;
+  padding:11px 14px;font-size:13.5px;font-weight:700;color:var(--ink-2);
+  border-bottom:1px solid var(--hair);background:var(--card)}
+.row:last-child{border-bottom:none}
+.row.head{font-family:var(--ui);font-weight:600;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-4);background:var(--bg-1)}
+.row .t{color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row .num{text-align:right;font-family:var(--mono);font-weight:500;font-variant-numeric:tabular-nums}
+.row.head .num{font-family:var(--ui)}
+.pill{display:inline-block;font-family:var(--ui);font-weight:600;font-size:11px;letter-spacing:.02em;
+  padding:4px 9px;border-radius:var(--r-pill);color:var(--chip-ink);white-space:nowrap}
+.pill.a{background:var(--t-azure);color:#1D4A85}.pill.b{background:var(--t-mint);color:#1F4E52}
+.pill.c{background:var(--t-amber);color:#7F420D}.pill.d{background:var(--t-violet);color:#3A3E3C}
+.needs{display:flex;gap:13px;align-items:flex-start;margin-top:16px;padding:14px 16px;
+  border:var(--line-2) solid rgb(168 48 31 / .34);border-radius:13px;background:rgb(168 48 31 / .07)}
+.needs svg{flex:none}
+.needs h6{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--coral)}
+.needs p{font-size:13.5px;font-weight:600;color:var(--ink-2);margin-top:3px}
 
-/* ---------- glass table block ---------- */
-.tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:13.5px}
-.tbl th{
-  font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--ink-4);text-align:left;font-weight:400;
-  padding:0 14px 11px;border-bottom:1px solid var(--hair-faint);white-space:nowrap;
-}
-.tbl td{
-  padding:13px 14px;border-bottom:1px solid var(--hair-faint);color:var(--ink-2);
-  vertical-align:middle;
-}
-.tbl tr:last-child td{border-bottom:0}
-.tbl .num{text-align:right;font-variant-numeric:tabular-nums;color:var(--ink);font-weight:500}
-.tbl .name{color:var(--ink);font-weight:500}
-.tbl tr:hover td{background:rgb(94 139 255 / .045)}
-.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+/* ---------- grids ---------- */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:34px;align-items:start}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
 
-.pill{
-  display:inline-flex;align-items:center;gap:6px;font-size:11.5px;
-  padding:3px 9px;border-radius:999px;border:1px solid var(--hair-faint);
-  color:var(--ink-2);white-space:nowrap;
-}
-.pill::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ink-4)}
-.pill.win{color:var(--acc);border-color:rgb(94 139 255 / .3)}
-.pill.win::before{background:var(--acc)}
-.pill.warm{color:var(--pop);border-color:rgb(255 201 60 / .3)}
-.pill.warm::before{background:var(--pop)}
-.pill.cool{color:var(--acc-2);border-color:rgb(180 124 255 / .28)}
-.pill.cool::before{background:var(--acc-2)}
+.numbered{display:flex;flex-direction:column;gap:16px}
+.step{display:flex;gap:15px;align-items:flex-start}
+.step .n{flex:none;width:30px;height:30px;display:grid;place-items:center;border-radius:10px;
+  font-family:var(--mono);font-size:13px;color:var(--chip-ink);background:var(--t-azure);
+  border:var(--line-2) solid var(--ink-line);box-shadow:var(--pop-xs);counter-increment:s}
+.numbered{counter-reset:s}
+.step .n::after{content:counter(s)}
+.step h4{font-size:17.5px;font-weight:700}
+.step p{font-size:14.5px;font-weight:600;color:var(--ink-2);margin-top:4px}
 
-.heat{display:inline-block;width:62px;height:5px;border-radius:999px;background:rgb(168 180 255 / .14);position:relative;vertical-align:middle;overflow:hidden}
-.heat i{position:absolute;inset:0 auto 0 0;display:block;border-radius:999px;background:linear-gradient(90deg,var(--acc-2),var(--acc),var(--pop))}
+.tile{background:var(--card);background-image:var(--sheen);border:var(--line) solid var(--edge);
+  border-radius:var(--r);padding:20px 21px;box-shadow:var(--pop-sm),var(--rim)}
+.tile h4{font-size:18.5px}
+.tile p{font-size:14.5px;font-weight:600;color:var(--ink-2);margin-top:9px}
+.icon{width:52px;height:52px;display:grid;place-items:center;border-radius:13px;margin-bottom:14px;
+  border:var(--line) solid var(--ink-line);box-shadow:var(--pop-xs)}
 
-/* ---------- pipeline block ---------- */
-.pipe{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px}
-.pipe .big{font-family:var(--display);font-size:clamp(38px,5vw,56px);font-weight:700;letter-spacing:-.025em;line-height:1;color:var(--ink)}
-.pipe .big small{font-family:var(--body);font-size:14px;font-weight:400;color:var(--ink-3);letter-spacing:0;margin-left:10px}
-.pipe-split{display:flex;gap:26px;align-items:flex-end}
-.pipe-split div{text-align:right}
-.pipe-split .v{font-family:var(--display);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums}
-.qtr{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
-.qtr span{
-  font-family:var(--mono);font-size:11px;color:var(--ink-2);
-  padding:5px 11px;border-radius:8px;border:1px solid var(--hair-faint);
-  background:rgb(40 48 96 / .4);
-}
+/* ---------- your staff ---------- */
+.staff{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:34px}
+.who{display:flex;flex-direction:column;background:var(--card);background-image:var(--sheen);
+  border:var(--line) solid var(--edge);border-radius:var(--r);padding:18px 18px 17px;
+  box-shadow:var(--pop-sm),var(--rim);border-top-width:4px}
+.who h4{font-size:19px}
+.who .job{font-family:var(--mono);font-size:11.5px;letter-spacing:.055em;text-transform:uppercase;
+  margin-top:6px}
+.who .job em{font-style:normal;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.who p{font-size:13.5px;font-weight:600;color:var(--ink-2);margin-top:10px;flex:1}
+.who .state{align-self:flex-start;margin-top:14px;font-family:var(--ui);font-weight:600;font-size:11.5px;
+  letter-spacing:.05em;text-transform:uppercase;color:var(--chip-ink);background:var(--t-mint);
+  padding:5px 11px;border-radius:var(--r-pill)}
+.who .state.opt{background:var(--t-coral);color:#A8301F}
+.who:nth-child(1){border-top-color:var(--azure)} .who:nth-child(1) .job{color:var(--azure)}
+.who:nth-child(2){border-top-color:var(--amber)} .who:nth-child(2) .job{color:var(--amber)}
+.who:nth-child(3){border-top-color:var(--mint)}  .who:nth-child(3) .job{color:var(--mint)}
+.who:nth-child(4){border-top-color:var(--violet)}.who:nth-child(4) .job{color:var(--violet)}
+.who:nth-child(5){border-top-color:var(--coral)} .who:nth-child(5) .job{color:var(--coral)}
 
-/* bar chart — one scale, every label a value the chart reaches */
-.bars{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;align-items:end;height:164px;margin-top:6px}
-.bars .b{display:grid;grid-template-rows:auto 1fr auto;height:100%;gap:7px;text-align:center}
-.bars .col{align-self:end;width:100%}
-.bars .cap{font-family:var(--mono);font-size:10.5px;color:var(--ink);font-variant-numeric:tabular-nums}
-.bars .cap.off{color:var(--ink-4)}
-.bars .col{border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,rgb(94 139 255 /.9),rgb(53 99 224 /.75));min-height:2px}
-.bars .col.ghost{background:rgb(168 180 255 / .12)}
-.bars .col.win{background:linear-gradient(180deg,var(--pop),rgb(201 144 0 /.8))}
-.bars .lab{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--ink-4);text-transform:uppercase;line-height:1.3}
-.bars .lab b{display:block;color:var(--ink-3);font-weight:500;font-size:10.5px}
+/* ---------- permission switches ---------- */
+.perms{display:flex;flex-direction:column;gap:9px;margin-top:11px}
+.perm{display:flex;gap:12px;align-items:flex-start;font-size:14px;font-weight:700;color:var(--ink-2);
+  padding:10px 12px;border:var(--line-2) solid var(--edge);border-radius:11px;background:var(--bg-1)}
+.perm small{display:block;font-size:12.5px;font-weight:600;color:var(--ink-4);margin-top:2px}
+.perm .sw{flex:none;position:relative;width:34px;height:19px;border-radius:var(--r-pill);margin-top:1px;
+  background:#E4E0D7;border:var(--line-2) solid var(--edge-strong)}
+.perm .sw::after{content:"";position:absolute;top:1.5px;left:2px;width:13px;height:13px;border-radius:50%;
+  background:#6E726F;transition:left .16s}
+.perm.yes{color:var(--ink);background:var(--card)}
+.perm.yes .sw{background:var(--mint);border-color:#246257}
+.perm.yes .sw::after{left:16px;background:#FFFFFF}
 
-/* ---------- staff cards ---------- */
-.staff{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.staff .s{padding:22px;border-radius:var(--r);display:flex;flex-direction:column;gap:11px}
-.staff .av{
-  width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
-  font-family:var(--display);font-weight:700;font-size:17px;color:#0B1030;
-}
-.staff .s.soon{border-style:dashed}
-.staff .s.soon .av{background:rgb(168 180 255 / .18);color:var(--ink-2)}
-.staff .s.soon .rl{color:var(--warm)}
-.staff .s:nth-child(1) .av{background:var(--acc)}
-.staff .nm{font-family:var(--display);font-size:19px;font-weight:600;letter-spacing:-.01em}
-.staff .rl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-4);margin-top:-8px}
-.staff p{font-size:13.5px;color:var(--ink-3);line-height:1.55}
+/* ---------- closer + footer ---------- */
+.closer{padding:92px 0 100px;text-align:center}
+.closer .sub,.closer .cap{margin-left:auto;margin-right:auto}
+.closer .cta{justify-content:center}
+.closer .cap{display:inline-block;text-align:left;margin-top:26px}
 
-/* ---------- consent rows ---------- */
-.consent{display:flex;flex-direction:column;gap:10px}
-.consent .row{
-  display:flex;align-items:center;gap:14px;padding:13px 16px;border-radius:13px;
-  border:1px solid var(--hair-faint);background:rgb(40 48 96 / .4);
-}
-.consent .row .t{flex:1;font-size:13.5px;color:var(--ink-2)}
-.consent .row .t b{display:block;color:var(--ink);font-weight:500;font-size:14px}
-.sw{width:38px;height:21px;border-radius:999px;background:rgb(168 180 255 / .16);position:relative;flex:none;border:1px solid var(--hair-faint)}
-.sw i{position:absolute;top:2px;left:2px;width:15px;height:15px;border-radius:50%;background:var(--ink-4);transition:.2s}
-.sw.on{background:rgb(94 139 255 / .3);border-color:rgb(94 139 255 / .45)}
-.sw.on i{left:19px;background:var(--acc)}
+footer{border-top:var(--line-2) solid var(--edge);background:rgb(241 238 232 / .82);padding:30px 0}
+.foot{display:flex;flex-wrap:wrap;align-items:center;gap:18px}
+.foot .logo .mark{width:26px;height:26px}
+.foot .logo strong{font-size:18px}
+.foot-links{display:flex;flex-wrap:wrap;gap:20px;margin-left:auto}
+.foot-links a{font-family:var(--ui);font-size:13.5px;text-decoration:none;color:var(--ink-3);transition:color .18s}
+.foot-links a:hover{color:var(--azure)}
+.foot-legal{flex-basis:100%;font-size:12.5px;color:var(--ink-4)}
 
-/* ---------- feature grid ---------- */
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.cell{padding:26px;border-radius:var(--r);display:flex;flex-direction:column;gap:11px}
-.cell .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--acc)}
-.cell h3{font-size:20px}
-.cell p{font-size:14px;color:var(--ink-3);line-height:1.6}
+/* A grid or flex child's minimum size is its CONTENT by default, so one long
+   line — a mono ask, a deal name — pushes its whole column wider than the
+   phone. Everything below sits in a track that is allowed to be narrower than
+   what is in it; the text that would overflow already clips or ellipses. */
+.hero>*,.grid-2>*,.grid-3>*,.staff>*,.inner>*,.cta>*,.row>*{min-width:0}
+.askbar .typed{min-width:0}
 
-/* ---------- learn loop ---------- */
-.loop{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:var(--r-lg);overflow:hidden}
-.loop .st{padding:24px 22px;border-right:1px solid var(--hair-faint);display:flex;flex-direction:column;gap:9px}
-.loop .st:last-child{border-right:0}
-.loop .n{font-family:var(--mono);font-size:10.5px;color:var(--acc);letter-spacing:.14em}
-.loop .st b{font-family:var(--display);font-size:17px;font-weight:600;letter-spacing:-.01em}
-.loop .st p{font-size:13px;color:var(--ink-3);line-height:1.55}
-
-/* ---------- nav mock ---------- */
-.appnav{display:flex;flex-direction:column;gap:2px;font-size:13px}
-.appnav .g{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-4);margin:14px 0 6px;padding-left:11px}
-.appnav .g:first-child{margin-top:0}
-.appnav a{display:block;padding:7px 11px;border-radius:8px;color:var(--ink-3);text-decoration:none}
-.appnav a.on{background:rgb(94 139 255 / .12);color:var(--acc);box-shadow:inset 2px 0 0 var(--acc)}
-
-/* ---------- CTA ---------- */
-.cta{padding:62px 44px;border-radius:26px;text-align:center;display:flex;flex-direction:column;gap:18px;align-items:center}
-
-/* ---------- footer ---------- */
-footer{border-top:1px solid var(--hair-faint);padding:34px 0;position:relative;z-index:1;margin-top:40px}
-.foot-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.foot-links{display:flex;gap:22px;flex-wrap:wrap}
-.foot-links a{color:var(--ink-3);text-decoration:none;font-size:13.5px}
-.foot-links a:hover{color:var(--acc)}
-footer .c{font-size:13px;color:var(--ink-4)}
-
-/* ---------- focus + motion ---------- */
-a:focus-visible,.btn:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:6px}
-@media (prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-}
-
-/* ---------- responsive ---------- */
-@media (max-width:1020px){
+/* ---------- narrow ---------- */
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;gap:38px;padding-top:50px}
+  .grid-2,.grid-3{grid-template-columns:1fr}
   .staff{grid-template-columns:repeat(2,1fr)}
-  .loop{grid-template-columns:repeat(2,1fr)}
-  .loop .st:nth-child(2){border-right:0}
-  .loop .st:nth-child(1),.loop .st:nth-child(2){border-bottom:1px solid var(--hair-faint)}
+  .inner{grid-template-columns:1fr}
+  .rail{display:none}
+  section{padding:60px 0}
 }
-@media (max-width:880px){
-  .hero-grid,.split{grid-template-columns:1fr;gap:38px}
-  .split.rev>.copy{order:0}
-  .grid3{grid-template-columns:1fr}
-  .grid2{grid-template-columns:1fr}
+@media (max-width:720px){
   .nav-links{display:none}
-  .slide{padding:64px 0}
-  .cta{padding:44px 24px}
+  .row{grid-template-columns:1fr 92px 72px;gap:8px}
+  .row span:nth-child(4){display:none}
 }
 @media (max-width:560px){
   .staff{grid-template-columns:1fr}
-  .chips{grid-template-columns:1fr}
-  .bars{grid-template-columns:repeat(4,1fr);height:auto;row-gap:22px}
-  .bars .b{height:150px}
+  .wrap,.nav,.hero{padding-left:20px;padding-right:20px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .askbar .caret{animation:none}
+  .btn{transition:none}
 }
 </style>
 </head>
 <body>
 
-<div class="backdrop"></div>
+<div class="ground" aria-hidden="true"><b></b></div>
 
-<!-- ============ NAV ============ -->
-<nav>
-  <div class="wrap nav-inner">
-    <a class="logo" href="#top">
-      <img src="data:image/png;base64,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" alt="" style="width:30px;height:25px;object-fit:contain">
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="/">
+      <svg class="mark" viewBox="41 46 430 430" fill="none" aria-hidden="true">
+        <mask id="beacon-nav" maskUnits="userSpaceOnUse" x="0" y="0" width="512" height="512">
+          <rect width="512" height="512" fill="#fff"/>
+          <circle cx="410" cy="103" r="57" fill="#000"/>
+        </mask>
+        <rect x="72" y="72" width="368" height="368" rx="104" fill="none" stroke="#2F5D62" stroke-width="38" mask="url(#beacon-nav)"/>
+        <circle cx="256" cy="256" r="40" fill="#2F5D62"/>
+        <circle cx="410" cy="103" r="40" fill="#2F5D62"/>
+      </svg>
       <strong>Attaché</strong>
     </a>
-    <div class="nav-links">
-      <a href="#ask">The ask bar</a>
-      <a href="#learn">How it learns</a>
+    <nav class="nav-links">
+      <a href="#front-door">What it does</a>
       <a href="#staff">Your staff</a>
-      <a href="#work">The work</a>
-      <a href="#trust">Permission</a>
-    </div>
-    <a class="btn" href="https://attache.cloud/signup">Start a free demo</a>
-  </div>
-</nav>
-
-<!-- ============ 01 · HERO ============ -->
-<header class="hero" id="top">
-  <div class="wrap hero-grid">
-    <div class="copy">
-      <span class="badge"><span class="dot"></span> Agentic-native · not bolted on</span>
-      <h1>Software that <em>learns</em> your business.</h1>
-      <p class="lede">Attaché is a complete business platform with a generative AI core. You tell it what you need in the words you already use. It reads how your company actually sells, quotes, bills and follows up — and then it does the work with you.</p>
-      <div class="hero-ctas">
-        <a class="btn big" href="https://attache.cloud/signup">Start a free demo</a>
-        <a class="btn ghost big" href="#ask">See it work</a>
-      </div>
-      <p class="small">Self-serve edition live now · every screen on this page is the running product.</p>
-    </div>
-
-    <!-- the ask bar, the product's front door -->
-    <div class="screen glass-strong">
-      <div class="screen-bar">
-        <span class="tl"><i></i><i></i><i></i></span>
-        <span class="path">attaché / today</span>
-        <span class="right">Tue, Sep 22</span>
-      </div>
-      <div class="screen-body ask">
-        <h3>What do you need?</h3>
-        <p class="ask-sub">Type it the way you would say it — add a customer, write a quote, log an expense, send a campaign — or ask about anything already in here.</p>
-        <div class="ask-field">
-          <span class="ph">Draft the renewal quote for Ridgeline<span class="caret"></span></span>
-          <span class="send">↵ send</span>
-        </div>
-        <div class="chips">
-          <span class="chip">Start an expense report for September</span>
-          <span class="chip">Add the company Acme Labs</span>
-          <span class="chip">Remind me to call Dana on Friday</span>
-          <span class="chip hot">How do I send a marketing email?</span>
-        </div>
-        <p class="small">Rather click than type? Everything is still in the menu on the left, and every answer comes with a link to the page that does it by hand.</p>
-      </div>
-    </div>
+      <a href="#platform">The work</a>
+      <a href="#website">Your website</a>
+      <a href="#permission">Your data</a>
+    </nav>
+    <a class="btn primary" href="https://attache.cloud/signup">Start a free demo</a>
   </div>
 </header>
 
-<hr class="hairline">
+<main>
 
-<!-- ============ 02 · THE ASK BAR ============ -->
-<section class="slide" id="ask">
-  <div class="wrap split">
-    <div class="copy">
-      <div class="eyebrow"><span class="num">01</span> The front door <span class="rule"></span></div>
-      <h2>One field instead of&nbsp;forty.</h2>
-      <p class="lede">Most business software makes you learn where things live. Attaché starts from a sentence. Say what you want in plain language and the platform decides which record, which form and which step it belongs to — then shows you exactly what it is about to do before it does it.</p>
-      <p class="small">And it never traps you in the chat. Every answer links to the page that performs the same action by hand, so the menu on the left stays the whole product, not a fallback.</p>
+<!-- ============================ HERO ============================ -->
+<div class="wrap hero">
+  <div>
+    <span class="kicker"><span class="dot"></span> Live now · five agents, one set of records</span>
+    <h1>Tell it what you need.<br>It goes and <span class="u">does it<svg viewBox="0 0 220 16" preserveAspectRatio="none" aria-hidden="true"><path d="M3 11C50 3 160 3 217 8" stroke="#B5561A" stroke-width="10" fill="none" stroke-linecap="round"/></svg></span>.</h1>
+    <p class="lede">Attaché runs the whole business. Customers, quotes, invoices, campaigns and the enquiries off your own website, with five agents working those records next to you.</p>
+    <div class="cta">
+      <a class="btn primary lg" href="https://attache.cloud/signup">Start a free demo</a>
+      <a class="btn lg" href="#front-door">See it work</a>
     </div>
-
-    <div class="screen glass">
-      <div class="screen-bar">
-        <span class="tl"><i></i><i></i><i></i></span>
-        <span class="path">attaché / today · your day</span>
-        <span class="right">2026</span>
-      </div>
-      <div class="screen-body" style="display:flex;flex-direction:column;gap:20px">
-        <div>
-          <div class="mono-label">Your day · 2026</div>
-          <h3 style="margin-top:7px;font-family:var(--display);font-size:26px;font-weight:600;letter-spacing:-.02em">Tuesday, September 22</h3>
-          <p class="small" style="margin-top:5px">Nothing overdue. You're clear.</p>
-        </div>
-
-        <div class="glass-faint" style="padding:20px;border-radius:var(--r)">
-          <div class="mono-label" style="margin-bottom:10px">My pipeline · company-wide</div>
-          <div class="pipe">
-            <div class="big">$456.5K<small>predicted to close · 8 open deals</small></div>
-            <div class="pipe-split">
-              <div><div class="mono-label">Commit ≥75%</div><div class="v" style="color:var(--acc)">$456.5K</div></div>
-              <div><div class="mono-label">Upside 60%</div><div class="v" style="color:var(--ink-4)">$0</div></div>
-            </div>
-          </div>
-          <div class="qtr"><span>Q3-2026 &nbsp;$151.0K</span><span>Q4-2026 &nbsp;$305.5K</span></div>
-        </div>
-
-        <div>
-          <div class="mono-label" style="margin-bottom:10px">Needs you</div>
-          <div class="consent">
-            <div class="row"><span class="pill warm">Quote</span><span class="t"><b>Summit HVAC — dispatch and routing rollout</b>Discount past your ceiling, waiting on sign-off</span></div>
-            <div class="row"><span class="pill cool">Follow-up</span><span class="t"><b>Castellan &amp; Reyes LLP</b>No touch in 21 days on an open deal</span></div>
-          </div>
-        </div>
-      </div>
+    <div class="aside">
+      <p class="cap">Every screen on this page is<br>the running product</p>
     </div>
   </div>
-</section>
 
-<!-- ============ 03 · HOW IT LEARNS ============ -->
-<section class="slide tight" id="learn">
+  <div class="panel bubble">
+    <h4>What do you need?</h4>
+    <div class="askbar"><span class="caret"></span><span class="typed">Draft the renewal quote for Ridgeline</span><span class="go">send &crarr;</span></div>
+    <div class="chips">
+      <span class="chip">Start an expense report</span>
+      <span class="chip">Add the company Acme Labs</span>
+      <span class="chip">Who has gone quiet?</span>
+      <span class="chip">Who still owes me money?</span>
+    </div>
+    <div class="answer">
+      <p class="said"><b>your sales agent</b>Drafted it off last year&rsquo;s lines at the same discount. Send it from your own email, or read it first?</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ 01 · FRONT DOOR ============================ -->
+<section id="front-door">
   <div class="wrap">
-    <div class="copy" style="max-width:780px;margin-bottom:38px">
-      <div class="eyebrow"><span class="num">02</span> Generative core <span class="rule"></span></div>
-      <h2>It doesn't come pre-loaded with <em>someone&nbsp;else's</em> business.</h2>
-      <p class="lede">There is no ninety-day configuration project, because the model is reading the same records your team is. Your stage names, your product vocabulary, your quoting habits, the way your customers actually answer — that is the training material, and it is already in the system.</p>
-    </div>
+    <span class="kicker">The front door</span>
+    <h2>One field instead of forty.</h2>
+    <p class="sub">There is no training week and no setup wizard. You type what you want in your own words and it ends up in the right place. Ask for a quote and you get a quote. Say remind me on Friday and it is there on Friday.</p>
 
-    <div class="loop glass">
-      <div class="st"><span class="n">01</span><b>Reads what's there</b><p>Accounts, deals, quotes, threads, expenses. Nothing to map, nothing to tag first.</p></div>
-      <div class="st"><span class="n">02</span><b>Learns the shape</b><p>Which stage really means committed. Which discount you always approve. Which customers go quiet before they churn.</p></div>
-      <div class="st"><span class="n">03</span><b>Proposes the work</b><p>Drafts the quote, writes the follow-up, builds the report, flags the deal that slipped — as a proposal you can edit.</p></div>
-      <div class="st"><span class="n">04</span><b>Takes the correction</b><p>You change it once. The next one comes back closer. The business teaches the software, not the other way round.</p></div>
-    </div>
-
-    <div class="grid3" style="margin-top:18px">
-      <div class="cell glass">
-        <span class="k">Plain language in</span>
-        <h3>Reports you describe, not build</h3>
-        <p>“Customers I haven't talked to in a while.” It opens as a real live table you can re-sort, filter, save for the team and send to Excel. No report builder, no fields to drag.</p>
-      </div>
-      <div class="cell glass">
-        <span class="k">Your vocabulary</span>
-        <h3>It adopts your words</h3>
-        <p>Import a spreadsheet and Attaché proposes the mapping from your own column headings and stage names — then keeps using them everywhere, because they're yours.</p>
-      </div>
-      <div class="cell glass">
-        <span class="k">Always current</span>
-        <h3>Answers from live records</h3>
-        <p>Every number the AI gives you is read off the database at the moment you ask. Nothing is summarized last week and repeated back as though it's true today.</p>
+    <div class="panel screen">
+      <div class="chrome"><s></s><s></s><s></s><span class="url">yourname.attache.cloud</span></div>
+      <div class="inner">
+        <div class="rail">
+          <h6>Run the business</h6>
+          <span class="on"><em>&#9680;</em> Today</span><span><em>&#9727;</em> Calendar</span><span><em>&#9638;</em> Accounts</span><span><em>&#9711;</em> Contacts</span>
+          <h6>Money</h6>
+          <span><em>&#8594;</em> Deals</span><span><em>&#8863;</em> Quotes</span><span><em>&#9637;</em> Invoices</span><span><em>&#9636;</em> Expenses</span>
+        </div>
+        <div class="pane">
+          <h5>Today</h5>
+          <p class="note"><span id="today">Tuesday</span> &middot; $456.5K predicted to close across 8 open deals</p>
+          <div class="askbar" style="margin-top:16px"><span class="caret"></span><span class="typed">Remind me to call Dana on Friday</span><span class="go">send &crarr;</span></div>
+          <div class="needs">
+            <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="12.6" fill="#A8301F" stroke="#7E2416" stroke-width="2.8"/><path d="M15 8v9" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/><circle cx="15" cy="21.6" r="1.9" fill="#FFFFFF"/></svg>
+            <div><h6>Needs you &middot; 3</h6><p>A discount past your ceiling is waiting on sign-off. Nobody has touched Castellan &amp; Reyes in 21 days. Two invoices went past due this morning.</p></div>
+          </div>
+          <div class="rows">
+            <div class="row head"><span>What is waiting</span><span>Where</span><span class="num">Amount</span><span class="num">Age</span></div>
+            <div class="row"><span class="t">Summit HVAC &mdash; discount sign-off</span><span><span class="pill a">Quotes</span></span><span class="num">$66.0K</span><span class="num">2d</span></div>
+            <div class="row"><span class="t">Ridgeline renewal &mdash; quote drafted, unsent</span><span><span class="pill c">Quotes</span></span><span class="num">$51.0K</span><span class="num">1d</span></div>
+            <div class="row"><span class="t">Bluebird Bakery &mdash; invoice past due</span><span><span class="pill a">Invoices</span></span><span class="num">$7.4K</span><span class="num">34d</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 04 · REPORTS ============ -->
-<section class="slide">
-  <div class="wrap split rev">
-    <div class="copy">
-      <div class="eyebrow"><span class="num">03</span> Say what you want to see <span class="rule"></span></div>
-      <h2>The report builder is a&nbsp;sentence.</h2>
-      <p class="lede">Describe the list you want in your own words. Attaché builds it as a live table over your data — add or remove columns, filter, sort, and it re-pulls as you go. Save the shape as a report you can return to, public for the team or private to you.</p>
-      <p class="small">Exporting to Excel is a downstream option, not the point. The table stays live.</p>
-    </div>
-
-    <div class="screen glass">
-      <div class="screen-bar">
-        <span class="tl"><i></i><i></i><i></i></span>
-        <span class="path">attaché / reports</span>
-        <span class="right">0 saved</span>
-      </div>
-      <div class="screen-body" style="display:flex;flex-direction:column;gap:18px">
-        <div class="mono-label">Just say what you want to see</div>
-        <div class="ask-field">
-          <span class="ph">Deals I could still win, biggest first<span class="caret"></span></span>
-          <span class="send">build it</span>
-        </div>
-        <div class="tbl-scroll">
-          <table class="tbl">
-            <thead><tr><th>Deal</th><th>Stage</th><th class="num">Value</th><th class="num">Prob</th></tr></thead>
-            <tbody>
-              <tr><td class="name">Summit HVAC — dispatch and routing rollout</td><td><span class="pill warm">Negotiating</span></td><td class="num">$66.0K</td><td class="num">75%</td></tr>
-              <tr><td class="name">Ridgeline — 2027 wholesale supply renewal</td><td><span class="pill win">Order confirmed</span></td><td class="num">$51.0K</td><td class="num">95%</td></tr>
-              <tr><td class="name">Delta Print — signage refresh, 14 sites</td><td><span class="pill cool">Proposal sent</span></td><td class="num">$28.4K</td><td class="num">60%</td></tr>
-              <tr><td class="name">Bluebird Bakery — POS + loyalty bundle</td><td><span class="pill win">Invoiced</span></td><td class="num">$7.4K</td><td class="num">100%</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="small">Built from <strong>Deals</strong> · 10 fields available · re-pulls live</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 05 · YOUR STAFF ============ -->
-<section class="slide tight" id="staff">
+<!-- ============================ 02 · IT LEARNS ============================ -->
+<section class="band a" id="learn">
   <div class="wrap">
-    <div class="copy" style="max-width:760px;margin-bottom:38px">
-      <div class="eyebrow"><span class="num">04</span> Your staff <span class="rule"></span></div>
-      <h2>Herbie works today. The&nbsp;rest of the desk is&nbsp;<em>coming</em>.</h2>
-      <p class="lede">An agent here owns a lane of the business and works between the records — not a chat window you have to remember to open, but staff who notice things and come to you. Sales ships at launch; the other three lanes are in build.</p>
+    <span class="kicker">How it learns</span>
+    <h2>Set up around the way<br>you already work.</h2>
+    <p class="sub">Most software hands you a shape and asks you to fit it. This one reads what you already have, works out how you sell and how you get paid, and asks you when it is not sure. Correct it once and it stays corrected.</p>
+
+    <div class="grid-2">
+      <div class="numbered">
+        <div class="step"><span class="n"></span><div><h4>Reads what is already there</h4><p>Your spreadsheet, your old system, your inbox. Columns nobody else would recognise are kept, not dropped.</p></div></div>
+        <div class="step"><span class="n"></span><div><h4>Works out the shape</h4><p>Your stages, your words for them, who owns what, which customers are actually active.</p></div></div>
+        <div class="step"><span class="n"></span><div><h4>Proposes the work</h4><p>It says what it is about to do and waits for you. No record is changed on a guess.</p></div></div>
+        <div class="step"><span class="n"></span><div><h4>Takes the correction</h4><p>Say &ldquo;we call that a job, not a deal&rdquo; once and every agent has it from then on.</p></div></div>
+      </div>
+      <div class="panel" style="padding:22px">
+        <h4 style="font-size:21px">The report builder is a sentence.</h4>
+        <p style="font-size:15.5px;font-weight:600;color:var(--ink-2);margin-top:9px">You describe the list you want. It builds it off live records and re-pulls every time you open it.</p>
+        <div class="askbar" style="margin-top:16px"><span class="caret"></span><span class="typed">Deals I could still win, biggest first</span><span class="go">build</span></div>
+        <div class="rows">
+          <div class="row head"><span>Deal</span><span>Stage</span><span class="num">Value</span><span class="num">Prob</span></div>
+          <div class="row"><span class="t">Summit HVAC &mdash; dispatch rollout</span><span><span class="pill a">Negotiating</span></span><span class="num">$66.0K</span><span class="num">75%</span></div>
+          <div class="row"><span class="t">Delta Print &mdash; signage, 14 sites</span><span><span class="pill c">Proposal sent</span></span><span class="num">$28.4K</span><span class="num">60%</span></div>
+          <div class="row"><span class="t">Castellan &amp; Reyes &mdash; retainer</span><span><span class="pill c">Qualified</span></span><span class="num">$18.0K</span><span class="num">40%</span></div>
+        </div>
+        <p class="note" style="margin-top:11px">Built from Deals &middot; 10 fields available &middot; re-pulls live</p>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- ============================ 04 · YOUR STAFF ============================ -->
+<section id="staff">
+  <div class="wrap">
+    <span class="kicker"><span class="dot"></span> Your staff</span>
+    <h2>Five agents. All five are<br>working today.</h2>
+    <p class="sub">They each look after one part of the business and work off the same records you do, so they spot things and bring them to you. Each one tells you what it is about to do before it does it. You can rename any of them.</p>
 
     <div class="staff">
-      <div class="s glass">
-        <span class="av">H</span>
-        <span class="nm">Herbie</span><span class="rl">Sales · live</span>
-        <p>Writes to your customers as you, keeps the records straight, and tells you who to chase.</p>
+      <div class="who">
+        <h4>Sales</h4><p class="job">writes to your customers</p>
+        <p>From your own email account, with replies coming straight back. Keeps companies, contacts and deals up to date as you talk, and tells you who has gone quiet.</p>
+        <span class="state">Working today</span>
       </div>
-      <div class="s glass soon">
-        <span class="av">O</span>
-        <span class="nm">Operations</span><span class="rl">In build</span>
-        <p>Watches the work after the sale — what shipped, what's late, what's waiting on somebody.</p>
+      <div class="who">
+        <h4>Operations</h4><p class="job">chases what is waiting</p>
+        <p>An approval nobody gave, a task past its date, a deal that has not moved. It knows what has to happen this week without anybody filing a status report.</p>
+        <span class="state">Working today</span>
       </div>
-      <div class="s glass soon">
-        <span class="av">$</span>
-        <span class="nm">Money</span><span class="rl">In build</span>
-        <p>Quotes, expenses, invoices and the forecast. Knows what's committed and what's wishful.</p>
+      <div class="who">
+        <h4>Money</h4><p class="job">says who has not paid</p>
+        <p>What you are owed, who is late and by how long. Sorts expenses as they are filed, and warns you about the month that is going to be tight while you can still do something.</p>
+        <span class="state">Working today</span>
       </div>
-      <div class="s glass soon">
-        <span class="av">C</span>
-        <span class="nm">Compliance</span><span class="rl">In build</span>
-        <p>Keeps the paperwork and the permissions honest, and says so when something drifts.</p>
+      <div class="who">
+        <h4>Compliance</h4><p class="job">learns <em>your</em> trade</p>
+        <p>It does not guess at your rules. You tell it what your trade has to comply with. Then it keeps the certificates and the renewal dates, and tells you what is expiring before somebody official asks to see it.</p>
+        <span class="state">Working today</span>
+      </div>
+      <div class="who">
+        <h4>Community</h4><p class="job">reads every comment</p>
+        <p>Sorts the comments under your videos, drafts the reply for you to paste, and points out the people who actually want to buy something. You post it &mdash; never us.</p>
+        <span class="state opt">In the Creator edition</span>
       </div>
     </div>
 
-    <div class="split" style="margin-top:44px">
-      <div class="copy">
-        <h3 style="font-size:26px">They ask before they act. Every&nbsp;time.</h3>
-        <p class="small" style="font-size:15px;line-height:1.65">An agent that can write to your customers is only useful if you trust it, so Attaché asks for one capability at a time and you can say no to any of them. Nothing is switched on by default. Nothing reads your mail unless you say so. And you can see the full list of what each one is allowed to do, on one page, at any time.</p>
-        <p class="small">You can rename him, too. Most people keep Herbie.</p>
+    <div class="grid-2">
+      <div>
+        <h3 style="font-size:28px;margin-top:8px">Nothing is on until<br>you turn it on.</h3>
+        <p class="sub">An agent starts with everything off. You turn things on one at a time, on one page, and you can turn them back off in the same place. Writing to a customer and reading your inbox are two separate switches.</p>
+        <p class="cap" style="margin-top:22px">Rename any of them &mdash; most people<br>keep the names they came with</p>
       </div>
-
-      <div class="screen glass">
-        <div class="screen-bar">
-          <span class="tl"><i></i><i></i><i></i></span>
-          <span class="path">attaché / staff / sales</span>
-          <span class="right">Herbie</span>
-        </div>
-        <div class="screen-body consent">
-          <div class="row"><span class="t"><b>Write to your customers as you</b>Their replies come straight back to you</span><span class="sw on"><i></i></span></div>
-          <div class="row"><span class="t"><b>Mail everybody at once</b>With an unsubscribe link, off your own account's risk</span><span class="sw on"><i></i></span></div>
-          <div class="row"><span class="t"><b>Read your inbox for context</b>Off until you switch it on</span><span class="sw"><i></i></span></div>
-          <div class="row"><span class="t"><b>Change records on your behalf</b>Off until you switch it on</span><span class="sw"><i></i></span></div>
-          <p class="small" style="margin-top:4px">Herbie only does what you have switched on, and never reads your email unless you say so.</p>
+      <div class="panel" style="padding:20px 22px">
+        <p class="note" style="margin-bottom:4px">Your staff &rsaquo; Sales &rsaquo; What it may do</p>
+        <div class="perms">
+          <div class="perm yes"><span class="sw"></span><div>Write to your customers as you<small>From your address, signed off by you</small></div></div>
+          <div class="perm yes"><span class="sw"></span><div>Their replies come straight back<small>Into the record, not a separate inbox</small></div></div>
+          <div class="perm yes"><span class="sw"></span><div>Mail everybody on a list at once<small>With what each person consented to</small></div></div>
+          <div class="perm"><span class="sw"></span><div>Read your inbox for context<small>Off until you switch it on</small></div></div>
+          <div class="perm"><span class="sw"></span><div>Change records on your behalf<small>Off until you switch it on</small></div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 06 · THE WORK ============ -->
-<section class="slide" id="work">
+<!-- ============================ 05 · THE PLATFORM ============================ -->
+<section class="band b" id="platform">
   <div class="wrap">
-    <div class="copy" style="max-width:760px;margin-bottom:38px">
-      <div class="eyebrow"><span class="num">05</span> The work underneath <span class="rule"></span></div>
-      <h2>A real platform, not a chat box on top of&nbsp;a&nbsp;spreadsheet.</h2>
-      <p class="lede">The agentic layer only means anything because there is a complete, opinionated business system under it — accounts, contacts, deals, quotes with approvals, expenses, documents, calendar, and the marketing surface, all on one set of records.</p>
-    </div>
+    <span class="kicker">The work underneath</span>
+    <h2>Everything the business<br>runs on is in here.</h2>
+    <p class="sub">Companies, contacts, deals, quotes with sign-off, invoices, expenses, documents, the calendar and a forecast. Then the marketing side: lists and campaigns, email, texts and the enquiries from your website. One set of records, one currency.</p>
 
-    <div class="screen glass-strong">
-      <div class="screen-bar">
-        <span class="tl"><i></i><i></i><i></i></span>
-        <span class="path">attaché / deals</span>
-        <span class="right">6 records</span>
-      </div>
-      <div class="screen-body" style="display:flex;flex-direction:column;gap:22px">
-
-        <div class="glass-faint" style="padding:20px;border-radius:var(--r)">
-          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px">
-            <span class="mono-label">Forecast by stage · Q3 2026</span>
-            <span class="mono-label">Weighted <strong style="color:var(--acc)">$130.3K</strong> &nbsp;·&nbsp; Open $151.0K</span>
+    <div class="panel screen">
+      <div class="chrome"><s></s><s></s><s></s><span class="url">yourname.attache.cloud/deals</span></div>
+      <div class="inner">
+        <div class="rail">
+          <h6>Run the business</h6>
+          <span><em>&#9680;</em> Today</span><span><em>&#9727;</em> Calendar</span><span><em>&#9638;</em> Accounts</span><span><em>&#9711;</em> Contacts</span>
+          <span class="on"><em>&#8594;</em> Deals</span><span><em>&#8863;</em> Quotes</span><span><em>&#9637;</em> Invoices</span><span><em>&#9636;</em> Expenses</span>
+          <span><em>&#9635;</em> Documents</span><span><em>&#9650;</em> Forecast</span><span><em>&#9636;</em> Reports</span>
+          <h6>Marketing</h6>
+          <span><em>&#8853;</em> Leads &amp; Campaigns</span><span><em>&#9671;</em> Email</span><span><em>&#9742;</em> Texts</span><span><em>&#9993;</em> Web Leads</span>
+          <h6>Your staff</h6>
+          <span><em>&#9733;</em> Sales</span><span><em>&#9733;</em> Operations</span><span><em>&#9733;</em> Money</span><span><em>&#9733;</em> Compliance</span>
+        </div>
+        <div class="pane">
+          <h5>Deals</h5>
+          <p class="note">$456.5K predicted to close &middot; 8 open &middot; weighted $130.3K this quarter</p>
+          <div class="rows">
+            <div class="row head"><span>Deal</span><span>Stage</span><span class="num">Value</span><span class="num">Prob</span></div>
+            <div class="row"><span class="t">Summit HVAC &mdash; dispatch rollout</span><span><span class="pill a">Negotiating</span></span><span class="num">$66.0K</span><span class="num">75%</span></div>
+            <div class="row"><span class="t">Ridgeline &mdash; 2027 supply renewal</span><span><span class="pill d">Order confirmed</span></span><span class="num">$51.0K</span><span class="num">95%</span></div>
+            <div class="row"><span class="t">Delta Print &mdash; signage, 14 sites</span><span><span class="pill c">Proposal sent</span></span><span class="num">$28.4K</span><span class="num">60%</span></div>
+            <div class="row"><span class="t">Castellan &amp; Reyes &mdash; design retainer</span><span><span class="pill c">Qualified</span></span><span class="num">$18.0K</span><span class="num">40%</span></div>
+            <div class="row"><span class="t">Bluebird Bakery &mdash; POS and loyalty</span><span><span class="pill b">Invoiced</span></span><span class="num">$7.4K</span><span class="num">100%</span></div>
           </div>
-          <div class="bars">
-            <div class="b"><span class="cap off">—</span><span class="col ghost" style="height:3px"></span><span class="lab">New enquiry<b>0</b></span></div>
-            <div class="b"><span class="cap off">—</span><span class="col ghost" style="height:3px"></span><span class="lab">Contacted<b>0</b></span></div>
-            <div class="b"><span class="cap off">—</span><span class="col ghost" style="height:3px"></span><span class="lab">Qualified<b>0</b></span></div>
-            <div class="b"><span class="cap off">—</span><span class="col ghost" style="height:3px"></span><span class="lab">Proposal sent<b>0</b></span></div>
-            <div class="b"><span class="cap">$66.0K</span><span class="col" style="height:70%"></span><span class="lab">Negotiating<b>1</b></span></div>
-            <div class="b"><span class="cap">$85.0K</span><span class="col" style="height:90%"></span><span class="lab">Order confirmed<b>2</b></span></div>
-            <div class="b"><span class="cap">$20.6K</span><span class="col win" style="height:24%"></span><span class="lab">Invoiced<b>2</b></span></div>
-          </div>
-        </div>
-
-        <div class="tbl-scroll">
-          <table class="tbl">
-            <thead><tr><th>Deal</th><th>Stage</th><th class="num">Value (USD)</th><th>Close</th><th class="num">Prob</th></tr></thead>
-            <tbody>
-              <tr><td class="name">Summit HVAC — dispatch and routing rollout</td><td><span class="pill warm">Negotiating</span></td><td class="num">$66.0K</td><td>09-26-2026</td><td class="num">75%</td></tr>
-              <tr><td class="name">Ridgeline — 2027 wholesale supply renewal</td><td><span class="pill win">Order confirmed</span></td><td class="num">$51.0K</td><td>09-30-2026</td><td class="num">95%</td></tr>
-              <tr><td class="name">Castellan &amp; Reyes LLP — practice management</td><td><span class="pill win">Order confirmed</span></td><td class="num">$34.0K</td><td>10-14-2026</td><td class="num">95%</td></tr>
-              <tr><td class="name">Bluebird Bakery — POS + loyalty bundle</td><td><span class="pill win">Invoiced</span></td><td class="num">$7.4K</td><td>08-22-2026</td><td class="num">100%</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid2" style="margin-top:18px">
-      <div class="screen glass">
-        <div class="screen-bar">
-          <span class="tl"><i></i><i></i><i></i></span>
-          <span class="path">attaché / accounts</span>
-          <span class="right">18 records</span>
-        </div>
-        <div class="screen-body" style="display:flex;flex-direction:column;gap:14px">
-          <div style="display:flex;gap:10px;align-items:center"><span class="mono-label">Warmth</span><span style="flex:1;height:5px;border-radius:999px;background:linear-gradient(90deg,rgb(180 124 255 /.35),var(--acc),var(--pop))"></span><span class="mono-label">hot</span></div>
-          <div class="tbl-scroll">
-            <table class="tbl">
-              <thead><tr><th>Name</th><th>Lifecycle</th><th class="num">Heat</th></tr></thead>
-              <tbody>
-                <tr><td class="name">Copperline Brewing</td><td><span class="pill win">Customer</span></td><td class="num">25 <span class="heat"><i style="width:100%"></i></span></td></tr>
-                <tr><td class="name">Summit HVAC &amp; Refrigeration</td><td><span class="pill warm">In pipeline</span></td><td class="num">24 <span class="heat"><i style="width:96%"></i></span></td></tr>
-                <tr><td class="name">Ridgeline Coffee Roasters</td><td><span class="pill warm">In pipeline</span></td><td class="num">24 <span class="heat"><i style="width:96%"></i></span></td></tr>
-                <tr><td class="name">Pinewood Veterinary Clinic</td><td><span class="pill win">Customer</span></td><td class="num">21 <span class="heat"><i style="width:84%"></i></span></td></tr>
-                <tr><td class="name">Bluebird Bakery</td><td><span class="pill win">Customer</span></td><td class="num">19 <span class="heat"><i style="width:76%"></i></span></td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="small">Sorted by heat — how warm the relationship actually is, read off the activity, not typed in by a rep.</p>
-        </div>
-      </div>
-
-      <div class="screen glass">
-        <div class="screen-bar">
-          <span class="tl"><i></i><i></i><i></i></span>
-          <span class="path">attaché / menu</span>
-          <span class="right">one system</span>
-        </div>
-        <div class="screen-body">
-          <div class="appnav">
-            <div class="g">Run the business</div>
-            <a href="#top" class="on">Today</a>
-            <a href="#top">Calendar</a>
-            <a href="#top">Accounts</a>
-            <a href="#top">Contacts</a>
-            <a href="#top">Deals</a>
-            <a href="#top">Quotes</a>
-            <a href="#top">Reports</a>
-            <a href="#top">Expenses</a>
-            <a href="#top">Documents</a>
-            <div class="g">Marketing</div>
-            <a href="#top">All leads</a>
-            <a href="#top">Campaigns</a>
-            <a href="#top">Email</a>
-            <a href="#top">Texts</a>
-            <a href="#top">Web leads</a>
-            <div class="g">Your staff</div>
-            <a href="#staff">Herbie</a>
+          <div class="needs">
+            <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="12.6" fill="#A8301F" stroke="#7E2416" stroke-width="2.8"/><path d="M15 8v9" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/><circle cx="15" cy="21.6" r="1.9" fill="#FFFFFF"/></svg>
+            <div><h6>Needs you &middot; 2</h6><p>Summit HVAC is asking for a discount past your ceiling. Nobody has touched Castellan &amp; Reyes in 21 days.</p></div>
           </div>
         </div>
       </div>
@@ -736,55 +529,151 @@ a:focus-visible,.btn:focus-visible{outline:2px solid var(--acc);outline-offset:3
   </div>
 </section>
 
-<!-- ============ 07 · TRUST ============ -->
-<section class="slide tight" id="trust">
+<!-- ============================ 06 · YOUR WEBSITE ============================ -->
+<section id="website">
   <div class="wrap">
-    <div class="copy" style="max-width:760px;margin-bottom:34px">
-      <div class="eyebrow"><span class="num">06</span> Permission <span class="rule"></span></div>
-      <h2>Your data trains <em>your</em> Attaché. Nobody&nbsp;else's.</h2>
-      <p class="lede">What the platform learns about your business stays inside your business. Every tenant sits in its own isolated schema; agents act only on capabilities you have explicitly switched on; and every action an agent takes is written to an audit trail with your name on it.</p>
+    <span class="kicker">Your own website</span>
+    <h2>Enquiries off your site<br>land in here.</h2>
+    <p class="sub">Point the contact form you already have at the address Attaché gives you. Nothing on your site gets rebuilt. An enquiry is saved the second it arrives, then goes to the right person by territory, or to whoever you named as the backstop.</p>
+
+    <div class="grid-3">
+      <div class="tile">
+        <div class="icon" style="background:var(--t-azure)"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="2.5" y="4.5" width="21" height="17" rx="3" fill="#fff" stroke="#1B1E1D" stroke-width="2.6"/><path d="M2.5 4.5L13 13l10.5-8.5" stroke="#1B1E1D" stroke-width="2.4" fill="none"/></svg></div>
+        <h4>Nothing gets invented</h4>
+        <p>A form never makes up a company or a contact. It joins an enquiry to a company you already have when the email domain or the name matches exactly, and it becomes a contact when a person presses the button.</p>
+      </div>
+      <div class="tile">
+        <div class="icon" style="background:var(--t-mint)"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="4" y="2.5" width="18" height="21" rx="3" fill="#fff" stroke="#1B1E1D" stroke-width="2.6"/><path d="M8 9h10M8 13.5h10M8 18h6" stroke="#1B1E1D" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+        <h4>What they ticked has a date on it</h4>
+        <p>Name a campaign on the form and everyone who fills it in joins that list, with what they agreed to, the day, and the form it came from. That is the bit you want on hand if anybody ever asks why you emailed them.</p>
+      </div>
+      <div class="tile">
+        <div class="icon" style="background:var(--t-amber)"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5" fill="#fff" stroke="#1B1E1D" stroke-width="2.4"/><rect x="15" y="3" width="8" height="8" rx="1.5" fill="#fff" stroke="#1B1E1D" stroke-width="2.4"/><rect x="3" y="15" width="8" height="8" rx="1.5" fill="#fff" stroke="#1B1E1D" stroke-width="2.4"/><rect x="16" y="16" width="6" height="6" rx="1" fill="#1B1E1D"/></svg></div>
+        <h4>A QR code for the stand</h4>
+        <p>Same form, printed. People scan it at the event, pick up the pen, and they are on the list before you have packed the car.</p>
+      </div>
     </div>
 
-    <div class="grid3">
-      <div class="cell glass"><span class="k">Isolation</span><h3>Your own schema</h3><p>One tenant, one isolated set of tables. No shared row space, no “customer_id” filter standing between you and somebody else's data.</p></div>
-      <div class="cell glass"><span class="k">Consent</span><h3>Nothing on by default</h3><p>Each agent capability is granted one at a time, is visible on a single page, and can be revoked there the same way.</p></div>
-      <div class="cell glass"><span class="k">Accountability</span><h3>Every action logged</h3><p>Agent work is recorded like a person's — who asked, what changed, when — so an audit is a query, not an archaeology project.</p></div>
+    <div class="grid-2">
+      <div class="panel screen" style="margin-top:0">
+        <div class="chrome"><s></s><s></s><s></s><span class="url">yourname.attache.cloud/web-leads</span></div>
+        <div class="inner" style="grid-template-columns:1fr">
+          <div class="pane">
+            <h5>Web Leads</h5>
+            <p class="note">4 new since Friday &middot; 1 waiting for an owner</p>
+            <div class="rows">
+              <div class="row head"><span>Who</span><span>Form</span><span class="num">Goes to</span><span class="num">When</span></div>
+              <div class="row"><span class="t">m.ferreira@ridgeline.co</span><span><span class="pill a">Contact us</span></span><span class="num">Dana</span><span class="num">09:12</span></div>
+              <div class="row"><span class="t">buyer@deltaprint.com</span><span><span class="pill c">Quote request</span></span><span class="num">Dana</span><span class="num">Fri</span></div>
+              <div class="row"><span class="t">hello@bluebirdbakery.uk</span><span><span class="pill b">Trade show QR</span></span><span class="num">Sam</span><span class="num">Fri</span></div>
+              <div class="row"><span class="t">p.okafor@castellanreyes.com</span><span><span class="pill d">Contact us</span></span><span class="num">&mdash;</span><span class="num">Thu</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:28px">You never lose one<br>to a bad week.</h3>
+        <p class="sub">If the country and state do not match a territory and nobody is named as the backstop, the enquiry sits at the top of the list with no owner until somebody takes it. Nothing is dropped and nothing closes itself.</p>
+        <p class="cap" style="margin-top:22px">The same territories your<br>companies already use</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ 08 · CTA ============ -->
-<section class="slide" id="demo">
+<!-- ============================ 07 · KEPT SEPARATE ============================ -->
+<section class="band c" id="permission">
   <div class="wrap">
-    <div class="cta glass-strong">
-      <span class="badge"><span class="dot"></span> Now onboarding design partners</span>
-      <h2>Bring a spreadsheet.<br>Leave with a&nbsp;business&nbsp;system.</h2>
-      <p class="lede" style="text-align:center;max-width:56ch">A live walkthrough on your real records — the ask bar, your staff, the quotes and the forecast, end to end. Setup is measured in minutes, not quarters.</p>
-      <a class="btn big" href="https://attache.cloud/signup">Start a free demo</a>
-      <a class="btn ghost big" href="mailto:hello@attache.group">Or talk to us</a>
-      <p class="small">Five days on example data, one person, nothing to cancel · hello@attache.group</p>
+    <span class="kicker">What we do with your stuff</span>
+    <h2>Your business is kept<br>on its own.</h2>
+    <p class="sub">The three questions everybody asks before they put real customers into something new.</p>
+
+    <div class="grid-3">
+      <div class="tile">
+        <div class="icon" style="background:var(--t-violet)"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="3" y="10" width="20" height="13" rx="3" fill="#fff" stroke="#1B1E1D" stroke-width="2.6"/><path d="M8 10V7.5a5 5 0 0110 0V10" stroke="#1B1E1D" stroke-width="2.6" fill="none"/><circle cx="13" cy="16.5" r="2.2" fill="#1B1E1D"/></svg></div>
+        <h4>Your records sit on their own</h4>
+        <p>Every business gets its own space in the database. Your rows do not sit in a table with anybody else&rsquo;s, and nothing you keep is used to train a model.</p>
+      </div>
+      <div class="tile">
+        <div class="icon" style="background:var(--t-coral)"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="10.5" fill="#fff" stroke="#1B1E1D" stroke-width="2.6"/><path d="M13 6.5V13l5 3" stroke="#1B1E1D" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg></div>
+        <h4>Consent carries a date</h4>
+        <p>What a person agreed to, the day they agreed to it and the form they used, stored next to them. You can show it to anybody who asks without going hunting.</p>
+      </div>
+      <div class="tile">
+        <div class="icon" style="background:var(--t-mint)"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M5 4.5h12l5 5v12a2 2 0 01-2 2H5a2 2 0 01-2-2v-15a2 2 0 012-2z" fill="#fff" stroke="#1B1E1D" stroke-width="2.6"/><path d="M7.5 15l3.2 3.2L19 10" stroke="#2E7D6F" stroke-width="3.2" fill="none" stroke-linecap="round"/></svg></div>
+        <h4>Nothing happens quietly</h4>
+        <p>An agent says what it is about to do and waits for you. What it did afterwards is written down with the time and your name on it.</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="tile">
+        <h4 style="font-size:20px">Already using Claude or ChatGPT?</h4>
+        <p style="font-size:15.5px;font-weight:600;color:var(--ink-2);margin-top:8px">Point it at your workspace and ask it about your own business. It reads your companies, deals and invoices, and it can do the same jobs from whatever you already have open.</p>
+        <p class="mono" style="font-size:13.5px;margin-top:14px;padding:11px 13px;border:var(--line-2) solid var(--edge);border-radius:10px;background:var(--card);color:var(--azure);word-break:break-all">yourname.attache.cloud/api/mcp</p>
+      </div>
+      <div class="tile">
+        <h4 style="font-size:20px">Money stays in your money</h4>
+        <p style="font-size:15.5px;font-weight:600;color:var(--ink-2);margin-top:8px">A workspace is set up in one currency and every figure on every screen stays in it &mdash; quotes, invoices, expenses, the forecast. Nothing is converted behind your back and no rate is guessed for you.</p>
+        <p class="cap" style="margin-top:16px">Pounds stay pounds</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
+<!-- ============================ CLOSER ============================ -->
+<section class="closer">
+  <div class="wrap">
+    <h2>Have a look on<br>example data.</h2>
+    <p class="sub" style="max-width:52ch">You get a workspace with a business already in it, so you can open the deals, run a report, ask for a quote and see what comes back before you type in a single real customer.</p>
+    <div class="cta">
+      <a class="btn primary lg" href="https://attache.cloud/signup">Start a free demo</a>
+      <a class="btn lg" href="mailto:hello@attache.group">Or talk to us</a>
+    </div>
+    <p class="cap">One person, nothing to cancel</p>
+  </div>
+</section>
+</main>
+
 <footer>
-  <div class="wrap foot-inner">
-    <a class="logo" href="#top" style="gap:9px">
-      <img src="data:image/png;base64,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" alt="" style="width:23px;height:19px;object-fit:contain">
-      <strong style="font-size:16px">Attaché</strong>
-    </a>
-    <div class="foot-links">
-      <a href="#ask">Platform</a>
-      <a href="#staff">Agents</a>
-      <a href="#trust">Security</a>
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
-      <a href="mailto:hello@attache.group">Contact</a>
+  <div class="wrap">
+    <div class="foot">
+      <span class="logo">
+        <svg class="mark" viewBox="41 46 430 430" fill="none" aria-hidden="true">
+          <mask id="beacon-foot" maskUnits="userSpaceOnUse" x="0" y="0" width="512" height="512">
+            <rect width="512" height="512" fill="#fff"/>
+            <circle cx="410" cy="103" r="57" fill="#000"/>
+          </mask>
+          <rect x="72" y="72" width="368" height="368" rx="104" fill="none" stroke="#2F5D62" stroke-width="38" mask="url(#beacon-foot)"/>
+          <circle cx="256" cy="256" r="40" fill="#2F5D62"/>
+          <circle cx="410" cy="103" r="40" fill="#2F5D62"/>
+        </svg>
+        <strong>Attaché</strong>
+      </span>
+      <nav class="foot-links">
+        <a href="#platform">Platform</a>
+        <a href="#staff">Agents</a>
+        <a href="#permission">Security</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="mailto:hello@attache.group">Contact</a>
+      </nav>
+      <p class="foot-legal">&copy; 2026 Attache Holdings LLC. Attaché is a trading name of Attache Holdings LLC. hello@attache.group</p>
     </div>
-    <span class="c">© 2026 Attache Holdings LLC · attache.group</span>
   </div>
 </footer>
+
+<script>
+/* The screenshot above shows a real day, so it can never go stale the way a
+   typed-in date does. Written as the weekday on its own, which is how the
+   product's own Today page labels it. */
+(function(){
+  var el = document.getElementById("today");
+  if (!el) return;
+  try {
+    el.textContent = new Date().toLocaleDateString(undefined, { weekday: "long" });
+  } catch (e) { /* leave the server-side word in place */ }
+})();
+</script>
 
 </body>
 </html>
