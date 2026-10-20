@@ -137,6 +137,9 @@ header{position:sticky;top:0;z-index:40;background:rgb(251 250 247 / .88);
 .logo{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink)}
 .logo .mark{width:30px;height:30px;flex:none}
 .logo strong{font-family:var(--ui);font-weight:600;font-size:21px;letter-spacing:-.012em}
+/* The accent on the last character, the same warm tone and the same hex the
+   platform paints it in, so the name reads as one name on both sites. */
+.logo strong .ac{color:var(--amber)}
 .nav-links{display:flex;gap:24px;margin-left:auto}
 .nav-links a{font-family:var(--ui);font-weight:500;font-size:14px;text-decoration:none;
   color:var(--ink-3);transition:color .18s}
@@ -326,7 +329,7 @@ footer{border-top:var(--line-2) solid var(--edge);background:rgb(241 238 232 / .
         <circle cx="256" cy="256" r="40" fill="#2F5D62"/>
         <circle cx="410" cy="103" r="40" fill="#2F5D62"/>
       </svg>
-      <strong>Attaché</strong>
+      <strong>Attach<span class="ac">é</span></strong>
     </a>
     <nav class="nav-links">
       <a href="#front-door">What it does</a>
@@ -651,7 +654,7 @@ footer{border-top:var(--line-2) solid var(--edge);background:rgb(241 238 232 / .
           <circle cx="256" cy="256" r="40" fill="#2F5D62"/>
           <circle cx="410" cy="103" r="40" fill="#2F5D62"/>
         </svg>
-        <strong>Attaché</strong>
+        <strong>Attach<span class="ac">é</span></strong>
       </span>
       <nav class="foot-links">
         <a href="#platform">Platform</a>
