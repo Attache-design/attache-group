@@ -237,7 +237,7 @@ header{position:sticky;top:0;z-index:40;background:rgb(251 250 247 / .88);
 .crew{margin-top:34px}
 .crew img{display:block;width:100%;height:auto;border:var(--line) solid var(--ink-line);
   border-radius:var(--r-lg);box-shadow:var(--pop);background:var(--azure-deep)}
-.staff{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:34px}
+.staff{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
 .who{display:flex;flex-direction:column;background:var(--card);background-image:var(--sheen);
   border:var(--line) solid var(--edge);border-radius:var(--r);padding:18px 18px 17px;
   box-shadow:var(--pop-sm),var(--rim);border-top-width:4px}
@@ -257,6 +257,10 @@ header{position:sticky;top:0;z-index:40;background:rgb(251 250 247 / .88);
 .who:nth-child(3){border-top-color:var(--mint)}  .who:nth-child(3) .job{color:var(--mint)}
 .who:nth-child(4){border-top-color:var(--violet)}.who:nth-child(4) .job{color:var(--violet)}
 .who:nth-child(5){border-top-color:var(--coral)} .who:nth-child(5) .job{color:var(--coral)}
+/* The fifth colleague is not in that grid — he is an add-on and has his own
+   section, so he cannot inherit a colour from his position. */
+.who.solo{border-top-color:var(--coral)} .who.solo .job{color:var(--coral)}
+.who.solo .face{width:76px;height:76px}
 
 /* ---------- permission switches ---------- */
 .perms{display:flex;flex-direction:column;gap:9px;margin-top:11px}
@@ -351,6 +355,7 @@ footer{border-top:var(--line-2) solid var(--edge);background:rgb(241 238 232 / .
       <a href="#staff">Your staff</a>
       <a href="#platform">The work</a>
       <a href="#website">Your website</a>
+      <a href="#creator">Creator</a>
       <a href="#permission">Your data</a>
     </nav>
     <a class="btn primary" href="https://attache.cloud/signup">Get started</a>
@@ -459,8 +464,8 @@ footer{border-top:var(--line-2) solid var(--edge);background:rgb(241 238 232 / .
 <section id="staff">
   <div class="wrap">
     <span class="kicker"><span class="dot"></span> Your staff</span>
-    <h2>Five agents. All five are<br>working today.</h2>
-    <p class="sub">They each look after one part of the business and work off the same records you do, so they spot things and bring them to you. Each one tells you what it is about to do before it does it. You can rename any of them.</p>
+    <h2>Five agents. Four of them<br>start work today.</h2>
+    <p class="sub">They each look after one part of the business and work off the same records you do, so they spot things and bring them to you. Each one tells you what it is about to do before it does it. You can rename any of them. Four come with every plan; the fifth looks after the comments under your videos and comes with <a href="#creator">Creator</a>.</p>
 
     <figure class="crew">
       <img src="/img/attache-team.webp" width="1672" height="941" loading="lazy" decoding="async"
@@ -495,13 +500,6 @@ footer{border-top:var(--line-2) solid var(--edge);background:rgb(241 238 232 / .
         <p>It does not guess at your rules. You tell it what your trade has to comply with. Then it keeps the certificates and the renewal dates, and tells you what is expiring before somebody official asks to see it.</p>
         <p class="nom">arrives as Argus the Shepherd</p>
         <span class="state">Working today</span>
-      </div>
-      <div class="who">
-        <img class="face" src="/img/face-huey.webp" width="192" height="192" loading="lazy" decoding="async" alt="">
-        <h4>Community</h4><p class="job">Drafts your replies</p>
-        <p>Sorts the comments under your videos, drafts the reply for you to paste, and points out the people who actually want to buy something. You post it &mdash; never us.</p>
-        <p class="nom">arrives as Huey the Duck</p>
-        <span class="state opt">In the Creator edition</span>
       </div>
     </div>
 
@@ -617,7 +615,78 @@ footer{border-top:var(--line-2) solid var(--edge);background:rgb(241 238 232 / .
   </div>
 </section>
 
-<!-- ============================ 07 · KEPT SEPARATE ============================ -->
+<!-- ============================ 07 · CREATOR ============================ -->
+<section id="creator">
+  <div class="wrap">
+    <span class="kicker"><span class="dot"></span> Add-on &middot; Creator</span>
+    <h2>If you put videos out,<br>there is a fifth one.</h2>
+    <p class="sub">The comments under your videos are where people tell you what they want, and nobody has time to read four hundred of them. Creator sorts them, writes the reply for you, and tells you which of those people were asking to buy something. It is an add-on: the four above come with every plan.</p>
+
+    <div class="grid-2">
+      <div class="who solo">
+        <img class="face" src="/img/face-huey.webp" width="192" height="192" loading="lazy" decoding="async" alt="">
+        <h4>Community</h4><p class="job">Drafts your replies</p>
+        <p>Sorts the comments under your videos, drafts the reply for you to paste, and points out the people who actually want to buy something. He sits on the right of every page in here, the same as the other four.</p>
+        <p class="nom">arrives as Huey the Duck</p>
+        <span class="state opt">Comes with Creator</span>
+      </div>
+      <div>
+        <h3 style="font-size:28px;margin-top:8px">You post it.<br>Never us.</h3>
+        <p class="sub">Every reply is a draft on your screen until you copy it out. Nothing is ever posted to your channel, your account is never used to speak for you, and the one thing this module does to the outside world is read.</p>
+        <p class="cap" style="margin-top:22px">YouTube and Bluesky are read for you.<br>TikTok and Instagram give no product a<br>way in, so those you hand over yourself</p>
+      </div>
+    </div>
+
+    <div class="panel screen">
+      <div class="chrome"><s></s><s></s><s></s><span class="url">yourname.attache.cloud/creator/audience</span></div>
+      <div class="inner">
+        <div class="rail">
+          <h6>Creator</h6>
+          <span><em>&#9680;</em> Today</span><span class="on"><em>&#9711;</em> Audience</span><span><em>&#9654;</em> Channels</span><span><em>&#9638;</em> Videos</span><span><em>&#9635;</em> Course Design</span><span><em>&#8853;</em> Campaigns</span><span><em>&#9650;</em> Insights</span>
+          <h6>Your staff</h6>
+          <span><em>&#9733;</em> Community</span>
+          <span style="margin-top:16px;opacity:.72"><em>&#8592;</em> Core Console</span>
+        </div>
+        <div class="pane">
+          <h5>Audience</h5>
+          <p class="note">1,184 people have said something &middot; 6 of them asked where to buy</p>
+          <div class="rows">
+            <div class="row head"><span>Who</span><span>What they asked</span><span class="num">Comments</span><span class="num">Videos</span></div>
+            <div class="row"><span class="t">@brightsidebakes</span><span><span class="pill a">Where to buy</span></span><span class="num">3</span><span class="num">2</span></div>
+            <div class="row"><span class="t">@the&#8203;honeyroom</span><span><span class="pill a">Where to buy</span></span><span class="num">2</span><span class="num">2</span></div>
+            <div class="row"><span class="t">@marcus.t.makes</span><span><span class="pill c">What it costs</span></span><span class="num">4</span><span class="num">3</span></div>
+            <div class="row"><span class="t">@derek&#8203;builds</span><span><span class="pill d">Shipping</span></span><span class="num">1</span><span class="num">1</span></div>
+            <div class="row"><span class="t">@lauren_in_leeds</span><span><span class="pill b">Said thank you</span></span><span class="num">6</span><span class="num">4</span></div>
+          </div>
+          <div class="needs">
+            <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="12.6" fill="#A8301F" stroke="#7E2416" stroke-width="2.8"/><path d="M15 8v9" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/><circle cx="15" cy="21.6" r="1.9" fill="#FFFFFF"/></svg>
+            <div><h6>Needs you &middot; 2</h6><p>Two people have asked where to buy under last week's video and neither is in your contacts yet. One button puts them there.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="tile">
+        <div class="icon" style="background:var(--t-coral)"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="10" cy="8.5" r="4.4" fill="#fff" stroke="#1B1E1D" stroke-width="2.5"/><path d="M2.8 22.5c0-4.2 3.2-7 7.2-7s7.2 2.8 7.2 7" fill="#fff" stroke="#1B1E1D" stroke-width="2.5" stroke-linecap="round"/><circle cx="20.5" cy="7" r="3.1" fill="#1B1E1D"/></svg></div>
+        <h4>The people, not the comments</h4>
+        <p>The same comments again, gathered up by who said them. This person asked where to buy, three times, under two different videos &mdash; and one button puts them in your contacts with that written down.</p>
+      </div>
+      <div class="tile">
+        <div class="icon" style="background:var(--t-violet)"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="2.5" y="4" width="21" height="14" rx="2.6" fill="#fff" stroke="#1B1E1D" stroke-width="2.6"/><path d="M11 8.8l4.6 2.7-4.6 2.7z" fill="#1B1E1D"/><path d="M7 22h12" stroke="#1B1E1D" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+        <h4>Your own videos, as a course</h4>
+        <p>Put the videos you have already published in an order somebody can follow, and invite your audience to take it. Course Design is that page. You are not asked to film anything new.</p>
+      </div>
+      <div class="tile">
+        <div class="icon" style="background:var(--t-mint)"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M3.5 19.5l5.5-6 4.5 3.4 8-10" fill="none" stroke="#1B1E1D" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 6.5h4.5V11" fill="none" stroke="#1B1E1D" stroke-width="2.6" stroke-linecap="round"/></svg></div>
+        <h4>The week, not the day</h4>
+        <p>What people kept coming back to this week, rather than what landed this morning. Comments and video titles are deleted after thirty days, which is what YouTube asks of anyone who reads them &mdash; so the week is worked out fresh and nothing outlives the thing it came from.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 08 · KEPT SEPARATE ============================ -->
 <section class="band c" id="permission">
   <div class="wrap">
     <span class="kicker">What we do with your stuff</span>
@@ -657,7 +726,7 @@ footer{border-top:var(--line-2) solid var(--edge);background:rgb(241 238 232 / .
   </div>
 </section>
 
-<!-- ============================ 08 · WORKS WITH ============================ -->
+<!-- ============================ 09 · WORKS WITH ============================ -->
 <section class="works">
   <div class="wrap">
     <p class="cap">Compatible with what you already pay for</p>
