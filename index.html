@@ -234,15 +234,21 @@ header{position:sticky;top:0;z-index:40;background:rgb(251 250 247 / .88);
   border:var(--line) solid var(--ink-line);box-shadow:var(--pop-xs)}
 
 /* ---------- your staff ---------- */
+.crew{margin-top:34px}
+.crew img{display:block;width:100%;height:auto;border:var(--line) solid var(--ink-line);
+  border-radius:var(--r-lg);box-shadow:var(--pop);background:var(--azure-deep)}
 .staff{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:34px}
 .who{display:flex;flex-direction:column;background:var(--card);background-image:var(--sheen);
   border:var(--line) solid var(--edge);border-radius:var(--r);padding:18px 18px 17px;
   box-shadow:var(--pop-sm),var(--rim);border-top-width:4px}
+.who .face{display:block;width:64px;height:64px;border-radius:50%;object-fit:cover;
+  border:var(--line) solid var(--edge);background:var(--azure-deep);margin-bottom:12px}
 .who h4{font-size:19px}
 .who .job{font-family:var(--mono);font-size:11.5px;letter-spacing:.055em;text-transform:uppercase;
   margin-top:6px}
 .who .job em{font-style:normal;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
 .who p{font-size:13.5px;font-weight:600;color:var(--ink-2);margin-top:10px;flex:1}
+.who .nom{flex:none;margin-top:8px;font-size:12.5px;font-weight:600;color:var(--ink-3)}
 .who .state{align-self:flex-start;margin-top:14px;font-family:var(--ui);font-weight:600;font-size:11.5px;
   letter-spacing:.05em;text-transform:uppercase;color:var(--chip-ink);background:var(--t-mint);
   padding:5px 11px;border-radius:var(--r-pill)}
@@ -288,11 +294,20 @@ footer{border-top:var(--line-2) solid var(--edge);background:rgb(241 238 232 / .
 .hero>*,.grid-2>*,.grid-3>*,.staff>*,.inner>*,.cta>*,.row>*{min-width:0}
 .askbar .typed{min-width:0}
 
+/* ---------- works with ---------- */
+.works{padding:58px 0 12px}
+.wlist{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+.wlist li{background:var(--card);border:var(--line-2) solid var(--edge);border-radius:var(--r);
+  box-shadow:var(--pop-xs);padding:16px 17px}
+.wlist strong{display:block;font-family:var(--ui);font-size:16px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.wlist span{display:block;margin-top:7px;font-size:13.5px;font-weight:600;line-height:1.45;color:var(--ink-2)}
+
 /* ---------- narrow ---------- */
 @media (max-width:980px){
   .hero{grid-template-columns:1fr;gap:38px;padding-top:50px}
   .grid-2,.grid-3{grid-template-columns:1fr}
   .staff{grid-template-columns:repeat(2,1fr)}
+  .wlist{grid-template-columns:repeat(2,1fr)}
   .inner{grid-template-columns:1fr}
   .rail{display:none}
   section{padding:60px 0}
@@ -304,6 +319,7 @@ footer{border-top:var(--line-2) solid var(--edge);background:rgb(241 238 232 / .
 }
 @media (max-width:560px){
   .staff{grid-template-columns:1fr}
+  .wlist{grid-template-columns:1fr}
   .wrap,.nav,.hero{padding-left:20px;padding-right:20px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -447,30 +463,45 @@ footer{border-top:var(--line-2) solid var(--edge);background:rgb(241 238 232 / .
     <h2>Five agents. All five are<br>working today.</h2>
     <p class="sub">They each look after one part of the business and work off the same records you do, so they spot things and bring them to you. Each one tells you what it is about to do before it does it. You can rename any of them.</p>
 
+    <figure class="crew">
+      <img src="/img/attache-team.webp" width="1672" height="941" loading="lazy" decoding="async"
+           alt="The five Attach&eacute; agents standing together, each with a name plate: Herbie the Honeybadger on sales, Ethel the Fox on operations, Argus the Shepherd on compliance, Huey the Duck on creator content and Gus the Turtle on bookkeeping.">
+    </figure>
+
     <div class="staff">
       <div class="who">
+        <img class="face" src="/img/face-herbie.webp" width="192" height="192" loading="lazy" decoding="async" alt="">
         <h4>Sales</h4><p class="job">writes to your customers</p>
         <p>From your own email account, with replies coming straight back. Keeps companies, contacts and deals up to date as you talk, and tells you who has gone quiet.</p>
+        <p class="nom">arrives as Herbie the Honeybadger</p>
         <span class="state">Working today</span>
       </div>
       <div class="who">
+        <img class="face" src="/img/face-ethel.webp" width="192" height="192" loading="lazy" decoding="async" alt="">
         <h4>Operations</h4><p class="job">chases what is waiting</p>
         <p>An approval nobody gave, a task past its date, a deal that has not moved. It knows what has to happen this week without anybody filing a status report.</p>
+        <p class="nom">arrives as Ethel the Fox</p>
         <span class="state">Working today</span>
       </div>
       <div class="who">
+        <img class="face" src="/img/face-gus.webp" width="192" height="192" loading="lazy" decoding="async" alt="">
         <h4>Money</h4><p class="job">says who has not paid</p>
         <p>What you are owed, who is late and by how long. Sorts expenses as they are filed, and warns you about the month that is going to be tight while you can still do something.</p>
+        <p class="nom">arrives as Gus the Turtle</p>
         <span class="state">Working today</span>
       </div>
       <div class="who">
+        <img class="face" src="/img/face-argus.webp" width="192" height="192" loading="lazy" decoding="async" alt="">
         <h4>Compliance</h4><p class="job">learns <em>your</em> trade</p>
         <p>It does not guess at your rules. You tell it what your trade has to comply with. Then it keeps the certificates and the renewal dates, and tells you what is expiring before somebody official asks to see it.</p>
+        <p class="nom">arrives as Argus the Shepherd</p>
         <span class="state">Working today</span>
       </div>
       <div class="who">
+        <img class="face" src="/img/face-huey.webp" width="192" height="192" loading="lazy" decoding="async" alt="">
         <h4>Community</h4><p class="job">reads every comment</p>
         <p>Sorts the comments under your videos, drafts the reply for you to paste, and points out the people who actually want to buy something. You post it &mdash; never us.</p>
+        <p class="nom">arrives as Huey the Duck</p>
         <span class="state opt">In the Creator edition</span>
       </div>
     </div>
@@ -624,6 +655,31 @@ footer{border-top:var(--line-2) solid var(--edge);background:rgb(241 238 232 / .
         <p class="cap" style="margin-top:16px">Pounds stay pounds</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============================ 08 · WORKS WITH ============================ -->
+<section class="works">
+  <div class="wrap">
+    <p class="cap">Works with what you already pay for</p>
+    <ul class="wlist">
+      <li>
+        <strong>Gmail</strong>
+        <span>Write from your own address, so a reply comes back to you and not to us.</span>
+      </li>
+      <li>
+        <strong>Microsoft 365</strong>
+        <span>The same, on your own Outlook mailbox, with your own sign-in.</span>
+      </li>
+      <li>
+        <strong>Stripe</strong>
+        <span>Your account and your key. An invoice gets a payment link and marks itself paid.</span>
+      </li>
+      <li>
+        <strong>ChatGPT &middot; Gemini</strong>
+        <span>Your workspace is readable from the assistant you already have open.</span>
+      </li>
+    </ul>
   </div>
 </section>
 
